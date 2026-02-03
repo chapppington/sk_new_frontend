@@ -25,7 +25,7 @@ const CircleIconButton: FC<ICircleIconButtonProps> = ({
     return (
       <TransitionLink
         href={href}
-        className={`inline-flex items-center space-x-2 text-white hover:text-white/80 transition-colors group hover:scale-[0.99] active:scale-[0.93] transition-transform ${className}`}
+        className={`inline-flex items-center space-x-2 text-white hover:text-white/80 transition-colors group hover:scale-[0.99] active:scale-[0.93] ${className}`}
         onClick={onClick}
         {...props}
       >

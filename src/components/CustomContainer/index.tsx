@@ -9,7 +9,7 @@ const CustomContainer: FC<ICustomContainerProps> = ({
 }) => {
   return (
     <div
-      className={`container mx-auto max-w-[1720px] px-7 md:px-10 lg:px-10 2xl:px-20 ${
+      className={`container mx-auto max-w-[1620px] px-7 md:px-10 lg:px-10 2xl:px-24 ${
         className || ""
       }`}
       style={
