@@ -8,7 +8,7 @@ const FooterBottom: FC = () => {
   return (
     <div className="border-t border-white/30 pt-8">
       {/* Mobile version (stacked vertically) */}
-      <div className="md:hidden space-y-4">
+      <div className="lg:hidden space-y-4">
         <p className="text-white/80 text-sm">
           © {new Date().getFullYear()}г. Все права защищены.
         </p>
@@ -20,7 +20,7 @@ const FooterBottom: FC = () => {
         </TransitionLink>
       </div>
       {/* Desktop version (flex row) */}
-      <div className="hidden md:flex md:flex-row justify-between items-center">
+      <div className="hidden lg:flex lg:flex-row justify-between items-center">
         <p className="text-white/80 text-sm">
           © {new Date().getFullYear()}г. Все права защищены.
         </p>

@@ -1,39 +1,38 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react"
 
 const ScrollingTextSection = () => {
+  const scrollTextRef = useRef<HTMLDivElement>(null)
+  const lastScrollPosition = useRef(0)
+  const scrollSpeed = 0.5
 
-  const scrollTextRef = useRef<HTMLDivElement>(null);
-  const lastScrollPosition = useRef(0);
-  const scrollSpeed = 0.5;
-
-  const rotatingText = "";
+  const rotatingText = ""
 
   useEffect(() => {
-    const scrollText = scrollTextRef.current;
-    if (!scrollText) return;
+    const scrollText = scrollTextRef.current
+    if (!scrollText) return
 
     const updateScrollText = () => {
-      const currentScroll = window.scrollY;
-      const delta = (currentScroll - lastScrollPosition.current) * scrollSpeed;
-      const currentTransform = getComputedStyle(scrollText).transform;
-      let currentX = 0;
+      const currentScroll = window.scrollY
+      const delta = (currentScroll - lastScrollPosition.current) * scrollSpeed
+      const currentTransform = getComputedStyle(scrollText).transform
+      let currentX = 0
 
       if (currentTransform !== "none") {
-        const matrix = new DOMMatrix(currentTransform);
-        currentX = matrix.m41;
+        const matrix = new DOMMatrix(currentTransform)
+        currentX = matrix.m41
       }
 
-      const newX = currentX - delta;
-      scrollText.style.transform = `translateX(${newX}px)`;
-      lastScrollPosition.current = currentScroll;
+      const newX = currentX - delta
+      scrollText.style.transform = `translateX(${newX}px)`
+      lastScrollPosition.current = currentScroll
 
-      requestAnimationFrame(updateScrollText);
-    };
+      requestAnimationFrame(updateScrollText)
+    }
 
-    updateScrollText();
-  }, []);
+    updateScrollText()
+  }, [])
 
   return (
     <div className="scroll-text-container overflow-hidden relative py-4 lg:py-8">
@@ -52,7 +51,7 @@ const ScrollingTextSection = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ScrollingTextSection;
+export default ScrollingTextSection

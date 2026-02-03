@@ -17,7 +17,7 @@ const missionData = {
 const MissionScreen: FC = () => (
   <section id="mission_section" className="bg-transparent py-20">
     <CustomContainer>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div />
         <div className="relative rounded-2xl">
           <BracketsText className="mb-4">МИССИЯ КОМПАНИИ</BracketsText>

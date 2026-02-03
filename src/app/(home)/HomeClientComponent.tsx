@@ -6,10 +6,10 @@ import ScrollingTextSection from "./screens/ScrollingTextScreen"
 
 export default function HomeClientComponent() {
   return (
-    <div>
+    <>
       <FirstScreen />
       <ScrollingTextSection />
       <MissionScreen />
-    </div>
+    </>
   )
 }

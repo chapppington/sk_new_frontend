@@ -6,12 +6,12 @@ import type { FC } from "react"
 import {
   desktopNavigationItems,
   mobileNavigationItems,
-} from "@/components/Footer/mock_data"
+} from "@/components/Footer/data"
 
 const FooterTop: FC = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start mb-12">
-      <div className="mb-8 md:mb-0">
+    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
+      <div className="mb-8 lg:mb-0">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.svg"
@@ -24,8 +24,8 @@ const FooterTop: FC = () => {
         </Link>
       </div>
 
-      <div className="w-full md:w-auto">
-        <div className="md:hidden w-full space-y-4">
+      <div className="w-full lg:w-auto">
+        <div className="lg:hidden w-full space-y-4 mb-8 lg:mb-0">
           {mobileNavigationItems.map((item) => (
             <div key={item.link} className="border-b border-white/30 pb-4">
               <Link
@@ -51,7 +51,7 @@ const FooterTop: FC = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex justify-center items-center w-full">
+        <div className="hidden lg:flex justify-center items-center w-full">
           <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center">
             {desktopNavigationItems.map((item) => (
               <Link

@@ -7,7 +7,7 @@ import TransitionLink from "@/components/ui/TransitionLink"
 const NavbarLogo: FC = () => (
   <TransitionLink
     href="/"
-    className="pl-4 pr-2 flex items-center select-none cursor-pointer"
+    className="pr-2 flex items-center select-none cursor-pointer"
   >
     <Image
       src="/logo.svg"

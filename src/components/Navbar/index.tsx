@@ -111,7 +111,7 @@ const Navbar: FC = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/30 pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/30 pointer-events-none font-medium"
       style={{ backdropFilter: "blur(20px)" }}
     >
       <CustomContainer className="flex justify-between items-center h-[72px] pointer-events-auto relative">
