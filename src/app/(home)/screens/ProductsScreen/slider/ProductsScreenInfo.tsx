@@ -1,12 +1,12 @@
 "use client"
 
 import type { FC } from "react"
-import MainButton from "@/components/ui/MainButton"
-import GradientHeading from "@/components/ui/GradientHeading"
-import { NavigationButton } from "@/components/ui/NavigationButton"
-import AnimatedText from "@/components/ui/AnimatedText"
-import { getProductHref } from "@/app/(home)/screens/ProductsScreen/slider/utils"
 import type { ProductItem } from "@/app/(home)/screens/ProductsScreen/slider/types"
+import { getProductHref } from "@/app/(home)/screens/ProductsScreen/slider/utils"
+import AnimatedText from "@/components/ui/AnimatedText"
+import GradientHeading from "@/components/ui/GradientHeading"
+import MainButton from "@/components/ui/MainButton"
+import { NavigationButton } from "@/components/ui/NavigationButton"
 
 const DESCRIPTION_MAX_LENGTH = 150
 
@@ -25,7 +25,7 @@ const ProductsScreenInfo: FC<ProductsScreenInfoProps> = ({
     currentProduct?.description &&
     currentProduct.description.length > DESCRIPTION_MAX_LENGTH
       ? `${currentProduct.description.slice(0, DESCRIPTION_MAX_LENGTH)}...`
-      : currentProduct?.description ?? ""
+      : (currentProduct?.description ?? "")
 
   return (
     <div
@@ -33,14 +33,8 @@ const ProductsScreenInfo: FC<ProductsScreenInfoProps> = ({
       style={{ transform: "translateZ(0)" }}
     >
       <div className="mb-6">
-        <AnimatedText
-          animateOnScroll={false}
-          delay={0.1}
-          key={currentIndex}
-        >
-          <GradientHeading>
-            {currentProduct?.title ?? ""}
-          </GradientHeading>
+        <AnimatedText animateOnScroll={false} delay={0.1} key={currentIndex}>
+          <GradientHeading>{currentProduct?.title ?? ""}</GradientHeading>
         </AnimatedText>
       </div>
       <AnimatedText
@@ -48,9 +42,7 @@ const ProductsScreenInfo: FC<ProductsScreenInfoProps> = ({
         delay={0.2}
         key={`desc-${currentIndex}`}
       >
-        <p className="text-white/60 text-lg mb-4 max-w-lg">
-          {description}
-        </p>
+        <p className="text-white/60 text-lg mb-4 max-w-lg">{description}</p>
       </AnimatedText>
 
       {showButton && currentProduct && (

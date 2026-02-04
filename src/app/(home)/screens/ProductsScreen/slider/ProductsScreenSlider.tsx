@@ -1,17 +1,16 @@
 "use client"
 
 import type { RefObject } from "react"
-import { useLenis } from "lenis/react"
 import "swiper/css"
 import "swiper/css/navigation"
+import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Autoplay } from "swiper/modules"
-import {
-  updateProductsIndicators,
-  type SwiperInstance,
-} from "@/app/(home)/screens/ProductsScreen/slider/utils"
-import type { ProductItem } from "@/app/(home)/screens/ProductsScreen/slider/types"
 import ProductsScreenSlide from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenSlide"
+import type { ProductItem } from "@/app/(home)/screens/ProductsScreen/slider/types"
+import {
+  type SwiperInstance,
+  updateProductsIndicators,
+} from "@/app/(home)/screens/ProductsScreen/slider/utils"
 
 interface ProductsScreenSliderProps {
   products: ProductItem[]
@@ -25,10 +24,7 @@ const ProductsScreenSlider: React.FC<ProductsScreenSliderProps> = ({
   indicatorsRef,
   onSlideChange,
   onSwiperInit,
-}) => {
-  const lenis = useLenis()
-
-  return (
+}) => (
     <div className="w-full md:w-auto md:min-w-[500px] md:max-w-[500px] relative">
       <div className="absolute inset-0 h-0 w-0 overflow-hidden opacity-0 pointer-events-none md:relative md:h-auto md:w-auto md:overflow-visible md:opacity-100 md:pointer-events-auto">
         <div className="hidden md:flex items-center justify-end h-[400px] absolute right-0 top-0 z-10">
@@ -52,13 +48,14 @@ const ProductsScreenSlider: React.FC<ProductsScreenSliderProps> = ({
           onSlideChange={(swiper) => {
             updateProductsIndicators(swiper, products.length)
             onSlideChange(swiper.realIndex % products.length)
-            lenis?.resize()
+            window.dispatchEvent(new CustomEvent("scrollbar-refresh"))
           }}
           onInit={(swiper) => {
             onSwiperInit(swiper as unknown as SwiperInstance)
             setTimeout(() => {
               updateProductsIndicators(swiper, products.length)
               onSlideChange(swiper.realIndex % products.length)
+              window.dispatchEvent(new CustomEvent("scrollbar-refresh"))
             }, 0)
           }}
           className="h-[400px] w-full"
@@ -76,7 +73,6 @@ const ProductsScreenSlider: React.FC<ProductsScreenSliderProps> = ({
         </Swiper>
       </div>
     </div>
-  )
-}
+)
 
 export default ProductsScreenSlider

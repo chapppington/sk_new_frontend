@@ -5,6 +5,7 @@ import { Providers } from "@/app/providers"
 import CustomScrollbar from "@/components/CustomScrollbar"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
+import ConditionalBackgroundGradient from "@/components/ui/BackgroundGradient/ConditionalBackgroundGradient"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${inter.variable} ${inter.className} antialiased`}>
         <Providers>
+          <ConditionalBackgroundGradient />
           <CustomScrollbar />
           <Navbar />
           {children}

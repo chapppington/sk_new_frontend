@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react"
 import {
   INDICATOR_COUNT,
   type SwiperInstance,
-  updateProductsIndicators,
-} from "@/app/(home)/screens/ProductsScreen/slider/utils"
+  updatePortfolioIndicators,
+} from "@/app/(home)/screens/PortfolioScreen/slider/utils"
 
-export function useProductsSlider(productsCount: number) {
+export function usePortfolioSlider(portfoliosCount: number) {
   const swiperRef = useRef<SwiperInstance | null>(null)
   const indicatorsRef = useRef<HTMLDivElement>(null)
   const [showButton, setShowButton] = useState(false)
@@ -21,14 +21,15 @@ export function useProductsSlider(productsCount: number) {
     for (let i = 0; i < INDICATOR_COUNT; i++) {
       const bar = document.createElement("div")
       bar.className =
-        "products-indicator-bar w-[4px] bg-white transition-all duration-300 flex-1"
-      bar.style.maxHeight = "1px"
-      bar.style.height = "1px"
+        "portfolio-indicator-bar bg-white transition-all duration-300 flex-1"
+      bar.style.maxWidth = "1px"
+      bar.style.width = "1px"
+      bar.style.height = "4px"
       indicatorsRef.current.appendChild(bar)
     }
 
     if (swiperRef.current) {
-      updateProductsIndicators(swiperRef.current, productsCount)
+      updatePortfolioIndicators(swiperRef.current, portfoliosCount)
     }
 
     ScrollTrigger.refresh()
@@ -42,7 +43,7 @@ export function useProductsSlider(productsCount: number) {
       }
       indicatorsRef.current?.replaceChildren()
     }
-  }, [productsCount])
+  }, [portfoliosCount])
 
   return {
     indicatorsRef,

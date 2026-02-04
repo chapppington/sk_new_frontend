@@ -1,11 +1,11 @@
 "use client"
 
-import CustomContainer from "@/components/CustomContainer"
-import BracketsText from "@/components/ui/BracketsText"
 import { products } from "@/app/(home)/screens/ProductsScreen/mock_data"
 import ProductsScreenInfo from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenInfo"
 import ProductsScreenSlider from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenSlider"
 import { useProductsSlider } from "@/app/(home)/screens/ProductsScreen/slider/useProductsSlider"
+import CustomContainer from "@/components/CustomContainer"
+import BracketsText from "@/components/ui/BracketsText"
 
 export default function ProductsScreen() {
   const {

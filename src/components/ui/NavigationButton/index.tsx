@@ -1,13 +1,13 @@
-import type { NavigationButtonProps } from "./types";
-import { ChevronIcon } from "@/shared/icons/ChevronIcon";
-import React from "react";
+import React from "react"
+import { ChevronIcon } from "@/shared/icons/ChevronIcon"
+import type { NavigationButtonProps } from "./types"
 
 export const NavigationButton = React.forwardRef<
   HTMLButtonElement,
   NavigationButtonProps
 >(({ direction, sliderId, onClick, className = "" }, ref) => {
   const ariaLabel =
-    direction === "prev" ? "Предыдущий слайд" : "Следующий слайд";
+    direction === "prev" ? "Предыдущий слайд" : "Следующий слайд"
 
   return (
     <button
@@ -18,7 +18,7 @@ export const NavigationButton = React.forwardRef<
     >
       <ChevronIcon direction={direction} />
     </button>
-  );
-});
+  )
+})
 
-NavigationButton.displayName = "NavigationButton";
+NavigationButton.displayName = "NavigationButton"

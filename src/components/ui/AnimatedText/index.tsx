@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import React, { FC } from "react";
-import { IAnimatedTextProps } from "@/components/ui/AnimatedText/types";
-import { useTextAnimation } from "@/components/ui/AnimatedText/useTextAnimation";
+import React, { type FC } from "react"
+import type { IAnimatedTextProps } from "@/components/ui/AnimatedText/types"
+import { useTextAnimation } from "@/components/ui/AnimatedText/useTextAnimation"
 
 const AnimatedText: FC<IAnimatedTextProps> = ({
   children,
@@ -16,19 +16,19 @@ const AnimatedText: FC<IAnimatedTextProps> = ({
     delay,
     triggerStart,
     debug,
-  });
+  })
 
   if (React.Children.count(children) === 1) {
     return React.cloneElement(children, {
       ref: containerRef,
-    });
+    })
   }
 
   return (
     <div ref={containerRef} data-copy-wrapper="true">
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default AnimatedText;
+export default AnimatedText

@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation"
 import type { FC } from "react"
 import BackgroundGradient from "@/components/ui/BackgroundGradient"
-import { useIsMobile } from "@/shared/hooks/use-mobile"
 import useIsAppleDevice from "@/shared/hooks/use-is-apple-device"
+import { useIsMobile } from "@/shared/hooks/use-mobile"
 
 const ConditionalBackgroundGradient: FC = () => {
   const pathname = usePathname()

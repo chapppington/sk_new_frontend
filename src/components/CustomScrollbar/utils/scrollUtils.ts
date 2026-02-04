@@ -26,11 +26,14 @@ export const getThumbStyle = (
   scrollPercentage: number,
   thumbHeight: number,
 ): CSSProperties => {
-  const availableTravel = scrollbarRef.current
-    ? scrollbarRef.current.clientHeight -
-      thumbHeight -
-      SCROLLBAR_CONFIG.navbarHeight
-    : 0
+  const trackHeight =
+    typeof window !== "undefined"
+      ? window.innerHeight
+      : scrollbarRef.current?.clientHeight ?? 0
+  const availableTravel = Math.max(
+    0,
+    trackHeight - thumbHeight - SCROLLBAR_CONFIG.navbarHeight,
+  )
 
   return {
     transform: `translateY(${SCROLLBAR_CONFIG.navbarHeight + (scrollPercentage / 100) * availableTravel}px)`,
