@@ -1,0 +1,10 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  padding: 1px;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+}

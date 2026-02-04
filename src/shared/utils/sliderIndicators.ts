@@ -5,6 +5,8 @@ export type SwiperInstance = {
   slides?: Element[]
   realIndex?: number
   destroy: (a: boolean, b: boolean) => void
+  slidePrev: () => void
+  slideNext: () => void
 }
 
 export type SliderIndicatorDimension = "width" | "height"

@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { useRef, useState } from "react"
 import PortfolioScreenInfo from "@/app/(home)/screens/PortfolioScreen/slider/PortfolioScreenInfo"
 import PortfolioScreenSlider from "@/app/(home)/screens/PortfolioScreen/slider/PortfolioScreenSlider"
 import { usePortfolioSlider } from "@/app/(home)/screens/PortfolioScreen/slider/usePortfolioSlider"
@@ -13,7 +12,6 @@ const DEFAULT_LIST_PARAMS = { limit: 100 }
 
 export default function PortfolioScreen() {
   const { portfolios, isLoading, error } = usePortfolios(DEFAULT_LIST_PARAMS)
-  const [bgLoaded, setBgLoaded] = useState<Record<number, boolean>>({})
 
   const {
     indicatorsRef,
@@ -53,30 +51,25 @@ export default function PortfolioScreen() {
       className="bg-transparent py-24 relative min-h-screen flex flex-col justify-end"
     >
       <div className="absolute inset-0 w-full h-full z-0">
-        {portfolios.map((portfolio, idx) =>
-          idx === currentIndex || bgLoaded[idx] ? (
-            <div
-              key={portfolio.oid}
-              className="absolute inset-0 w-full h-full"
-              style={{
-                opacity: idx === currentIndex ? 1 : 0,
-                zIndex: idx === currentIndex ? 2 : 1,
-                transition: "opacity 0.6s",
-              }}
-            >
-              <Image
-                src={portfolio.poster}
-                alt={portfolio.poster_alt || portfolio.name}
-                fill
-                className="object-cover"
-                priority={idx === currentIndex}
-                onLoad={() => {
-                  setBgLoaded((prev) => ({ ...prev, [idx]: true }))
-                }}
-              />
-            </div>
-          ) : null,
-        )}
+        {portfolios.map((portfolio, idx) => (
+          <div
+            key={portfolio.oid}
+            className="absolute inset-0 w-full h-full"
+            style={{
+              opacity: idx === currentIndex ? 1 : 0,
+              zIndex: idx === currentIndex ? 2 : 1,
+              transition: "opacity 0.6s",
+            }}
+          >
+            <Image
+              src={portfolio.poster}
+              alt={portfolio.poster_alt || portfolio.name}
+              fill
+              className="object-cover"
+              priority={idx === currentIndex}
+            />
+          </div>
+        ))}
         <div className="absolute inset-0 bg-black/30 z-10" />
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/50 to-black z-20" />
       </div>
@@ -98,6 +91,8 @@ export default function PortfolioScreen() {
             onSwiperInit={(swiper) => {
               swiperRef.current = swiper
             }}
+            onPrevClick={() => swiperRef.current?.slidePrev()}
+            onNextClick={() => swiperRef.current?.slideNext()}
           />
         </div>
       </CustomContainer>

@@ -25,9 +25,9 @@ const ProductsScreenSlider: React.FC<ProductsScreenSliderProps> = ({
   onSlideChange,
   onSwiperInit,
 }) => (
-  <div className="w-full md:w-auto md:min-w-[500px] md:max-w-[500px] relative">
-    <div className="absolute inset-0 h-0 w-0 overflow-hidden opacity-0 pointer-events-none md:relative md:h-auto md:w-auto md:overflow-visible md:opacity-100 md:pointer-events-auto">
-      <div className="hidden md:flex items-center justify-end h-[400px] absolute right-0 top-0 z-10">
+  <div className="w-full lg:w-auto lg:min-w-[500px] lg:max-w-[500px] relative">
+    <div className="absolute inset-0 h-0 w-0 overflow-hidden opacity-0 pointer-events-none lg:relative lg:h-auto lg:w-auto lg:overflow-visible lg:opacity-100 lg:pointer-events-auto">
+      <div className="hidden lg:flex items-center justify-end h-[400px] absolute right-0 top-0 z-10">
         <div
           ref={indicatorsRef}
           className="flex flex-col items-center justify-between h-full"
@@ -41,10 +41,7 @@ const ProductsScreenSlider: React.FC<ProductsScreenSliderProps> = ({
         slidesPerView={3}
         loop={true}
         autoplay={false}
-        navigation={{
-          nextEl: ".slider-next-products",
-          prevEl: ".slider-prev-products",
-        }}
+        navigation={false}
         onSlideChange={(swiper) => {
           updateProductsIndicators(swiper, products.length)
           onSlideChange(swiper.realIndex % products.length)

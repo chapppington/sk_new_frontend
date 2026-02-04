@@ -20,6 +20,8 @@ interface PortfolioScreenSliderProps {
   indicatorsRef: RefObject<HTMLDivElement | null>
   onSlideChange: (index: number) => void
   onSwiperInit: (swiper: SwiperInstance) => void
+  onPrevClick?: () => void
+  onNextClick?: () => void
 }
 
 const PortfolioScreenSlider: React.FC<PortfolioScreenSliderProps> = ({
@@ -28,21 +30,20 @@ const PortfolioScreenSlider: React.FC<PortfolioScreenSliderProps> = ({
   indicatorsRef,
   onSlideChange,
   onSwiperInit,
+  onPrevClick,
+  onNextClick,
 }) => {
   const lenis = useLenis()
 
   return (
     <div className="w-full xl:w-1/2 relative">
-      <div className="absolute inset-0 h-0 w-0 overflow-hidden opacity-0 pointer-events-none xl:relative xl:h-auto xl:w-auto xl:overflow-visible xl:opacity-100 xl:pointer-events-auto">
+      <div className="absolute top-0 left-0 right-0 h-[300px] overflow-hidden opacity-0 pointer-events-none xl:relative xl:top-auto xl:left-auto xl:right-auto xl:h-auto xl:w-auto xl:overflow-visible xl:opacity-100 xl:pointer-events-auto">
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={20}
           loop={true}
-          navigation={{
-            nextEl: ".portfolio-next",
-            prevEl: ".portfolio-prev",
-          }}
+          navigation={false}
           onSlideChange={(swiper) => {
             updatePortfolioIndicators(swiper, portfolios.length)
             onSlideChange(swiper.realIndex % portfolios.length)
@@ -74,11 +75,13 @@ const PortfolioScreenSlider: React.FC<PortfolioScreenSliderProps> = ({
             direction="prev"
             sliderId="portfolio"
             className="portfolio-prev"
+            onClick={onPrevClick}
           />
           <NavigationButton
             direction="next"
             sliderId="portfolio"
             className="portfolio-next"
+            onClick={onNextClick}
           />
         </div>
         <span className="xl:hidden ml-auto text-white text-base font-medium tabular-nums">

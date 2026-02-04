@@ -11,7 +11,7 @@ export const ChevronIcon: FC<ChevronIconProps> = ({
 }) => {
   return (
     <svg
-      className={className}
+      className={`pointer-events-none ${className}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

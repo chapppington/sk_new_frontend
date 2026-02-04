@@ -14,12 +14,16 @@ interface ProductsScreenInfoProps {
   currentProduct: ProductItem | undefined
   currentIndex: number
   showButton: boolean
+  onPrevClick?: () => void
+  onNextClick?: () => void
 }
 
 const ProductsScreenInfo: FC<ProductsScreenInfoProps> = ({
   currentProduct,
   currentIndex,
   showButton,
+  onPrevClick,
+  onNextClick,
 }) => {
   const description =
     currentProduct?.description &&
@@ -58,11 +62,13 @@ const ProductsScreenInfo: FC<ProductsScreenInfoProps> = ({
             direction="prev"
             sliderId="products"
             className="slider-prev-products"
+            onClick={onPrevClick}
           />
           <NavigationButton
             direction="next"
             sliderId="products"
             className="slider-next-products"
+            onClick={onNextClick}
           />
         </div>
       </div>

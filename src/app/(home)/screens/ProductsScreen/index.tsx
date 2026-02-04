@@ -23,11 +23,13 @@ export default function ProductsScreen() {
       <CustomContainer>
         <BracketsText className="mb-8">МЫ ПРОИЗВОДИМ</BracketsText>
 
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-12">
           <ProductsScreenInfo
             currentProduct={currentProduct}
             currentIndex={currentIndex}
             showButton={showButton}
+            onPrevClick={() => swiperRef.current?.slidePrev()}
+            onNextClick={() => swiperRef.current?.slideNext()}
           />
           <ProductsScreenSlider
             products={products}
