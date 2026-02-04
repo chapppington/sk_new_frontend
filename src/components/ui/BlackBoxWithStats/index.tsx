@@ -9,7 +9,9 @@ const BlackBoxWithStats: FC<IBlackBoxWithStatsProps> = ({
 }) => {
   const isMobile = useIsMobile()
   return (
-    <div className={`absolute bottom-7 lg:right-4 3xl:right-17 4xl:right-41 5xl:right-122 hidden xl:block ${className}`}>
+    <div
+      className={`absolute bottom-7 lg:right-4 3xl:right-17 4xl:right-41 5xl:right-122 hidden xl:block ${className}`}
+    >
       <div className={`relative ${transparent ? "" : "md:bg-black"}`}>
         <div className="flex flex-wrap gap-x-8 gap-y-4 p-4 md:p-12">
           {stats
