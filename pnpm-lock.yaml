@@ -38,6 +38,9 @@ dependencies:
   react-dom:
     specifier: 19.2.3
     version: 19.2.3(react@19.2.3)
+  swiper:
+    specifier: ^12.1.0
+    version: 12.1.0
   three:
     specifier: 0.176.0
     version: 0.176.0
@@ -1444,6 +1447,11 @@ packages:
       react: '>=17.0'
     dependencies:
       react: 19.2.3
+    dev: false
+
+  /swiper@12.1.0:
+    resolution: {integrity: sha512-BD4CpAOOyEvZ2f0CDx362ea+vmOwukVcmbsQx+0BhRIaBUz8wvcCd//E7RFmvBZCrfyqXCHUVqmgUwts6ywlxw==}
+    engines: {node: '>= 4.7.0'}
     dev: false
 
   /tailwindcss@4.1.18:
