@@ -29,7 +29,7 @@ export const getThumbStyle = (
   const trackHeight =
     typeof window !== "undefined"
       ? window.innerHeight
-      : scrollbarRef.current?.clientHeight ?? 0
+      : (scrollbarRef.current?.clientHeight ?? 0)
   const availableTravel = Math.max(
     0,
     trackHeight - thumbHeight - SCROLLBAR_CONFIG.navbarHeight,

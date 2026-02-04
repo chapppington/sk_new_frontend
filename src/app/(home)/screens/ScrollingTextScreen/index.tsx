@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 
-const ScrollingTextSection = () => {
+const ScrollingTextScreen = () => {
   const scrollTextRef = useRef<HTMLDivElement>(null)
   const lastScrollPosition = useRef(0)
   const scrollSpeed = 0.5
@@ -54,4 +54,4 @@ const ScrollingTextSection = () => {
   )
 }
 
-export default ScrollingTextSection
+export default ScrollingTextScreen

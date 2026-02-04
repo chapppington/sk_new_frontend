@@ -26,7 +26,7 @@ const NavbarMobileMenu = ({
   onClose,
   onAnchorClick,
 }: NavbarMobileMenuProps) => (
-  <div className="2xl:hidden fixed inset-0 z-[1000] pointer-events-auto">
+  <div className="2xl:hidden fixed inset-0 z-1000 pointer-events-auto">
     <div
       ref={overlayRef}
       className="fixed inset-0 bg-black/50 opacity-0 pointer-events-auto"
@@ -37,7 +37,7 @@ const NavbarMobileMenu = ({
       ref={menuRef}
       className="fixed top-0 right-0 w-full md:w-[400px] h-screen bg-transparent overflow-y-auto pointer-events-auto"
     >
-      <div className="sticky top-0 left-0 right-0 h-[72px] bg-black z-[1001] border-b border-white/20">
+      <div className="sticky top-0 left-0 right-0 h-[72px] bg-black z-1001 border-b border-white/20">
         <CustomContainer className="h-full flex justify-between items-center">
           <Image
             src="/logo.svg"

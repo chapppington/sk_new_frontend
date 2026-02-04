@@ -66,8 +66,7 @@ export const useScrollbar = (config: ScrollbarConfig = SCROLLBAR_CONFIG) => {
       const scrollTop = lenis.scroll
       const limit = (lenis as { limit?: number }).limit
       const docMaxScroll = Math.max(0, contentHeight - viewportHeight)
-      const maxScroll =
-        limit !== undefined && limit >= 0 ? limit : docMaxScroll
+      const maxScroll = limit !== undefined && limit >= 0 ? limit : docMaxScroll
       const scrollPercentage =
         maxScroll <= 0 ? 0 : Math.min((scrollTop / maxScroll) * 100, 100)
 
