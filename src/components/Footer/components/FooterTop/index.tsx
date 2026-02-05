@@ -1,8 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import type { FC } from "react"
+import TransitionLink from "@/components/ui/TransitionLink"
 import {
   desktopNavigationItems,
   mobileNavigationItems,
@@ -12,7 +12,7 @@ const FooterTop: FC = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
       <div className="mb-8 lg:mb-0">
-        <Link href="/" className="flex items-center">
+        <TransitionLink href="/" className="flex items-center">
           <Image
             src="/logo.svg"
             alt="СИБКОМПЛЕКТ"
@@ -21,14 +21,14 @@ const FooterTop: FC = () => {
             className="h-25"
             priority
           />
-        </Link>
+        </TransitionLink>
       </div>
 
       <div className="w-full lg:w-auto">
         <div className="lg:hidden w-full space-y-4 mb-8 lg:mb-0">
           {mobileNavigationItems.map((item) => (
             <div key={item.link} className="border-b border-white/30 pb-4">
-              <Link
+              <TransitionLink
                 href={item.link}
                 className="flex justify-between items-center text-white"
               >
@@ -46,7 +46,7 @@ const FooterTop: FC = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </Link>
+              </TransitionLink>
             </div>
           ))}
         </div>
@@ -54,14 +54,14 @@ const FooterTop: FC = () => {
         <div className="hidden lg:flex justify-center items-center w-full">
           <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center">
             {desktopNavigationItems.map((item) => (
-              <Link
+              <TransitionLink
                 key={item.link}
                 href={item.link}
                 className="text-white hover:text-white/80 text-sm whitespace-nowrap relative select-none group transition-colors"
               >
                 {item.name}
                 <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
-              </Link>
+              </TransitionLink>
             ))}
           </div>
         </div>
