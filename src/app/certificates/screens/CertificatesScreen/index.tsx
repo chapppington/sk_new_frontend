@@ -11,57 +11,40 @@ import CertificateGroupDropdown from "./components/CertificateGroupDropdown"
 
 export default function CertificatesScreen() {
   const [activeTab, setActiveTab] = useState(0)
-  const tabContentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
-  const { groups, isLoading: groupsLoading } = useCertificateGroups({
+  const { groups, isLoading } = useCertificateGroups({
     is_active: true,
     sort_field: "order",
     sort_order: 1,
     limit: 100,
   })
 
-  const sections = useMemo(() => {
-    const uniqueSections = [...new Set(groups.map((g) => g.section))]
-    return uniqueSections
-  }, [groups])
-
-  const currentSection = sections[activeTab]
-
-  const filteredGroups = useMemo(() => {
-    return groups.filter((g) => g.section === currentSection)
-  }, [groups, currentSection])
+  const sections = useMemo(() => [...new Set(groups.map((g) => g.section))], [groups])
+  const safeTab = Math.min(activeTab, sections.length - 1) || 0
+  const filteredGroups = groups.filter((g) => g.section === sections[safeTab])
 
   useEffect(() => {
-    if (tabContentRef.current) {
-      gsap.fromTo(
-        tabContentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
-      )
+    if (contentRef.current) {
+      gsap.fromTo(contentRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 })
     }
-  }, [activeTab])
+  }, [safeTab])
 
-  const safeActiveTab = Math.min(activeTab, Math.max(0, sections.length - 1))
-
-  if (groupsLoading) {
+  if (isLoading) {
     return (
-      <div className="mb-10">
-        <CustomContainer className="mt-8 mb-12">
-          <GradientHeading>Сертификаты и документация</GradientHeading>
-        </CustomContainer>
-        <CustomContainer>Загрузка…</CustomContainer>
-      </div>
+      <CustomContainer className="mt-32 mb-10">
+        <GradientHeading>Сертификаты и документация</GradientHeading>
+        <p className="mt-8 text-white/60">Загрузка…</p>
+      </CustomContainer>
     )
   }
 
   if (!sections.length) {
     return (
-      <div className="mb-10">
-        <CustomContainer className="mt-8 mb-12">
-          <GradientHeading>Сертификаты и документация</GradientHeading>
-        </CustomContainer>
-        <CustomContainer>Пока нет данных</CustomContainer>
-      </div>
+      <CustomContainer className="mt-32 mb-10">
+        <GradientHeading>Сертификаты и документация</GradientHeading>
+        <p className="mt-8 text-white/60">Пока нет данных</p>
+      </CustomContainer>
     )
   }
 
@@ -81,33 +64,25 @@ export default function CertificatesScreen() {
       </CustomContainer>
 
       <CustomContainer>
-        <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-1/4 pr-0 lg:pr-8 mb-8 lg:mb-0">
-            <ul className="space-y-4">
-              {sections.map((section, index) => (
-                <li key={section}>
-                  <CategoryButton
-                    onClick={() => setActiveTab(index)}
-                    isActive={safeActiveTab === index}
-                    className="w-full"
-                  >
-                    {section}
-                  </CategoryButton>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <ul className="w-full lg:w-1/4 space-y-4">
+            {sections.map((section, index) => (
+              <li key={section}>
+                <CategoryButton
+                  onClick={() => setActiveTab(index)}
+                  isActive={safeTab === index}
+                  className="w-full"
+                >
+                  {section}
+                </CategoryButton>
+              </li>
+            ))}
+          </ul>
 
-          <div className="container mx-auto relative">
-            <div className="flex flex-col md:flex-row mx-auto">
-              <div className="pl-0 md:pl-8 w-full">
-                <div ref={tabContentRef} key={`tab-content-${safeActiveTab}`}>
-                  {filteredGroups.map((group) => (
-                    <CertificateGroupDropdown key={group.oid} group={group} />
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div ref={contentRef} key={safeTab} className="flex-1 lg:pl-8">
+            {filteredGroups.map((group) => (
+              <CertificateGroupDropdown key={group.oid} group={group} />
+            ))}
           </div>
         </div>
       </CustomContainer>
