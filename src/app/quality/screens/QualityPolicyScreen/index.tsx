@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { FC } from "react";
-import CustomContainer from "@/components/CustomContainer";
-import GradientHeading from "@/components/ui/GradientHeading";
+import type { FC } from "react"
+import CustomContainer from "@/components/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
 
 const QualityPolicyScreen: FC = () => {
   return (
@@ -230,7 +230,7 @@ const QualityPolicyScreen: FC = () => {
         </CustomContainer>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default QualityPolicyScreen;
+export default QualityPolicyScreen

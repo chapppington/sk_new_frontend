@@ -1,5 +1,6 @@
 "use client"
 
+import CustomerReviewsScreen from "./screens/CustomerReviewsScreen"
 import FirstScreen from "./screens/FirstScreen"
 import MissionScreen from "./screens/MissionScreen"
 import PortfolioScreen from "./screens/PortfolioScreen"
@@ -14,6 +15,7 @@ export default function HomeClientComponent() {
       <MissionScreen />
       <ProductsScreen />
       <PortfolioScreen />
+      <CustomerReviewsScreen />
     </>
   )
 }
