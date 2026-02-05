@@ -3,21 +3,23 @@ import {
   INDICATOR_COUNT,
   type SwiperInstance,
   updateSliderIndicators,
-} from "@/shared/utils/sliderIndicators"
+} from "@/utils/sliderIndicators";
 
-export { INDICATOR_COUNT, INDICATOR_ACTIVE_GROUP, type SwiperInstance }
+export { INDICATOR_COUNT, INDICATOR_ACTIVE_GROUP, type SwiperInstance };
 
 export function getProductHref(slug: string) {
-  return `/catalog?tab=products&category=${encodeURIComponent(slug)}#catalog_section`
+  return `/catalog?tab=products&category=${encodeURIComponent(
+    slug
+  )}#catalog_section`;
 }
 
 export function updateProductsIndicators(
   swiper: { slides?: Element[]; realIndex?: number } | null,
-  productsCount: number,
+  productsCount: number
 ) {
   updateSliderIndicators(swiper, productsCount, {
     barClass: "products-indicator-bar",
     dimension: "width",
     sizes: { default: "6px", active: ["4px", "20px", "40px", "20px", "4px"] },
-  })
+  });
 }
