@@ -1,9 +1,9 @@
-import { FC, Fragment } from "react";
+import { type FC, Fragment } from "react"
 
-import CustomContainer from "@/components/CustomContainer";
-import TransitionLink from "@/components/ui/TransitionLink";
-import { IBreadcrumbsProps } from "@/components/ui/Breadcrumbs/types";
-import BreadcrumbSchema from "./BreadcrumbSchema";
+import CustomContainer from "@/components/CustomContainer"
+import type { IBreadcrumbsProps } from "@/components/ui/Breadcrumbs/types"
+import TransitionLink from "@/components/ui/TransitionLink"
+import BreadcrumbSchema from "./BreadcrumbSchema"
 
 const Breadcrumbs: FC<IBreadcrumbsProps> = ({
   items,
@@ -26,7 +26,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({
         </Fragment>
       ))}
     </div>
-  );
+  )
 
   return (
     <>
@@ -40,7 +40,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Breadcrumbs;
+export default Breadcrumbs

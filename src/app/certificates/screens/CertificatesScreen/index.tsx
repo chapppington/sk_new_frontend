@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useRef, useEffect, useMemo } from "react"
 import gsap from "gsap"
-import Breadcrumbs from "@/components/ui/Breadcrumbs"
-import GradientHeading from "@/components/ui/GradientHeading"
+import { useEffect, useMemo, useRef, useState } from "react"
 import CustomContainer from "@/components/CustomContainer"
+import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CategoryButton from "@/components/ui/CategoryButton"
+import GradientHeading from "@/components/ui/GradientHeading"
 import { useCertificateGroups } from "@/hooks/useCertificates"
 import CertificateGroupDropdown from "./components/CertificateGroupDropdown"
 
@@ -20,13 +20,20 @@ export default function CertificatesScreen() {
     limit: 100,
   })
 
-  const sections = useMemo(() => [...new Set(groups.map((g) => g.section))], [groups])
+  const sections = useMemo(
+    () => [...new Set(groups.map((g) => g.section))],
+    [groups],
+  )
   const safeTab = Math.min(activeTab, sections.length - 1) || 0
   const filteredGroups = groups.filter((g) => g.section === sections[safeTab])
 
   useEffect(() => {
     if (contentRef.current) {
-      gsap.fromTo(contentRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 })
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3 },
+      )
     }
   }, [safeTab])
 

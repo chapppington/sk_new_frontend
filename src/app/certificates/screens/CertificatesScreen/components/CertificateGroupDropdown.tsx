@@ -1,6 +1,6 @@
 import Dropdown from "@/components/ui/Dropdown"
-import DownloadIcon from "@/shared/icons/DownloadIcon"
 import { useCertificates } from "@/hooks/useCertificates"
+import DownloadIcon from "@/shared/icons/DownloadIcon"
 
 interface CertificateGroupDropdownProps {
   group: {
@@ -10,7 +10,9 @@ interface CertificateGroupDropdownProps {
   }
 }
 
-export default function CertificateGroupDropdown({ group }: CertificateGroupDropdownProps) {
+export default function CertificateGroupDropdown({
+  group,
+}: CertificateGroupDropdownProps) {
   const { certificates, isLoading } = useCertificates({
     certificate_group_id: group.oid,
     sort_field: "order",

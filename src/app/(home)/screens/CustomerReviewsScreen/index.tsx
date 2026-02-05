@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import CustomContainer from "@/components/CustomContainer";
-import CustomSlider from "@/components/CustomSlider";
-import BracketsText from "@/components/ui/BracketsText";
-import GradientHeading from "@/components/ui/GradientHeading";
-import { useReviews } from "@/hooks/useReviews";
-import ReviewPopup from "./components/ReviewPopup";
-import ReviewSlide from "./components/ReviewSlide";
+import { useState } from "react"
+import CustomContainer from "@/components/CustomContainer"
+import CustomSlider from "@/components/CustomSlider"
+import BracketsText from "@/components/ui/BracketsText"
+import GradientHeading from "@/components/ui/GradientHeading"
+import { useReviews } from "@/hooks/useReviews"
+import ReviewPopup from "./components/ReviewPopup"
+import ReviewSlide from "./components/ReviewSlide"
 
 const CustomerReviewsScreen = () => {
   const [activeReviewIndex, setActiveReviewIndex] = useState<number | null>(
-    null
-  );
+    null,
+  )
 
-  const { reviews, isLoading } = useReviews({ category: "Клиенты" });
+  const { reviews, isLoading } = useReviews({ category: "Клиенты" })
 
   const activeReview =
-    activeReviewIndex !== null ? reviews[activeReviewIndex] : null;
+    activeReviewIndex !== null ? reviews[activeReviewIndex] : null
 
   if (isLoading) {
     return (
@@ -26,7 +26,7 @@ const CustomerReviewsScreen = () => {
           <div className="text-center text-white/60">Загрузка отзывов...</div>
         </CustomContainer>
       </section>
-    );
+    )
   }
 
   return (
@@ -74,7 +74,7 @@ const CustomerReviewsScreen = () => {
                 image={activeReview.content_url}
                 open={activeReviewIndex !== null}
                 onOpenChange={(open) => {
-                  if (!open) setActiveReviewIndex(null);
+                  if (!open) setActiveReviewIndex(null)
                 }}
               />
             )}
@@ -86,7 +86,7 @@ const CustomerReviewsScreen = () => {
         )}
       </CustomContainer>
     </section>
-  );
-};
+  )
+}
 
-export default CustomerReviewsScreen;
+export default CustomerReviewsScreen

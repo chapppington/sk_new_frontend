@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { useRef, useEffect, FC, ReactNode } from "react";
-import gsap from "gsap";
-import { IPopoverProps } from "./types";
+import gsap from "gsap"
+import { type FC, ReactNode, useEffect, useRef } from "react"
+import type { IPopoverProps } from "./types"
 
 const Popover: FC<IPopoverProps> = ({
   content,
@@ -12,7 +12,7 @@ const Popover: FC<IPopoverProps> = ({
   className = "",
   side = "right",
 }) => {
-  const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (popoverRef.current) {
@@ -22,9 +22,9 @@ const Popover: FC<IPopoverProps> = ({
         duration: 0.2,
         ease: "power2.out",
         visibility: isOpen ? "visible" : "hidden",
-      });
+      })
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
     <div
@@ -42,7 +42,7 @@ const Popover: FC<IPopoverProps> = ({
     >
       {content}
     </div>
-  );
-};
+  )
+}
 
-export default Popover;
+export default Popover

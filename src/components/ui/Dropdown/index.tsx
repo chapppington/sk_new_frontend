@@ -1,12 +1,11 @@
-"use client";
+"use client"
 
-import gsap from "gsap";
-import { useState, useRef, useEffect, FC } from "react";
-import { useLenis } from "lenis/react";
-import PlusButton from "./components/PlusButton";
-import InfoIcon from "./components/InfoIcon";
-
-import { IDropdownProps } from "@/components/ui/Dropdown/types";
+import gsap from "gsap"
+import { useLenis } from "lenis/react"
+import { type FC, useEffect, useRef, useState } from "react"
+import type { IDropdownProps } from "@/components/ui/Dropdown/types"
+import InfoIcon from "./components/InfoIcon"
+import PlusButton from "./components/PlusButton"
 
 const Dropdown: FC<IDropdownProps> = ({
   title,
@@ -18,27 +17,27 @@ const Dropdown: FC<IDropdownProps> = ({
   infoIconColor = "default",
   infoIconSide = "right",
 }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const lenis = useLenis();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const lenis = useLenis()
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   // If alwaysOpenOnMobile and on mobile, force open
   useEffect(() => {
     if (alwaysOpenOnMobile && isMobile) {
-      setIsOpen(true);
+      setIsOpen(true)
     }
-  }, [alwaysOpenOnMobile, isMobile]);
+  }, [alwaysOpenOnMobile, isMobile])
 
   // Show info icon if popoverContent exists
-  const shouldShowInfoIcon = !!popoverContent;
+  const shouldShowInfoIcon = !!popoverContent
 
   // Toggle animation
   useEffect(() => {
@@ -52,19 +51,19 @@ const Dropdown: FC<IDropdownProps> = ({
         onComplete: () => {
           // Update Lenis after animation completes
           if (lenis) {
-            lenis.resize();
+            lenis.resize()
           }
         },
-      });
+      })
     }
-  }, [isOpen, lenis]);
+  }, [isOpen, lenis])
 
   return (
     <div className="dropdown border-t border-white/10 py-8 relative">
       <div
         className="flex justify-between items-center cursor-pointer"
         onClick={() => {
-          if (!(alwaysOpenOnMobile && isMobile)) setIsOpen((prev) => !prev);
+          if (!(alwaysOpenOnMobile && isMobile)) setIsOpen((prev) => !prev)
         }}
       >
         <div className="flex items-center gap-2">
@@ -95,7 +94,7 @@ const Dropdown: FC<IDropdownProps> = ({
         <div className="pt-6">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dropdown;
+export default Dropdown

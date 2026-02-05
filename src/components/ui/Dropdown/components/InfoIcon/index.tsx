@@ -1,28 +1,28 @@
-import { FC, useState } from "react";
-import { InfoIconProps } from "./types";
-import Popover from "@/components/ui/Popover";
-import { Info } from "lucide-react";
+import { Info } from "lucide-react"
+import { type FC, useState } from "react"
+import Popover from "@/components/ui/Popover"
+import type { InfoIconProps } from "./types"
 
 const InfoIcon: FC<InfoIconProps> = ({
   popoverContent,
   color = "default",
   side = "right",
 }) => {
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  const [isMobilePopupOpen, setIsMobilePopupOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
+  const [isMobilePopupOpen, setIsMobilePopupOpen] = useState(false)
 
   const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.stopPropagation()
     if (window.innerWidth < 768) {
       // md breakpoint
-      setIsMobilePopupOpen(!isMobilePopupOpen);
+      setIsMobilePopupOpen(!isMobilePopupOpen)
     }
-  };
+  }
 
   const handleCloseClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsMobilePopupOpen(false);
-  };
+    e.stopPropagation()
+    setIsMobilePopupOpen(false)
+  }
 
   return (
     <div className="relative">
@@ -72,7 +72,7 @@ const InfoIcon: FC<InfoIconProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InfoIcon;
+export default InfoIcon

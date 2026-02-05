@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import type { FC } from "react"
-import TransitionLink from "@/components/ui/TransitionLink"
 import {
   desktopNavigationItems,
   mobileNavigationItems,
 } from "@/components/Footer/data"
+import TransitionLink from "@/components/ui/TransitionLink"
 
 const FooterTop: FC = () => {
   return (

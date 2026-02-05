@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { FC } from "react";
-import { ICategoryButtonProps } from "@/components/ui/CategoryButton/types";
+import type { FC } from "react"
+import type { ICategoryButtonProps } from "@/components/ui/CategoryButton/types"
 
 const CategoryButton: FC<ICategoryButtonProps> = ({
   isActive = false,
@@ -22,7 +22,7 @@ const CategoryButton: FC<ICategoryButtonProps> = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default CategoryButton;
+export default CategoryButton

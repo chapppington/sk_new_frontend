@@ -1,7 +1,10 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { generateBreadcrumbSchema, type BreadcrumbItem } from "@/utils/breadcrumbSchema"
+import {
+  type BreadcrumbItem,
+  generateBreadcrumbSchema,
+} from "@/utils/breadcrumbSchema"
 
 interface BreadcrumbSchemaProps {
   items: BreadcrumbItem[]
@@ -13,7 +16,7 @@ export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
   if (!items?.length) return null
 
   const normalizedItems = items.map((item) =>
-    !item.href || item.href === "#" ? { ...item, href: pathname || "/" } : item
+    !item.href || item.href === "#" ? { ...item, href: pathname || "/" } : item,
   )
 
   const schema = generateBreadcrumbSchema(normalizedItems)

@@ -1,12 +1,7 @@
 import type { FC, SVGProps } from "react"
 
 const DownloadIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    {...props}
-  >
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

@@ -1,13 +1,13 @@
-import { FC, useRef, useEffect } from "react";
-import gsap from "gsap";
-import { PlusButtonProps } from "./types";
+import gsap from "gsap"
+import { type FC, useEffect, useRef } from "react"
+import type { PlusButtonProps } from "./types"
 
 const PlusButton: FC<PlusButtonProps> = ({
   isOpen = false,
   onClick,
   className = "",
 }) => {
-  const plusIconRef = useRef<HTMLButtonElement>(null);
+  const plusIconRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (plusIconRef.current) {
@@ -15,9 +15,9 @@ const PlusButton: FC<PlusButtonProps> = ({
         rotation: isOpen ? 45 : 0,
         duration: 0.07,
         ease: "power1.inOut",
-      });
+      })
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
     <button
@@ -39,7 +39,7 @@ const PlusButton: FC<PlusButtonProps> = ({
         />
       </svg>
     </button>
-  );
-};
+  )
+}
 
-export default PlusButton;
+export default PlusButton

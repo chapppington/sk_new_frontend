@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react"
 
 export interface InfoIconProps {
-  popoverContent: ReactNode;
-  color?: "white" | "default";
-  side?: "left" | "right";
+  popoverContent: ReactNode
+  color?: "white" | "default"
+  side?: "left" | "right"
 }

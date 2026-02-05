@@ -16,7 +16,7 @@ export const PagesConfigData = {
   privacy: { href: "/privacy", label: "Политика конфиденциальности" },
   questionnaire: { href: "/questionnaire", label: "Опросный лист" },
   production: { href: "/production", label: "О производстве" },
-  quality: {href: "/quality", label: "Политика в области качества"}
+  quality: { href: "/quality", label: "Политика в области качества" },
 }
 
 export type PagesConfigType = typeof PagesConfigData

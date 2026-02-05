@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react"
 
 export interface IPopoverProps {
-  content: ReactNode;
-  isOpen: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  className?: string;
-  side?: "left" | "right";
+  content: ReactNode
+  isOpen: boolean
+  onMouseEnter: () => void
+  onMouseLeave: () => void
+  className?: string
+  side?: "left" | "right"
 }
