@@ -5,6 +5,7 @@ import { companyAddress, contactBlocks } from "@/components/Footer/data"
 import EmailIcon from "@/shared/icons/EmailIcon"
 import LocationIcon from "@/shared/icons/LocationIcon"
 import PhoneIcon from "@/shared/icons/PhoneIcon"
+import YandexMapContainer from "@/components/ui/YandexMapContainer"
 
 const iconClassName = "w-4 h-4 text-white shrink-0"
 
@@ -75,9 +76,7 @@ const FooterMain: FC = () => {
             <LocationIcon className={iconClassName} />
             <span className="text-white">{companyAddress}</span>
           </div>
-          <div className="h-48 rounded bg-white/10 flex items-center justify-center text-white/60 text-sm">
-            Карта
-          </div>
+          <YandexMapContainer height="192px" />
         </div>
       </div>
     </div>

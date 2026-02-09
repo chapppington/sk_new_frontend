@@ -2,7 +2,7 @@
 
 import gsap from "gsap"
 import { type FC, useEffect, useRef, useState } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import NavbarDesktopActions from "./components/NavbarDesktopActions"
 import NavbarDesktopMenu from "./components/NavbarDesktopMenu"
 import NavbarLogo from "./components/NavbarLogo"

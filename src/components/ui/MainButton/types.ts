@@ -12,4 +12,5 @@ export interface IMainButtonProps {
   external?: boolean
   disabled?: boolean
   download?: boolean
+  type?: "button" | "submit" | "reset"
 }

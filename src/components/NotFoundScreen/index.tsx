@@ -1,6 +1,6 @@
 "use client"
 
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import AnimatedText from "@/components/ui/AnimatedText"
 import BracketsText from "@/components/ui/BracketsText"
 import GradientHeading from "@/components/ui/GradientHeading"

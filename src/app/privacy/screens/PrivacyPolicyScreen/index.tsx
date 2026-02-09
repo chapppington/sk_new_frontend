@@ -1,7 +1,7 @@
 "use client"
 
 import type { FC } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 
 const PrivacyPolicyScreen: FC = () => {

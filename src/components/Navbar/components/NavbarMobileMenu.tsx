@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import type { RefObject } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import type { MenuItem } from "./NavbarDesktopMenu"
 
 type NavbarMobileMenuProps = {

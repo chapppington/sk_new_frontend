@@ -4,7 +4,7 @@ import { products } from "@/app/(home)/screens/ProductsScreen/data"
 import ProductsScreenInfo from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenInfo"
 import ProductsScreenSlider from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenSlider"
 import { useProductsSlider } from "@/app/(home)/screens/ProductsScreen/slider/useProductsSlider"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
 
 export default function ProductsScreen() {

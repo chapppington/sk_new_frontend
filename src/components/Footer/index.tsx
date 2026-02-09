@@ -1,7 +1,7 @@
 "use client"
 
 import type { FC } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import FooterBottom from "./components/FooterBottom"
 import FooterMain from "./components/FooterMain"
 import FooterTop from "./components/FooterTop"

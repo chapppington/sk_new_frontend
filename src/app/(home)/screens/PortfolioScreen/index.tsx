@@ -4,7 +4,7 @@ import Image from "next/image"
 import PortfolioScreenInfo from "@/app/(home)/screens/PortfolioScreen/slider/PortfolioScreenInfo"
 import PortfolioScreenSlider from "@/app/(home)/screens/PortfolioScreen/slider/PortfolioScreenSlider"
 import { usePortfolioSlider } from "@/app/(home)/screens/PortfolioScreen/slider/usePortfolioSlider"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
 import { usePortfolios } from "@/hooks/usePortfolios"
 

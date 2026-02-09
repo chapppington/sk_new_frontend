@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import CustomSlider from "@/components/CustomSlider"
 import BracketsText from "@/components/ui/BracketsText"
 import GradientHeading from "@/components/ui/GradientHeading"

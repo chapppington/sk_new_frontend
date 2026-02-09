@@ -1,5 +1,5 @@
 import type { FC } from "react"
-import type { ICustomContainerProps } from "@/components/CustomContainer/types"
+import type { ICustomContainerProps } from "@/components/ui/CustomContainer/types"
 
 const CustomContainer: FC<ICustomContainerProps> = ({
   children,

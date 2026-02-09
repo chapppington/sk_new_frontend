@@ -18,10 +18,11 @@ const MainButton: FC<IMainButtonProps> = ({
   external = false,
   disabled = false,
   download = false,
+  type = "button",
 }) => {
   const styles = sizeStyles[size]
   const anchorRef = useRef<HTMLAnchorElement | null>(null)
-  const divRef = useRef<HTMLDivElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
 
   const buttonContent = (
     <span
@@ -77,9 +78,9 @@ const MainButton: FC<IMainButtonProps> = ({
 
   if (disableRedirect) {
     return (
-      <div ref={divRef} {...commonProps}>
+      <button ref={buttonRef} type={type} {...commonProps}>
         {buttonContent}
-      </div>
+      </button>
     )
   }
 

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import type { FC } from "react"
-import CustomContainer from "@/components/CustomContainer"
+import CustomContainer from "@/components/ui/CustomContainer"
 import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import GradientHeading from "@/components/ui/GradientHeading"
 import headingStyles from "@/components/ui/GradientHeading/styles.module.css"
