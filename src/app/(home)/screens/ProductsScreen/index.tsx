@@ -4,8 +4,8 @@ import { products } from "@/app/(home)/screens/ProductsScreen/data"
 import ProductsScreenInfo from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenInfo"
 import ProductsScreenSlider from "@/app/(home)/screens/ProductsScreen/slider/ProductsScreenSlider"
 import { useProductsSlider } from "@/app/(home)/screens/ProductsScreen/slider/useProductsSlider"
-import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
+import CustomContainer from "@/components/ui/CustomContainer"
 
 export default function ProductsScreen() {
   const {

@@ -1,8 +1,8 @@
 "use client"
 
-import CustomContainer from "@/components/ui/CustomContainer"
 import AnimatedText from "@/components/ui/AnimatedText"
 import BracketsText from "@/components/ui/BracketsText"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import MainButton from "@/components/ui/MainButton"
 import { PagesConfig } from "@/config/pages.config"

@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { FC, useId } from "react";
-import { IInputProps } from "@/components/ui/Input/types";
+import { type FC, useId } from "react"
+import type { IInputProps } from "@/components/ui/Input/types"
 
 const Input: FC<IInputProps> = ({
   label,
@@ -12,8 +12,8 @@ const Input: FC<IInputProps> = ({
   ref,
   ...props
 }) => {
-  const generatedId = useId();
-  const inputId = id || generatedId;
+  const generatedId = useId()
+  const inputId = id || generatedId
 
   return (
     <div className={`relative ${isNumber ? "w-16" : ""}`}>
@@ -38,7 +38,7 @@ const Input: FC<IInputProps> = ({
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

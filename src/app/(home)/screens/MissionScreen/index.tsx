@@ -1,9 +1,9 @@
 "use client"
 
 import type { FC } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
 import CircleIconButton from "@/components/ui/CircleIconButton"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import { PagesConfig } from "@/config/pages.config"
 

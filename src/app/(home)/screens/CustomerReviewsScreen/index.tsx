@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
 import CustomSlider from "@/components/CustomSlider"
 import BracketsText from "@/components/ui/BracketsText"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import { useReviews } from "@/hooks/useReviews"
 import ReviewPopup from "./components/ReviewPopup"

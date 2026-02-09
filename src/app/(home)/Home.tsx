@@ -1,12 +1,12 @@
 "use client"
 
+import ContactUsScreen from "@/components/contact/ContactUsScreen"
 import CustomerReviewsScreen from "./screens/CustomerReviewsScreen"
 import FirstScreen from "./screens/FirstScreen"
 import MissionScreen from "./screens/MissionScreen"
 import PortfolioScreen from "./screens/PortfolioScreen"
 import ProductsScreen from "./screens/ProductsScreen"
 import ScrollingTextScreen from "./screens/ScrollingTextScreen"
-import ContactUsScreen from "@/components/contact/ContactUsScreen"
 
 export default function HomeClientComponent() {
   return (

@@ -2,8 +2,8 @@
 
 import Image from "next/image"
 import type { FC } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
 import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import headingStyles from "@/components/ui/GradientHeading/styles.module.css"
 import MainButton from "@/components/ui/MainButton"

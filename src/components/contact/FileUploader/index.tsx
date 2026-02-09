@@ -54,18 +54,25 @@ const FileUploader: FC<IFileUploaderProps> = ({
       {uploading.map((item, idx) => (
         <div key={idx} className="flex items-center gap-3">
           <PaperClipIcon className="w-4 h-4 shrink-0 text-white/40" />
-          <span className="text-xs text-white/60 truncate min-w-0">{item.name}</span>
+          <span className="text-xs text-white/60 truncate min-w-0">
+            {item.name}
+          </span>
           <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
             <div
               className="h-full bg-white rounded-full transition-all duration-300"
               style={{ width: `${item.progress}%` }}
             />
           </div>
-          <span className="text-xs text-white/40 shrink-0 w-8 text-right">{item.progress}%</span>
+          <span className="text-xs text-white/40 shrink-0 w-8 text-right">
+            {item.progress}%
+          </span>
         </div>
       ))}
       {files.map((file) => (
-        <div key={file.url} className="flex items-center gap-2 text-sm text-white/60">
+        <div
+          key={file.url}
+          className="flex items-center gap-2 text-sm text-white/60"
+        >
           <PaperClipIcon className="w-4 h-4 shrink-0" />
           <span className="truncate">{file.name}</span>
           <button

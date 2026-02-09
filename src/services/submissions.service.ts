@@ -1,6 +1,9 @@
 import { axiosPublic } from "@/api/axios"
 import type { ApiResponse } from "@/types/api.types"
-import type { ICreateSubmissionData, ISubmission } from "@/types/submissions.types"
+import type {
+  ICreateSubmissionData,
+  ISubmission,
+} from "@/types/submissions.types"
 
 class SubmissionsService {
   private _BASE_URL = "/submissions"

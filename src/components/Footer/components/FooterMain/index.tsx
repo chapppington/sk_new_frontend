@@ -2,10 +2,10 @@
 
 import type { FC } from "react"
 import { companyAddress, contactBlocks } from "@/components/Footer/data"
+import YandexMapContainer from "@/components/ui/YandexMapContainer"
 import EmailIcon from "@/shared/icons/EmailIcon"
 import LocationIcon from "@/shared/icons/LocationIcon"
 import PhoneIcon from "@/shared/icons/PhoneIcon"
-import YandexMapContainer from "@/components/ui/YandexMapContainer"
 
 const iconClassName = "w-4 h-4 text-white shrink-0"
 

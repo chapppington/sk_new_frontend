@@ -20,50 +20,50 @@
 
 export const formatPhoneNumber = (value: string): string => {
   // Remove all non-digit characters
-  const digits = value.replace(/\D/g, "");
+  const digits = value.replace(/\D/g, "")
 
   // If no digits, return empty string
   if (digits.length === 0) {
-    return "";
+    return ""
   }
 
   // Handle the case when user starts with 8
   if (digits.startsWith("8")) {
     // If it's just "8", return "+7"
     if (digits.length === 1) {
-      return "+7";
+      return "+7"
     }
     // Otherwise, use the rest of the digits after 8
-    const remainingDigits = digits.slice(1);
-    return formatNumberWithMask(remainingDigits);
+    const remainingDigits = digits.slice(1)
+    return formatNumberWithMask(remainingDigits)
   }
 
   // Use the digits typed by the user for formatting after +7
   // If the user started with 7, we can potentially skip that 7
-  const digitsToFormat = digits.startsWith("7") ? digits.slice(1) : digits;
-  return formatNumberWithMask(digitsToFormat);
-};
+  const digitsToFormat = digits.startsWith("7") ? digits.slice(1) : digits
+  return formatNumberWithMask(digitsToFormat)
+}
 
 const formatNumberWithMask = (digits: string): string => {
   // Limit to 10 digits for the rest of the number (after +7)
-  const remainingDigits = digits.slice(0, 10);
+  const remainingDigits = digits.slice(0, 10)
 
   // Start with '+7'
-  let formattedNumber = "+7";
+  let formattedNumber = "+7"
 
   // Apply the mask: (XXX) XXX-XX-XX
   if (remainingDigits.length > 0) {
-    formattedNumber += ` (${remainingDigits.slice(0, 3)}`;
+    formattedNumber += ` (${remainingDigits.slice(0, 3)}`
     if (remainingDigits.length > 3) {
-      formattedNumber += `) ${remainingDigits.slice(3, 6)}`;
+      formattedNumber += `) ${remainingDigits.slice(3, 6)}`
       if (remainingDigits.length > 6) {
-        formattedNumber += `-${remainingDigits.slice(6, 8)}`;
+        formattedNumber += `-${remainingDigits.slice(6, 8)}`
         if (remainingDigits.length > 8) {
-          formattedNumber += `-${remainingDigits.slice(8, 10)}`;
+          formattedNumber += `-${remainingDigits.slice(8, 10)}`
         }
       }
     }
   }
 
-  return formattedNumber;
-};
+  return formattedNumber
+}

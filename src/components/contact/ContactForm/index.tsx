@@ -5,8 +5,8 @@ import { Controller } from "react-hook-form"
 import FileUploader from "@/components/contact/FileUploader"
 import Input from "@/components/ui/Input"
 import MainButton from "@/components/ui/MainButton"
-import { formatPhoneNumber } from "@/utils/formatPhoneNumber"
 import type { FormType } from "@/types/submissions.types"
+import { formatPhoneNumber } from "@/utils/formatPhoneNumber"
 import { EMAIL_PATTERN, useContactForm } from "./useContactForm"
 
 interface IContactFormProps {
@@ -14,7 +14,8 @@ interface IContactFormProps {
 }
 
 const ContactForm: FC<IContactFormProps> = ({ formType = "Обращение" }) => {
-  const { control, errors, upload, isSubmitting, onSubmit } = useContactForm(formType)
+  const { control, errors, upload, isSubmitting, onSubmit } =
+    useContactForm(formType)
 
   return (
     <form className="space-y-8" onSubmit={onSubmit}>

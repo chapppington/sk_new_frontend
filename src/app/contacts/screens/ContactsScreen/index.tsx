@@ -1,15 +1,15 @@
 "use client"
 
 import type { FC } from "react"
+import ContactForm from "@/components/contact/ContactForm"
+import { companyAddress, contactBlocks } from "@/components/Footer/data"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
-import GradientHeading from "@/components/ui/GradientHeading"
 import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
 import YandexMapContainer from "@/components/ui/YandexMapContainer"
-import PhoneIcon from "@/shared/icons/PhoneIcon"
 import EmailIcon from "@/shared/icons/EmailIcon"
 import LocationIcon from "@/shared/icons/LocationIcon"
-import { contactBlocks, companyAddress } from "@/components/Footer/data"
-import ContactForm from "@/components/contact/ContactForm"
+import PhoneIcon from "@/shared/icons/PhoneIcon"
 
 const iconClassName = "w-4 h-4 text-white shrink-0"
 

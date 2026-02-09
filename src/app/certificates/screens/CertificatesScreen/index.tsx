@@ -2,9 +2,9 @@
 
 import gsap from "gsap"
 import { useEffect, useMemo, useRef, useState } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CategoryButton from "@/components/ui/CategoryButton"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import { useCertificateGroups } from "@/hooks/useCertificates"
 import CertificateGroupDropdown from "./components/CertificateGroupDropdown"

@@ -1,7 +1,6 @@
 import { type FC, Fragment } from "react"
-
-import CustomContainer from "@/components/ui/CustomContainer"
 import type { IBreadcrumbsProps } from "@/components/ui/Breadcrumbs/types"
+import CustomContainer from "@/components/ui/CustomContainer"
 import TransitionLink from "@/components/ui/TransitionLink"
 import BreadcrumbSchema from "./BreadcrumbSchema"
 

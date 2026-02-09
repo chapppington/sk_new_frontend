@@ -42,10 +42,12 @@ export function useContactForm(formType: FormType = "Обращение") {
       form_type: formType,
       name: data.name.trim(),
       email: data.email.trim(),
-      phone: data.phone.replace(/\D/g, "").length > 1
-        ? `+${data.phone.replace(/\D/g, "")}`
-        : undefined,
-      files: upload.files.length > 0 ? upload.files.map((f) => f.url) : undefined,
+      phone:
+        data.phone.replace(/\D/g, "").length > 1
+          ? `+${data.phone.replace(/\D/g, "")}`
+          : undefined,
+      files:
+        upload.files.length > 0 ? upload.files.map((f) => f.url) : undefined,
     })
   })
 

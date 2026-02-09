@@ -1,8 +1,8 @@
-import { FC, TextareaHTMLAttributes } from "react";
+import type { FC, TextareaHTMLAttributes } from "react"
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
-  error?: string;
+  label?: string
+  error?: string
 }
 
 const TextArea: FC<TextAreaProps> = ({
@@ -26,7 +26,7 @@ const TextArea: FC<TextAreaProps> = ({
       />
       {error && <span className="text-red-500 text-sm">{error}</span>}
     </div>
-  );
-};
+  )
+}
 
-export default TextArea;
+export default TextArea

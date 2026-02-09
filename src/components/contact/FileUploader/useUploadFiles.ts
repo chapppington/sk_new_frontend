@@ -35,7 +35,10 @@ export function useUploadFiles(bucketName: string) {
         selected.splice(remaining)
       }
 
-      const initialProgress = selected.map((f) => ({ name: f.name, progress: 0 }))
+      const initialProgress = selected.map((f) => ({
+        name: f.name,
+        progress: 0,
+      }))
       setUploading(initialProgress)
 
       const results: IUploadedFile[] = []
@@ -43,17 +46,25 @@ export function useUploadFiles(bucketName: string) {
       await Promise.all(
         selected.map(async (file, idx) => {
           try {
-            const result = await mediaService.uploadFile(file, bucketName, (p) => {
-              setUploading((prev) =>
-                prev.map((item, i) => (i === idx ? { ...item, progress: p } : item)),
-              )
-            })
+            const result = await mediaService.uploadFile(
+              file,
+              bucketName,
+              (p) => {
+                setUploading((prev) =>
+                  prev.map((item, i) =>
+                    i === idx ? { ...item, progress: p } : item,
+                  ),
+                )
+              },
+            )
             if (result?.file_url) {
               results.push({ name: file.name, url: result.file_url })
             }
           } catch (err) {
             if (isAxiosError(err) && err.response?.status === 413) {
-              toast.error(`Файл слишком большой: ${file.name}, максимальный размер 10MB`)
+              toast.error(
+                `Файл слишком большой: ${file.name}, максимальный размер 10MB`,
+              )
             } else {
               toast.error(`Ошибка загрузки: ${file.name}`)
             }

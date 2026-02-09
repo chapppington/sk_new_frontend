@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { FC, useState, useEffect } from "react";
-import { IYandexMapContainerProps } from "@/components/ui/YandexMapContainer/types";
-import Image from "next/image";
+import Image from "next/image"
+import { type FC, useEffect, useState } from "react"
+import type { IYandexMapContainerProps } from "@/components/ui/YandexMapContainer/types"
 
 const YandexMapPreviewWrapper: FC<{
-  children: React.ReactNode;
-  preview: React.ReactNode;
-  isActive: boolean;
-  onActivate: () => void;
-  height: string | number;
+  children: React.ReactNode
+  preview: React.ReactNode
+  isActive: boolean
+  onActivate: () => void
+  height: string | number
 }> = ({ children, preview, isActive, onActivate, height }) => {
   return (
     <div
@@ -21,8 +21,8 @@ const YandexMapPreviewWrapper: FC<{
     >
       {isActive ? children : preview}
     </div>
-  );
-};
+  )
+}
 
 const YandexMapContainer: FC<IYandexMapContainerProps> = ({
   initialCoordinates = [53.3254, 83.6329],
@@ -31,17 +31,17 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
   zoom = 15,
 }) => {
   const [coordinates, setCoordinates] =
-    useState<[number, number]>(initialCoordinates);
-  const [isMapReady, setIsMapReady] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const [isMapActive, setIsMapActive] = useState(false);
-  const [MapComponents, setMapComponents] = useState<any>(null);
-  const isStrictMode = process.env.NODE_ENV === "development";
+    useState<[number, number]>(initialCoordinates)
+  const [isMapReady, setIsMapReady] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+  const [isMapActive, setIsMapActive] = useState(false)
+  const [MapComponents, setMapComponents] = useState<any>(null)
+  const isStrictMode = process.env.NODE_ENV === "development"
 
   useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
-  }, []);
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
 
   // Динамический импорт компонентов карты только при активации
   useEffect(() => {
@@ -51,44 +51,44 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
           YMaps: mod.YMaps,
           Map: mod.Map,
           Placemark: mod.Placemark,
-        });
-      });
+        })
+      })
     }
-  }, [isMapActive, MapComponents]);
+  }, [isMapActive, MapComponents])
 
   const handleMapClick = (e: any) => {
-    if (!isMapReady) return;
+    if (!isMapReady) return
     try {
-      const newCoordinates: [number, number] = e.get("coords");
-      setCoordinates(newCoordinates);
+      const newCoordinates: [number, number] = e.get("coords")
+      setCoordinates(newCoordinates)
       if (onCoordinatesChange) {
-        onCoordinatesChange(newCoordinates);
+        onCoordinatesChange(newCoordinates)
       }
     } catch (error) {
-      console.error("Error handling map click:", error);
+      console.error("Error handling map click:", error)
     }
-  };
+  }
 
   const handleMapReady = () => {
     if (isMounted) {
-      setIsMapReady(true);
+      setIsMapReady(true)
     }
-  };
+  }
 
   const handlePlacemarkDragEnd = (e: any) => {
-    if (!isMapReady) return;
+    if (!isMapReady) return
     try {
       const newCoordinates: [number, number] = e
         .get("target")
-        .geometry.getCoordinates();
-      setCoordinates(newCoordinates);
+        .geometry.getCoordinates()
+      setCoordinates(newCoordinates)
       if (onCoordinatesChange) {
-        onCoordinatesChange(newCoordinates);
+        onCoordinatesChange(newCoordinates)
       }
     } catch (error) {
-      console.error("Error handling placemark drag:", error);
+      console.error("Error handling placemark drag:", error)
     }
-  };
+  }
 
   if (isStrictMode) {
     return (
@@ -99,7 +99,7 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
         preview={<div className="text-gray-500">Map Preview (Dev Mode)</div>}
         children={null}
       />
-    );
+    )
   }
 
   const preview = (
@@ -111,11 +111,11 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
       sizes="100vw"
       priority={false}
     />
-  );
+  )
 
-  let mapContent = null;
+  let mapContent = null
   if (MapComponents) {
-    const { YMaps, Map, Placemark } = MapComponents;
+    const { YMaps, Map, Placemark } = MapComponents
     mapContent = (
       <div className="w-full h-full">
         <YMaps>
@@ -139,9 +139,9 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
           </Map>
         </YMaps>
       </div>
-    );
+    )
   } else if (isMapActive) {
-    mapContent = <div className="text-gray-500">Загрузка карты...</div>;
+    mapContent = <div className="text-gray-500">Загрузка карты...</div>
   }
 
   return (
@@ -153,7 +153,7 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
     >
       {mapContent}
     </YandexMapPreviewWrapper>
-  );
-};
+  )
+}
 
-export default YandexMapContainer;
+export default YandexMapContainer
