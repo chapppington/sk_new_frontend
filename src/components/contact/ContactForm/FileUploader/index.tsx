@@ -2,7 +2,7 @@
 
 import type { FC } from "react"
 import PaperClipIcon from "@/shared/icons/PaperClipIcon"
-import type { IFileUploadProgress } from "./useUploadFiles"
+import type { IFileUploadProgress } from "../useUploadFiles"
 
 export interface IUploadedFile {
   name: string

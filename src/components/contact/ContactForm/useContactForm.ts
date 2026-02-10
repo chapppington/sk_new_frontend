@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
-import { useUploadFiles } from "@/components/contact/FileUploader/useUploadFiles"
-import { useSubmitForm } from "@/hooks/useSubmitForm"
+import { useUploadFiles } from "@/components/contact/ContactForm/useUploadFiles"
+import { useSubmitForm } from "./useSubmitForm"
 import type { FormType } from "@/types/submissions.types"
 
 interface IContactFormValues {

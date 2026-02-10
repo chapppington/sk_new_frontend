@@ -2,7 +2,7 @@ import { isAxiosError } from "axios"
 import { useCallback, useRef, useState } from "react"
 import { toast } from "sonner"
 import mediaService from "@/services/media/media.service"
-import type { IUploadedFile } from "./index"
+import type { IUploadedFile } from "./FileUploader/index"
 
 const MAX_FILES = 5
 

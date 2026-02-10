@@ -2,7 +2,7 @@
 
 import type { FC } from "react"
 import { Controller } from "react-hook-form"
-import FileUploader from "@/components/contact/FileUploader"
+import FileUploader from "@/components/contact/ContactForm/FileUploader"
 import Input from "@/components/ui/Input"
 import MainButton from "@/components/ui/MainButton"
 import type { FormType } from "@/types/submissions.types"
