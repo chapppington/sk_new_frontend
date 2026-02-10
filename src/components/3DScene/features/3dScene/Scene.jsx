@@ -192,17 +192,9 @@ export default function Scene() {
   }, [main_static, customShaderTest2]);
   useEffect(() => {
     main.scene.traverse((node) => {
-      const isJointConnector =
-        node.isMesh &&
-        node.name &&
-        /^(Cube|Cylinder)\.?\d*$/.test(node.name) &&
-        node.parent?.name &&
-        /^Bone\.?\d*$/.test(node.parent.name);
-      if (isJointConnector) {
-        node.visible = false;
-      } else if (node.isMesh) {
+      if (node.isMesh) {
         node.material = materialASD;
-        node.renderOrder = 3;
+        node.renderOrder = 2;
       }
     });
   }, [main, materialASD]);
@@ -231,7 +223,7 @@ export default function Scene() {
   useEffect(() => {
     wallsOut.scene.traverse((node) => {
       node.material = customShaderTest2;
-      node.renderOrder = 1;
+      node.renderOrder = 4;
     });
   }, [wallsOut, customShaderTest2]);
   useEffect(() => {
