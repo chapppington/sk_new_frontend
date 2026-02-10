@@ -7,6 +7,7 @@ export const createLentaMaterial = (texture: THREE.Texture) => {
     uniforms: {
       uTexture: { value: texture },
       uTime: { value: 0 },
+      uColor: { value: new THREE.Color('#ffffff') },
     },
     vertexShader: lentaVertexShader,
     fragmentShader: lentaFragmentShader,

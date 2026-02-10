@@ -127,9 +127,6 @@ export default function Scene() {
     depthTest: true,
     opacity: 0.01,
     side: THREE.FrontSide,
-    polygonOffset: true,
-    polygonOffsetFactor: 2,
-    polygonOffsetUnits: 4,
   });
   const materialASD2 = new THREE.MeshBasicMaterial({
     color: new THREE.Color("#ffffff"),
@@ -138,10 +135,7 @@ export default function Scene() {
     depthWrite: false,
     depthTest: true,
     opacity: 0.35,
-    side: THREE.FrontSide,
-    polygonOffset: true,
-    polygonOffsetFactor: 3,
-    polygonOffsetUnits: 6,
+    side: THREE.FrontSide
   });
   useEffect(() => {
     terrain.scene.children[0].material = worldMaterial;
@@ -180,23 +174,27 @@ export default function Scene() {
   // непрзрачно для обеих сторон
   useEffect(() => {
     gltf.scene.traverse((node) => {
-      node.renderOrder = 1;
+      node.renderOrder = 0;
       node.material = basicMaterial;
     });
   }, [gltf, basicMaterial]);
   useEffect(() => {
     main_static.scene.traverse((node) => {
       node.material = customShaderTest2;
-      node.renderOrder = 2;
+      node.renderOrder = 4;
     });
   }, [main_static, customShaderTest2]);
   useEffect(() => {
+    const notMeshes = [];
     main.scene.traverse((node) => {
       if (node.isMesh) {
         node.material = materialASD;
-        node.renderOrder = 2;
+        node.renderOrder = 4;
+      } else {
+        notMeshes.push({ name: node.name, type: node.type });
       }
     });
+    if (notMeshes.length) console.log('main.scene nodes (not Mesh):', notMeshes);
   }, [main, materialASD]);
   useEffect(() => {
     logo.scene.traverse((node) => {

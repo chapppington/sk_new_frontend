@@ -8,9 +8,6 @@ export function basicWF() {
         depthWrite: false,
         depthTest: true,
         transparent: true,
-        polygonOffset: true,
-        polygonOffsetFactor: 0,
-        polygonOffsetUnits: 1,
         fragmentShader: fragmentShader,
         vertexShader: vertexSahder,
       });
