@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Providers } from "@/app/providers"
+import ConditionalMainScene from "@/components/3DScene/ConditionalMainScene"
 import CustomScrollbar from "@/components/CustomScrollbar"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Providers>
           <ConditionalBackgroundGradient />
           <CustomScrollbar />
+          <ConditionalMainScene />
           <Navbar />
           {children}
           <Footer />

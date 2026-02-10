@@ -8,6 +8,7 @@ import { type PropsWithChildren, useState } from "react"
 import { Toaster } from "sonner"
 import { PageTransitionProvider } from "@/context/PageTransitionProvider"
 import { WebGLProvider } from "@/context/WebGLProvider"
+import { CameraProvider } from "@/components/3DScene/features/CameraContext"
 
 export function Providers({ children }: PropsWithChildren) {
   const [client] = useState(new QueryClient())
@@ -17,6 +18,7 @@ export function Providers({ children }: PropsWithChildren) {
       <WebGLProvider>
         <ViewTransitions>
           <PageTransitionProvider>
+            <CameraProvider>
             <ReactLenis
               root
               options={{
@@ -29,8 +31,9 @@ export function Providers({ children }: PropsWithChildren) {
                 syncTouch: true,
               }}
             >
-              {children}
-            </ReactLenis>
+                {children}
+              </ReactLenis>
+            </CameraProvider>
           </PageTransitionProvider>
         </ViewTransitions>
       </WebGLProvider>
