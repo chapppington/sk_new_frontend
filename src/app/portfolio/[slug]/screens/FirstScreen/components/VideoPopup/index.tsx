@@ -39,7 +39,7 @@ const VideoPopup: FC<IVideoPopupProps> = ({
   return createPortal(
     <div
       ref={overlayRef}
-      className="fixed inset-0 bg-black/80 z-[99999] flex items-center justify-center p-4 animate-fadeIn"
+      className="fixed inset-0 bg-black/80 z-99999 flex items-center justify-center p-4 animate-fadeIn"
       onClick={onClose}
     >
       <div

@@ -21,7 +21,7 @@ const ProjectSlide: FC<ProjectSlideProps> = ({ slug, title, image, year }) => {
         priority
         className="brightness-[0.85]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
 
       <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
         <div className="flex items-center">
