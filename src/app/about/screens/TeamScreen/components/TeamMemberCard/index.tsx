@@ -1,0 +1,35 @@
+import Image from "next/image"
+import type { ITeamMemberCardProps } from "../../types"
+
+export const TeamMemberCard = ({
+  name,
+  position,
+  email,
+  image,
+}: ITeamMemberCardProps) => (
+  <div className="flex flex-col items-start w-full">
+    <div
+      className="relative w-full aspect-square mb-4"
+      style={{
+        clipPath:
+          "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
+      }}
+    >
+      <Image src={image} alt={name} fill className="object-cover" />
+    </div>
+    <div className="text-white text-2xl md:text-2xl font-normal mt-2 mb-1">
+      {name}
+    </div>
+    <div className="text-white/40 text-lg md:text-xl font-light">
+      {position}
+    </div>
+    {email && (
+      <a
+        href={`mailto:${email}`}
+        className="text-white/60 text-base md:text-lg font-light mt-1 no-underline hover:text-white/80 transition-colors"
+      >
+        {email}
+      </a>
+    )}
+  </div>
+)

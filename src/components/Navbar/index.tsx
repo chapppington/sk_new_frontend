@@ -95,20 +95,6 @@ const Navbar: FC = () => {
     return () => ctx.revert()
   }
 
-  const handleAnchorClick = (e: React.MouseEvent, href: string) => {
-    e.preventDefault()
-    const targetElement = document.querySelector(href)
-    if (targetElement) {
-      const elementPosition = targetElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - 100
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-    handleCloseMenu()
-  }
-
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 border-b border-white/30 pointer-events-none font-medium"
@@ -119,10 +105,7 @@ const Navbar: FC = () => {
 
         <div className="hidden 2xl:block h-full w-px bg-white/30" />
 
-        <NavbarDesktopMenu
-          items={menuItems}
-          onAnchorClick={handleAnchorClick}
-        />
+        <NavbarDesktopMenu items={menuItems} />
 
         <NavbarDesktopActions />
 
@@ -141,7 +124,6 @@ const Navbar: FC = () => {
           closeButtonRef={closeButtonRef}
           items={menuItems}
           onClose={handleCloseMenu}
-          onAnchorClick={handleAnchorClick}
         />
       )}
     </nav>

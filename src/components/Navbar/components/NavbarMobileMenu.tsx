@@ -3,6 +3,7 @@
 import Image from "next/image"
 import type { RefObject } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
+import TransitionLink from "@/components/ui/TransitionLink"
 import type { MenuItem } from "./NavbarDesktopMenu"
 
 type NavbarMobileMenuProps = {
@@ -13,7 +14,6 @@ type NavbarMobileMenuProps = {
   closeButtonRef: RefObject<HTMLButtonElement | null>
   items: readonly MenuItem[]
   onClose: () => void
-  onAnchorClick: (e: React.MouseEvent, href: string) => void
 }
 
 const NavbarMobileMenu = ({
@@ -24,7 +24,6 @@ const NavbarMobileMenu = ({
   closeButtonRef,
   items,
   onClose,
-  onAnchorClick,
 }: NavbarMobileMenuProps) => (
   <div className="2xl:hidden fixed inset-0 z-1000 pointer-events-auto">
     <div
@@ -85,11 +84,11 @@ const NavbarMobileMenu = ({
                 }}
                 className="border-b border-white/30 opacity-0 translate-x-[50px]"
               >
-                <a
+                <TransitionLink
                   href={item.href}
                   onClick={(e) => {
                     e.stopPropagation()
-                    onAnchorClick(e, item.href)
+                    onClose()
                   }}
                   className="text-white/80 text-lg leading-none flex items-center justify-between py-6 font-light"
                 >
@@ -110,7 +109,7 @@ const NavbarMobileMenu = ({
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
+                </TransitionLink>
               </div>
             ))}
 

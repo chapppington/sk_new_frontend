@@ -1,6 +1,6 @@
 export const menuItems = [
-  { label: "Каталог", href: "#speakers" },
-  { label: "Опросные листы", href: "#program" },
-  { label: "О компании", href: "#partner" },
-  { label: "Новости", href: "#venue" },
+  { label: "Каталог", href: "/catalog" },
+  { label: "Опросные листы", href: "/questionnaires" },
+  { label: "О компании", href: "/about" },
+  { label: "Новости", href: "/news" },
 ] as const
