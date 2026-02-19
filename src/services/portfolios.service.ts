@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
 import type { ApiResponse, ListPaginatedResponse } from "@/types/api.types"
 import type { IPortfolio, IPortfolioListParams } from "@/types/portfolios.types"
@@ -17,6 +18,23 @@ class PortfoliosService {
       `${this._BASE_URL}/slug/${slug}`,
     )
     return { data: response.data.data }
+  }
+
+  async getMetadata(slug: string): Promise<Metadata> {
+    try {
+      const { data } = await this.getBySlug(slug)
+      if (!data) throw new Error("Portfolio not found")
+
+      return {
+        title: `${data.name} | СибКомплект`,
+        description: data.description,
+      }
+    } catch {
+      return {
+        title: `Проект ${slug} | СибКомплект`,
+        description: "Подробная информация о проекте и его реализации",
+      }
+    }
   }
 }
 

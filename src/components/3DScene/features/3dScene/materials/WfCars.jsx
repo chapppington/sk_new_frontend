@@ -1,7 +1,7 @@
-import * as THREE from "three";
-import { useMemo } from "react";
-import vertexSahder from '../shaders/v2WF.vert.glsl'
-import fragmentShader from '../shaders/v2WF.frag.glsl' 
+import * as THREE from "three"
+import { useMemo } from "react"
+import vertexSahder from "../shaders/v2WF.vert.glsl"
+import fragmentShader from "../shaders/v2WF.frag.glsl"
 
 export function WfCars() {
   return useMemo(() => {
@@ -22,10 +22,10 @@ export function WfCars() {
         uRevealDistance: { value: 1000.0 },
         uAlpha: { value: 0.021 }, // Меньшее значение alpha для машин
         uFluctuationFrequency: { value: 0.0 },
-        uFluctuationAmplitude: { value: 0.0 }
+        uFluctuationAmplitude: { value: 0.0 },
       },
       fragmentShader: fragmentShader,
       vertexShader: vertexSahder,
-    });
-  }, []);
-} 
+    })
+  }, [])
+}

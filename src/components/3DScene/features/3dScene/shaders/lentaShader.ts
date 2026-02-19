@@ -4,7 +4,7 @@ export const lentaVertexShader = `
     vUv = uv;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
-`;
+`
 
 export const lentaFragmentShader = `
   uniform sampler2D uTexture;
@@ -18,4 +18,4 @@ export const lentaFragmentShader = `
     vec4 texColor = texture2D(uTexture, uv);
     gl_FragColor = vec4(uColor, texColor.a);
   }
-`; 
+`

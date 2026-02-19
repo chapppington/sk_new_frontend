@@ -16,7 +16,7 @@ export default function NotFoundScreen() {
           {/* Left side - Text content */}
           <div className="flex-1 flex flex-col items-start justify-center">
             <BracketsText className="mb-6">404 ОШИБКА</BracketsText>
-            
+
             <AnimatedText>
               <GradientHeading className="mb-6">
                 Страница не найдена

@@ -19,18 +19,18 @@ export function Providers({ children }: PropsWithChildren) {
         <ViewTransitions>
           <PageTransitionProvider>
             <CameraProvider>
-            <ReactLenis
-              root
-              options={{
-                lerp: 0.16,
-                wheelMultiplier: 1,
-                smoothWheel: true,
-                orientation: "vertical",
-                gestureOrientation: "vertical",
-                infinite: false,
-                syncTouch: true,
-              }}
-            >
+              <ReactLenis
+                root
+                options={{
+                  lerp: 0.16,
+                  wheelMultiplier: 1,
+                  smoothWheel: true,
+                  orientation: "vertical",
+                  gestureOrientation: "vertical",
+                  infinite: false,
+                  syncTouch: true,
+                }}
+              >
                 {children}
               </ReactLenis>
             </CameraProvider>

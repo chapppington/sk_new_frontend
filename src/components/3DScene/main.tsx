@@ -1,22 +1,29 @@
-"use client";
+"use client"
 
-import React, { useMemo, useState, useEffect, useRef, useCallback } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import React, { useMemo, useState, useEffect, useRef, useCallback } from "react"
+import { Canvas, useThree } from "@react-three/fiber"
+import * as THREE from "three"
 // import Scene from "@/components/3DScene/features/3dScene/Scene";
-import Camera3D from "@/components/3DScene/features/3dScene/Camera3D";
-import { AdaptiveDpr, AdaptiveEvents, Preload, PerformanceMonitor, Html } from "@react-three/drei";
-import { CameraProvider } from "./features/CameraContext";
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
+import Camera3D from "@/components/3DScene/features/3dScene/Camera3D"
+import {
+  AdaptiveDpr,
+  AdaptiveEvents,
+  Preload,
+  PerformanceMonitor,
+  Html,
+} from "@react-three/drei"
+import { CameraProvider } from "./features/CameraContext"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
 
-
-const TempScene = dynamic(() => import("./features/3dScene/Scene"), { ssr: false });
+const TempScene = dynamic(() => import("./features/3dScene/Scene"), {
+  ssr: false,
+})
 
 const MainScene = React.memo(() => {
   const [dpr, setDpr] = useState(2)
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
   // Мемоизируем настройки Canvas
   const canvasSettings = useMemo(
     () => ({
@@ -45,9 +52,8 @@ const MainScene = React.memo(() => {
         background: new THREE.Color("#121f54"),
       },
     }),
-    []
-  );
-  
+    [],
+  )
 
   // Cleanup function to properly dispose of WebGL context
   // const cleanupWebGL = useCallback(() => {
@@ -57,7 +63,7 @@ const MainScene = React.memo(() => {
   //     if (context) {
   //       // Clear all buffers
   //       context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT | context.STENCIL_BUFFER_BIT);
-        
+
   //       // Get all WebGL extensions and lose context
   //       const loseContext = context.getExtension('WEBGL_lose_context');
   //       if (loseContext) {
@@ -74,7 +80,7 @@ const MainScene = React.memo(() => {
   // Component to handle Three.js cleanup
   // const CleanupHandler = () => {
   //   const { gl } = useThree();
-    
+
   //   useEffect(() => {
   //     return () => {
   //       // Cleanup Three.js renderer
@@ -87,7 +93,7 @@ const MainScene = React.memo(() => {
   //       }
   //     };
   //   }, [gl]);
-    
+
   //   return null;
   // };
 
@@ -109,32 +115,28 @@ const MainScene = React.memo(() => {
           gl={canvasSettings.gl}
           dpr={dpr}
         >
-         
-              {/* <CleanupHandler /> */}
-              {/* Монитор производительности для адаптивного качества */}
-              {/* <PerformanceMonitor factor={1} onChange={({ factor }) => setDpr(Math.floor(0.5 + 1.5 * factor))} /> */}
-              {/* Адаптивное качество рендеринга */}
-              {/* Оптимизация событий при низком FPS */}
-              {/* <AdaptiveEvents /> */}
-              
-              {/* Предзагрузка ресурсов */}
-              {/* <Preload all /> */}
-              
-              <CameraProvider>
-                <Suspense fallback={null}>
-                  <TempScene />
-                </Suspense>
-              </CameraProvider>
-              <Camera3D />
-         
-          
+          {/* <CleanupHandler /> */}
+          {/* Монитор производительности для адаптивного качества */}
+          {/* <PerformanceMonitor factor={1} onChange={({ factor }) => setDpr(Math.floor(0.5 + 1.5 * factor))} /> */}
+          {/* Адаптивное качество рендеринга */}
+          {/* Оптимизация событий при низком FPS */}
+          {/* <AdaptiveEvents /> */}
+
+          {/* Предзагрузка ресурсов */}
+          {/* <Preload all /> */}
+
+          <CameraProvider>
+            <Suspense fallback={null}>
+              <TempScene />
+            </Suspense>
+          </CameraProvider>
+          <Camera3D />
         </Canvas>
-        
       </div>
     </div>
-  );
-});
+  )
+})
 
-MainScene.displayName = 'MainScene';
+MainScene.displayName = "MainScene"
 
-export default MainScene;
+export default MainScene

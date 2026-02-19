@@ -1,106 +1,101 @@
-import {useFrame, useThree} from "@react-three/fiber";
-import {useCameraContext} from "../CameraContext.tsx";
-import * as THREE from "three";
-import {useEffect, useRef} from "react";
-
+import { useFrame, useThree } from "@react-three/fiber"
+import { useCameraContext } from "../CameraContext.tsx"
+import * as THREE from "three"
+import { useEffect, useRef } from "react"
 
 export default function Camera3D() {
-    const { camera } = useThree();
-    const { activeSectionIndex, totalSections } = useCameraContext();
+  const { camera } = useThree()
+  const { activeSectionIndex, totalSections } = useCameraContext()
 
+  // Целевые позиции для каждого раздела
+  const cameraPositions = [
+    new THREE.Vector3(502.3, 205, -676), // Позиция для Header
+    new THREE.Vector3(432.3, 205, -676), // Позиция для ScrollingText
+    new THREE.Vector3(231.15, 42, -469), // Позиция для MissionSection
+    new THREE.Vector3(-9.65, 21.85, -61.8), // Позиция для ProductsSlider
+    new THREE.Vector3(-165.85, 53.86, -119), // Позиция для PortfolioSection
+    new THREE.Vector3(33, 23, 46), // Позиция для остальных секций
+    new THREE.Vector3(33, 23, 46), // Позиция для остальных секций
+  ]
 
-    // Целевые позиции для каждого раздела
-    const cameraPositions = [
-        new THREE.Vector3(502.3, 205, -676), // Позиция для Header
-        new THREE.Vector3(432.3, 205, -676),  // Позиция для ScrollingText
-        new THREE.Vector3(231.15, 42, -469),   // Позиция для MissionSection
-        new THREE.Vector3(-9.65, 21.85, -61.8),   // Позиция для ProductsSlider
-        new THREE.Vector3(-165.85, 53.86, -119),   // Позиция для PortfolioSection
-        new THREE.Vector3(33, 23, 46),  // Позиция для остальных секций
-        new THREE.Vector3(33, 23, 46),  // Позиция для остальных секций
-    ];
+  // Целевые точки, на которые смотрит камера
+  const lookAtPositions = [
+    new THREE.Vector3(-160, 130, 0), // Цель для Header
+    new THREE.Vector3(-100, 0, 0), // Цель для ScrollingText
+    new THREE.Vector3(-500, 1, 0), // Цель для MissionSection
+    new THREE.Vector3(-350, -60, 100), // Цель для ProductsSlider
+    new THREE.Vector3(1, 0, 0), // Цель для PortfolioSection
+    new THREE.Vector3(34, 23, 46), // Цель для остальных секций
+    new THREE.Vector3(34, 23, 46), // Цель для остальных секций
+  ]
 
-    // Целевые точки, на которые смотрит камера
-    const lookAtPositions = [
-        new THREE.Vector3(-160, 130, 0),   // Цель для Header
-        new THREE.Vector3(-100, 0, 0),  // Цель для ScrollingText
-        new THREE.Vector3(-500, 1, 0),   // Цель для MissionSection
-        new THREE.Vector3(-350, -60, 100),   // Цель для ProductsSlider
-        new THREE.Vector3(1, 0, 0),   // Цель для PortfolioSection
-        new THREE.Vector3(34, 23, 46),   // Цель для остальных секций
-        new THREE.Vector3(34, 23, 46),   // Цель для остальных секций
-    ];
+  // Ссылки для плавной анимации
+  const currentPos = useRef(new THREE.Vector3())
+  const currentLookAt = useRef(new THREE.Vector3())
 
-    // Ссылки для плавной анимации
-    const currentPos = useRef(new THREE.Vector3());
-    const currentLookAt = useRef(new THREE.Vector3());
+  // Применяем анимацию в каждом кадре
+  useFrame(() => {
+    // Плавно интерполируем текущую позицию к целевой
+    currentPos.current.lerp(cameraPositions[activeSectionIndex], 0.05)
+    currentLookAt.current.lerp(lookAtPositions[activeSectionIndex], 0.05)
 
-    // Применяем анимацию в каждом кадре
-    useFrame(() => {
-        // Плавно интерполируем текущую позицию к целевой
-        currentPos.current.lerp(cameraPositions[activeSectionIndex], 0.05);
-        currentLookAt.current.lerp(lookAtPositions[activeSectionIndex], 0.05);
+    // Обновляем позицию камеры
+    camera.position.copy(currentPos.current)
 
-        // Обновляем позицию камеры
-        camera.position.copy(currentPos.current);
+    // Направляем камеру на целевую точку
+    camera.lookAt(currentLookAt.current)
+  })
 
-        // Направляем камеру на целевую точку
-        camera.lookAt(currentLookAt.current);
-    });
+  // Инициализация начальной позиции
+  useEffect(() => {
+    if (camera) {
+      camera.position.copy(cameraPositions[0])
+      currentPos.current.copy(cameraPositions[0])
+      currentLookAt.current.copy(lookAtPositions[0])
+      camera.lookAt(lookAtPositions[0])
+    }
+  }, [camera])
 
-    // Инициализация начальной позиции
-    useEffect(() => {
-        if (camera) {
-            camera.position.copy(cameraPositions[0]);
-            currentPos.current.copy(cameraPositions[0]);
-            currentLookAt.current.copy(lookAtPositions[0]);
-            camera.lookAt(lookAtPositions[0]);
-        }
-    }, [camera]);
-   
+  //   useFrame(({clock})=>{
+  //     materialRef.current.uniforms.uTime.value = clock.getElapsedTime()
+  //   })
+  //   useFrame(({ camera }) => {
+  //     if (meshRef.current) {
+  //         // Position mesh in front of camera
+  //         const distance = 10
+  //         const vector = new THREE.Vector3(0, 0, -distance)
+  //         vector.applyQuaternion(camera.quaternion)
+  //         meshRef.current.position.copy(camera.position).add(vector)
 
-//   useFrame(({clock})=>{
-//     materialRef.current.uniforms.uTime.value = clock.getElapsedTime()
-//   })
-//   useFrame(({ camera }) => {
-//     if (meshRef.current) {
-//         // Position mesh in front of camera
-//         const distance = 10
-//         const vector = new THREE.Vector3(0, 0, -distance)
-//         vector.applyQuaternion(camera.quaternion)
-//         meshRef.current.position.copy(camera.position).add(vector)
-        
-//         // Make mesh face camera
-//         meshRef.current.quaternion.copy(camera.quaternion)
-//     }
-    
-// })
+  //         // Make mesh face camera
+  //         meshRef.current.quaternion.copy(camera.quaternion)
+  //     }
 
-    return (
-        null
-            // <mesh ref={meshRef} scale={[10,10,1]}>
-            //     <planeGeometry args={[1, 1]} />
-            //     <shaderMaterial
-            //         ref={materialRef}
-            //         side={2}
-            //         uniforms={{
-            //             uTime: { value: 1.0 },
-            //             uColor1: { value: new THREE.Color("#3ba7cd") },
-            //             uColor2: { value: new THREE.Color(0.082, 0.055, 0.341) },
-            //             uColor3: { value: new THREE.Color("#000000") },
-            //             uTimeScale: { value: 0.19 },
-            //             uScale: { value: 1.08 },
-            //             uScale3: { value: 1.08 },
-            //             uScaleVignette: { value: 0.523 },
-            //             uVignetteBorderFade: { value: 0.216 },
-            //             uAlpha: { value: .8 },
-            //         }}
-            //         vertexShader={vertexShader}
-            //         fragmentShader={fragmentShader}
-            //         transparent={true}
-            //     />
-            // </mesh>
-    );
+  // })
+
+  return null
+  // <mesh ref={meshRef} scale={[10,10,1]}>
+  //     <planeGeometry args={[1, 1]} />
+  //     <shaderMaterial
+  //         ref={materialRef}
+  //         side={2}
+  //         uniforms={{
+  //             uTime: { value: 1.0 },
+  //             uColor1: { value: new THREE.Color("#3ba7cd") },
+  //             uColor2: { value: new THREE.Color(0.082, 0.055, 0.341) },
+  //             uColor3: { value: new THREE.Color("#000000") },
+  //             uTimeScale: { value: 0.19 },
+  //             uScale: { value: 1.08 },
+  //             uScale3: { value: 1.08 },
+  //             uScaleVignette: { value: 0.523 },
+  //             uVignetteBorderFade: { value: 0.216 },
+  //             uAlpha: { value: .8 },
+  //         }}
+  //         vertexShader={vertexShader}
+  //         fragmentShader={fragmentShader}
+  //         transparent={true}
+  //     />
+  // </mesh>
 }
 // function CameraAnimation() {
 //   const { cameraAnimationActive } = useCameraAnimation();
@@ -186,7 +181,6 @@ export default function Camera3D() {
 //
 //   return <Curve ref={curveRef} />;
 // }
-
 
 // function SceneBackground() {
 //   const { scene } = useThree()

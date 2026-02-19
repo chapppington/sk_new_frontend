@@ -47,5 +47,10 @@
     "formatter": {
       "semicolons": "asNeeded"
     }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true
+    }
   }
 }

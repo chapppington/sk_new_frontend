@@ -4,9 +4,9 @@ import type { IPortfolioListParams } from "@/types/portfolios.types"
 
 export function usePortfolios(params?: IPortfolioListParams) {
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["portfolios", params],
+    queryKey: ["portfolios", params ?? {}],
     queryFn: () => portfoliosService.getList(params),
-    enabled: params !== undefined,
+    enabled: true,
   })
 
   return {

@@ -1,7 +1,7 @@
-import * as THREE from "three";
-import { useMemo } from "react";
-import vertexSahder from "../shaders/worldWF.vert.glsl";
-import fragmentShader from "../shaders/v2WF.frag.glsl";
+import * as THREE from "three"
+import { useMemo } from "react"
+import vertexSahder from "../shaders/worldWF.vert.glsl"
+import fragmentShader from "../shaders/v2WF.frag.glsl"
 export function WfMid() {
   return useMemo(() => {
     return new THREE.ShaderMaterial({
@@ -25,6 +25,6 @@ export function WfMid() {
       },
       fragmentShader: fragmentShader,
       vertexShader: vertexSahder,
-    });
-  }, []);
+    })
+  }, [])
 }
