@@ -4,14 +4,14 @@ import { HistoryEvent } from "./types"
 
 interface HistorySlideProps {
   event: HistoryEvent
-  index: number // ← передаём индекс слайда
+  index: number
 }
 
 const HistorySlide: FC<HistorySlideProps> = ({ event, index }) => {
   return (
     <article className="group relative overflow-hidden">
       <div
-        className="relative aspect-[3/4] overflow-hidden transition-all duration-300 ease-in-out backdrop-blur-sm bg-blue-950"
+        className="relative aspect-3/4 overflow-hidden transition-all duration-300 ease-in-out backdrop-blur-sm bg-blue-950"
         style={{
           clipPath: "polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%)",
         }}
