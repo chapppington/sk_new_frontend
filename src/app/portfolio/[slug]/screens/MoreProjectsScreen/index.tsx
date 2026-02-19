@@ -54,6 +54,7 @@ const MoreProjectsScreen: FC = () => {
                     slug={project.slug}
                     title={project.name}
                     image={project.poster}
+                    imageAlt={project.poster_alt || project.name}
                     year={String(project.year)}
                   />
                 ))}

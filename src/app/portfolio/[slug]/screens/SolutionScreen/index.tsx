@@ -5,10 +5,10 @@ import Image from "next/image"
 import GradientHeading from "@/components/ui/GradientHeading"
 import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
-import { IPortfolioItem } from "@/shared/types/portfolio.types"
+import type { IPortfolio } from "@/types/portfolios.types"
 
 interface Props {
-  portfolio: IPortfolioItem
+  portfolio: IPortfolio
 }
 
 export default function SolutionScreen({ portfolio }: Props) {
@@ -26,9 +26,9 @@ export default function SolutionScreen({ portfolio }: Props) {
             <div className="flex flex-col mx-auto">
               <div className="pl-0">
                 {/* Heading and Description */}
-                <GradientHeading>{portfolio.solutionTitle}</GradientHeading>
+                <GradientHeading>{portfolio.solution_title}</GradientHeading>
                 <p className="text-white/60 text-base my-12">
-                  {portfolio.solutionDescription}
+                  {portfolio.solution_description}
                 </p>
               </div>
             </div>
@@ -38,10 +38,14 @@ export default function SolutionScreen({ portfolio }: Props) {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-0 items-stretch mt-12">
           {/* Left image */}
           <div className="flex-[1.3] min-w-0">
-            {portfolio.solutionImages?.[0] && (
+            {portfolio.solution_image_left && (
               <Image
-                src={portfolio.solutionImages[0]}
-                alt="Solution image 1"
+                src={portfolio.solution_image_left}
+                alt={
+                  portfolio.solution_image_left_alt ||
+                  portfolio.solution_title ||
+                  ""
+                }
                 className="w-full h-[400px] object-cover"
                 width={800}
                 height={400}
@@ -51,18 +55,22 @@ export default function SolutionScreen({ portfolio }: Props) {
           {/* Center card */}
           <div className="flex-1 min-w-0 flex flex-col justify-center p-8">
             <h2 className="text-white text-3xl font-light mb-6">
-              {portfolio.solutionSubtitle}
+              {portfolio.solution_subtitle}
             </h2>
             <div className="text-white/80 text-base leading-relaxed">
-              {portfolio.solutionSubdescription}
+              {portfolio.solution_subdescription}
             </div>
           </div>
           {/* Right image */}
           <div className="flex-[0.7] min-w-0">
-            {portfolio.solutionImages?.[1] && (
+            {portfolio.solution_image_right && (
               <Image
-                src={portfolio.solutionImages[1]}
-                alt="Solution image 2"
+                src={portfolio.solution_image_right}
+                alt={
+                  portfolio.solution_image_right_alt ||
+                  portfolio.solution_title ||
+                  ""
+                }
                 className="w-full h-[400px] object-cover"
                 width={800}
                 height={400}

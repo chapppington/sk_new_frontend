@@ -4,11 +4,11 @@ import Image from "next/image"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import BracketsText from "@/components/ui/BracketsText"
-import { IPortfolioItem } from "@/shared/types/portfolio.types"
+import type { IPortfolio } from "@/types/portfolios.types"
 import BigFatCommaIcon from "@/shared/icons/BigFatCommaIcon"
 
 interface Props {
-  portfolio: IPortfolioItem
+  portfolio: IPortfolio
 }
 
 const ReviewScreen = ({ portfolio }: Props) => {
@@ -25,7 +25,7 @@ const ReviewScreen = ({ portfolio }: Props) => {
           {/* Left: Gradient Heading */}
           <div className="flex-1">
             <GradientHeading className="leading-tight mb-0">
-              {portfolio.reviewTitle || "Никто не вправе"}
+              {portfolio.review_title}
             </GradientHeading>
           </div>
 
@@ -37,28 +37,29 @@ const ReviewScreen = ({ portfolio }: Props) => {
             </div>
             {/* Testimonial Text */}
             <blockquote className="text-lg md:text-xl text-gray-300 font-light mb-8 first-line:pl-8">
-              {portfolio.reviewText ||
-                "«Значимость этих проблем настолько очевидна, что сложившаяся структура организации в значительной степени обусловливает важность каксамодостаточных, так и внешне зависимых концептуальных решений»"}
+              {portfolio.review_text}
             </blockquote>
             {/* User Info */}
             <div className="flex items-center gap-4 mt-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden">
-                <div className="w-full h-full">
+              {portfolio.review_image && (
+                <div className="w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src={portfolio.reviewImage}
-                    alt="avatar"
+                    src={portfolio.review_image}
+                    alt={
+                      portfolio.review_image_alt || portfolio.review_name || ""
+                    }
                     width={64}
                     height={64}
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              )}
               <div>
                 <div className="text-white font-semibold text-lg">
-                  {portfolio.reviewName || "Иванов Иван Павлович"}
+                  {portfolio.review_name}
                 </div>
                 <div className="text-gray-400 text-sm">
-                  {portfolio.reviewRole || "Клиент"}
+                  {portfolio.review_role}
                 </div>
               </div>
             </div>

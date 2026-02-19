@@ -7,15 +7,22 @@ interface ProjectSlideProps {
   slug: string
   title: string
   image: string
+  imageAlt: string
   year: string
 }
 
-const ProjectSlide: FC<ProjectSlideProps> = ({ slug, title, image, year }) => {
+const ProjectSlide: FC<ProjectSlideProps> = ({
+  slug,
+  title,
+  image,
+  imageAlt,
+  year,
+}) => {
   return (
     <div className="relative h-[420px] w-full overflow-hidden rounded-lg">
       <Image
         src={image}
-        alt={title}
+        alt={imageAlt}
         fill
         style={{ objectFit: "cover" }}
         priority

@@ -1,15 +1,13 @@
 "use client"
 
-import { Suspense } from "react"
-import { IPortfolioItem } from "@/shared/types/portfolio.types"
+import Image from "next/image"
+import type { IPortfolio } from "@/types/portfolios.types"
 import CustomContainer from "@/components/ui/CustomContainer"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import GradientHeading from "@/components/ui/GradientHeading"
-import MediaPreview from "./components/VideoWrapper"
-import VideoOverlay from "./components/VideoOverlay"
 
 interface FirstScreenProps {
-  portfolio: IPortfolioItem
+  portfolio: IPortfolio
 }
 
 const FirstScreen = ({ portfolio }: FirstScreenProps) => {
@@ -40,24 +38,15 @@ const FirstScreen = ({ portfolio }: FirstScreenProps) => {
           </div>
         </div>
 
-        {/* Image/Video Preview */}
+        {/* Image Preview */}
         <div className="relative w-full aspect-[2.8/1] rounded-2xl overflow-hidden shadow-lg">
-          <Suspense
-            fallback={
-              <div className="w-full h-full bg-black/20 rounded-2xl animate-pulse" />
-            }
-          >
-            <MediaPreview
-              src={portfolio.previewVideoPath ?? "null"}
-              poster={portfolio.poster}
-              onlyShowPoster={true}
-            />
-            <VideoOverlay
-              videoSrc={portfolio.previewVideoPath ?? "null"}
-              fullVideoSrc={portfolio.fullVideoPath ?? null}
-              posterSrc={portfolio.poster}
-            />
-          </Suspense>
+          <Image
+            src={portfolio.poster}
+            alt={portfolio.poster_alt}
+            fill
+            priority
+            className="object-cover"
+          />
         </div>
       </CustomContainer>
     </section>

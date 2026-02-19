@@ -3,10 +3,10 @@
 import GradientHeading from "@/components/ui/GradientHeading"
 import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
-import { IPortfolioItem } from "@/shared/types/portfolio.types"
+import type { IPortfolio } from "@/types/portfolios.types"
 
 interface Props {
-  portfolio: IPortfolioItem
+  portfolio: IPortfolio
 }
 
 export default function TasksScreen({ portfolio }: Props) {
@@ -24,9 +24,9 @@ export default function TasksScreen({ portfolio }: Props) {
             <div className="flex flex-col mx-auto">
               <div className="pl-0">
                 {/* Heading and Description */}
-                <GradientHeading>{portfolio.taskTitle}</GradientHeading>
+                <GradientHeading>{portfolio.task_title}</GradientHeading>
                 <p className="text-white/60 text-base my-12">
-                  {portfolio.taskDescription}
+                  {portfolio.task_description}
                 </p>
               </div>
             </div>

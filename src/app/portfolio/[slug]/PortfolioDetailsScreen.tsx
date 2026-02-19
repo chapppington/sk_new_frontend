@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic"
 import { usePortfolioBySlug } from "@/hooks/usePortfolios"
-import { mapPortfolioFromApi } from "@/shared/types/portfolio.types"
 import { Skeleton } from "@/shared/ui/skeleton"
 import CustomContainer from "@/components/ui/CustomContainer"
 import FirstScreen from "./screens/FirstScreen"
@@ -100,8 +99,7 @@ function PortfolioSkeleton() {
 }
 
 export default function PortfolioDetailsScreen({ slug }: Props) {
-  const { portfolio: apiPortfolio, isLoading } = usePortfolioBySlug(slug)
-  const portfolio = apiPortfolio ? mapPortfolioFromApi(apiPortfolio) : null
+  const { portfolio, isLoading } = usePortfolioBySlug(slug)
 
   if (isLoading) return <PortfolioSkeleton />
   if (!portfolio) return <div>Portfolio not found</div>
@@ -111,7 +109,7 @@ export default function PortfolioDetailsScreen({ slug }: Props) {
       <FirstScreen portfolio={portfolio} />
       <TasksScreen portfolio={portfolio} />
       <SolutionScreen portfolio={portfolio} />
-      {portfolio.hasReview && <ReviewScreen portfolio={portfolio} />}
+      {portfolio.has_review && <ReviewScreen portfolio={portfolio} />}
       <MoreProjectsScreen />
       <ContactUsScreen />
     </main>

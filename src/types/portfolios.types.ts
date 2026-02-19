@@ -21,6 +21,7 @@ export interface IPortfolio {
   review_text: string | null
   review_name: string | null
   review_image: string | null
+  review_image_alt?: string | null
   review_role: string | null
   created_at: string
   updated_at: string
