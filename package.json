@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--disable-warning=DEP0169' next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_OPTIONS='--disable-warning=DEP0169' next start",
     "lint": "biome check",
     "format": "biome format --write"
   },
