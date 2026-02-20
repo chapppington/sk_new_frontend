@@ -5,7 +5,7 @@ const ContactInfo: FC = () => {
   const phone = "+7 (800) 600-39-89"
 
   const linkClassName =
-    "text-white text-sm px-8 flex items-center h-full select-none relative overflow-hidden group"
+    "text-white text-sm px-8 flex items-center h-full select-none relative overflow-hidden group cursor-pointer"
 
   return (
     <div className="flex items-center h-full">

@@ -25,7 +25,7 @@ const FIRST_SCREEN = {
       value: "8500",
       unit: { text: "м²", isSuperscript: false },
       description: "производственной площади",
-      showOnMobile: false, 
+      showOnMobile: false,
     },
   ],
 }

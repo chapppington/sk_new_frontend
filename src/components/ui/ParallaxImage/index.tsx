@@ -8,6 +8,7 @@ const ParallaxImage: FC<IParallaxImageProps> = ({
   src,
   alt,
   priority = false,
+  fetchPriority,
   quality = 90,
   className = "",
   parallaxFactor = 0.3,
@@ -31,6 +32,7 @@ const ParallaxImage: FC<IParallaxImageProps> = ({
         alt={alt}
         fill
         priority={priority}
+        {...(fetchPriority && { fetchPriority })}
         className={`object-cover ${className}`}
         sizes="100vw"
         quality={quality}

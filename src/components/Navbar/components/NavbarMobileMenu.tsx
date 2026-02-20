@@ -90,7 +90,7 @@ const NavbarMobileMenu = ({
                     e.stopPropagation()
                     onClose()
                   }}
-                  className="text-white/80 text-lg leading-none flex items-center justify-between py-6 font-light"
+                  className="text-white/80 text-lg leading-none flex items-center justify-between py-6 font-light cursor-pointer"
                 >
                   {item.label}
                   <svg

@@ -45,7 +45,9 @@ const ContactsScreen: FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {contactBlocks.map((block, idx) => (
                   <div key={idx}>
-                    <h3 className="text-base md:text-lg font-medium text-white/80 mb-4">• {block.title}</h3>
+                    <h3 className="text-base md:text-lg font-medium text-white/80 mb-4">
+                      • {block.title}
+                    </h3>
                     {block.phone && (
                       <div className="flex items-center gap-2 mb-3">
                         <PhoneIcon className={iconClassName} />
@@ -59,7 +61,10 @@ const ContactsScreen: FC = () => {
                     )}
                     <div className="flex items-center gap-2">
                       <EmailIcon className={iconClassName} />
-                      <a href={`mailto:${block.email}`} className="text-base font-medium text-white">
+                      <a
+                        href={`mailto:${block.email}`}
+                        className="text-base font-medium text-white"
+                      >
                         {block.email}
                       </a>
                     </div>
@@ -68,10 +73,14 @@ const ContactsScreen: FC = () => {
               </div>
 
               <div>
-                <h3 className="text-base md:text-lg font-medium text-white/80 mb-4">• Адрес</h3>
+                <h3 className="text-base md:text-lg font-medium text-white/80 mb-4">
+                  • Адрес
+                </h3>
                 <div className="flex items-center gap-2 mb-4">
                   <LocationIcon className={iconClassName} />
-                  <span className="text-base font-medium text-white">{companyAddress}</span>
+                  <span className="text-base font-medium text-white">
+                    {companyAddress}
+                  </span>
                 </div>
                 <YandexMapContainer height="300px" />
               </div>

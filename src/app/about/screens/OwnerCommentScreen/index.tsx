@@ -20,7 +20,7 @@ export const OwnerCommentScreen: FC = () => {
               }}
             >
               <Image
-                src="/Полозов_Сергей_Николаевич_Генеральный_директор.webp"
+                src="/polozov-general-director.webp"
                 alt="Полозов Сергей Николаевич"
                 fill
                 className="object-cover"
@@ -44,7 +44,7 @@ export const OwnerCommentScreen: FC = () => {
               }}
             >
               <Image
-                src="/Малиновский_Михаил_Валентинович_Технический_директор.webp"
+                src="/malinovskiy-technical-director.webp"
                 alt="Малиновский Михаил Валентинович"
                 fill
                 className="object-cover"

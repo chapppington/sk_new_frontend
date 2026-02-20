@@ -38,7 +38,6 @@ const ReviewItem = ({ review, animationKey, ref }: ReviewItemProps) => {
             <div className="w-full h-full">
               <Image
                 src={review.image}
-                unoptimized={true}
                 alt="avatar"
                 width={64}
                 height={64}

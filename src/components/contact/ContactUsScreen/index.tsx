@@ -23,7 +23,9 @@ const ContactUsScreen: FC<ContactUsScreenProps> = ({
           <div className="lg:w-1/2">
             <GradientHeading className="mb-4">{heading}</GradientHeading>
             <div className="mt-8 lg:mb-0">
-              <p className="text-base md:text-lg font-medium text-white/70 max-w-[600px]">{description}</p>
+              <p className="text-base md:text-lg font-medium text-white/70 max-w-[600px]">
+                {description}
+              </p>
             </div>
           </div>
           <div className="lg:w-1/2">
