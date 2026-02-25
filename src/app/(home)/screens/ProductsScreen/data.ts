@@ -4,7 +4,7 @@ export const products = [
     image: "/ktp.webp",
     description:
       "Трансформаторные подстанции 10/0,4 кВ используют в конце пути электроэнергии для приема, преобразования и распределения. ",
-    slug: "komplektnye-transformatornye-podstancii",
+    slug: "transformatornye-podstancii",
   },
   {
     title: "Распределительные устройства среднего напряжения 6(10) кВ",
