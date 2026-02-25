@@ -34,7 +34,7 @@ const NewsGridItem: FC<NewsGridItemProps> = ({ news }) => {
         className="block"
         aria-label={`Читать новость: ${news.title}`}
       >
-        <div className="relative w-full h-56 mb-4 overflow-hidden rounded-lg aspect-[4/3]">
+        <div className="relative w-full h-56 mb-4 overflow-hidden rounded-lg aspect-4/3">
           <Image
             src={imageSrc}
             alt={news.alt || news.title}
