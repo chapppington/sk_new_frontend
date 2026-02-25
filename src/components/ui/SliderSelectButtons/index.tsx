@@ -1,10 +1,11 @@
 "use client"
-import React, { useState, useEffect, useRef, FC } from "react"
+import React, { useEffect, useRef, FC } from "react"
 import { useScrollOffset } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
 import { gsap } from "gsap"
-import { ISectionHeaderProps } from "./types"
 import { Power4 } from "gsap/all"
 import { mockup } from "@/components/ProductsSlider3D/features/mockup"
+import { NavigationButton } from "@/components/ui/NavigationButton"
+import { ISectionHeaderProps } from "./types"
 
 const SliderSelectButtons: FC<ISectionHeaderProps> = ({
   currentSlide,
@@ -42,42 +43,16 @@ const SliderSelectButtons: FC<ISectionHeaderProps> = ({
 
       {/* Navigation Arrows */}
       <div className="flex items-center space-x-3">
-        <button
-          className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white hover:border-white/60 transition-colors"
+        <NavigationButton
+          direction="prev"
+          sliderId="catalog-products"
           onClick={handlePrev}
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M15 19l-7-7 7-7"
-            ></path>
-          </svg>
-        </button>
-        <button
-          className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white hover:border-white/60 transition-colors"
+        />
+        <NavigationButton
+          direction="next"
+          sliderId="catalog-products"
           onClick={handleNext}
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-        </button>
+        />
       </div>
     </div>
   )
