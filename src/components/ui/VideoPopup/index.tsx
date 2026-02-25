@@ -17,10 +17,25 @@ const VideoPopup: FC<VideoPopupProps> = ({
   posterSrc,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const savedTimeRef = useRef(0)
+
+  const handleClose = () => {
+    if (videoRef.current) {
+      savedTimeRef.current = videoRef.current.currentTime
+      videoRef.current.pause()
+    }
+    onClose()
+  }
 
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
+      if (e.key === "Escape") {
+        if (videoRef.current) {
+          savedTimeRef.current = videoRef.current.currentTime
+          videoRef.current.pause()
+        }
+        onClose()
+      }
     }
     if (isOpen) {
       document.addEventListener("keydown", handleEscKey)
@@ -34,11 +49,14 @@ const VideoPopup: FC<VideoPopupProps> = ({
     }
   }, [isOpen, onClose])
 
-  useEffect(() => {
-    if (isOpen && videoRef.current) {
-      videoRef.current.play()
+  const handleVideoLoadedMetadata = () => {
+    if (videoRef.current && savedTimeRef.current > 0) {
+      videoRef.current.currentTime = savedTimeRef.current
+      videoRef.current.pause()
+    } else {
+      videoRef.current?.play()
     }
-  }, [isOpen])
+  }
 
   if (!isOpen) return null
   if (typeof document === "undefined") return null
@@ -46,7 +64,7 @@ const VideoPopup: FC<VideoPopupProps> = ({
   return createPortal(
     <div
       className="fixed inset-0 bg-black/80 z-99999 flex items-center justify-center p-4 animate-fadeIn"
-      onClick={onClose}
+      onClick={handleClose}
     >
       <div
         className="relative w-full max-w-6xl aspect-video bg-black rounded-xl overflow-hidden"
@@ -54,8 +72,8 @@ const VideoPopup: FC<VideoPopupProps> = ({
       >
         <button
           type="button"
-          className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 bg-white hover:bg-white/90 transition-colors z-10"
-          onClick={onClose}
+          className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 bg-white hover:bg-white/90 transition-colors z-10 cursor-pointer"
+          onClick={handleClose}
           aria-label="Закрыть"
         >
           <svg
@@ -80,6 +98,7 @@ const VideoPopup: FC<VideoPopupProps> = ({
           controls
           className="w-full h-full object-cover"
           onClick={(e) => e.stopPropagation()}
+          onLoadedMetadata={handleVideoLoadedMetadata}
         />
       </div>
     </div>,
