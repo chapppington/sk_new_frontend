@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, FC } from "react"
+import { useEffect, useRef, FC } from "react"
 import { useScrollOffset } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
 import { gsap } from "gsap"
 import { Power4 } from "gsap/all"
@@ -12,7 +12,7 @@ const SliderSelectButtons: FC<ISectionHeaderProps> = ({
   setCurrentSlide,
 }) => {
   const totalSlides = mockup.length
-  const { scrollOffset, setScrollOffset } = useScrollOffset()
+  const { setScrollOffset } = useScrollOffset()
   const tweenRef = useRef({ value: 0 })
   useEffect(() => {
     const newOffset = (currentSlide - 1) / totalSlides
