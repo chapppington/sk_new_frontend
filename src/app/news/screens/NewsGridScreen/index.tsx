@@ -1,7 +1,13 @@
 "use client"
 
 import type { FC } from "react"
-import { useCallback, useEffect, useLayoutEffect, useRef, Suspense } from "react"
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  Suspense,
+} from "react"
 import { useLenis } from "lenis/react"
 import { useSearchParams, usePathname } from "next/navigation"
 import gsap from "gsap"
