@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
-import { Suspense } from "react"
 import seoService from "@/services/seo/seo.service"
 import FirstScreen from "@/app/news/screens/FirstScreen"
 
@@ -17,9 +16,7 @@ export default function News() {
   return (
     <>
       <FirstScreen />
-      <Suspense fallback={<div className="min-h-screen bg-black" />}>
-        <NewsGrid />
-      </Suspense>
+      <NewsGrid />
       <ContactUsScreen />
     </>
   )

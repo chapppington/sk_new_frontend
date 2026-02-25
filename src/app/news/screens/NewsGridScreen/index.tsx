@@ -1,7 +1,7 @@
 "use client"
 
 import type { FC } from "react"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useLayoutEffect, useRef, Suspense } from "react"
 import { useLenis } from "lenis/react"
 import { useSearchParams, usePathname } from "next/navigation"
 import gsap from "gsap"
@@ -20,20 +20,12 @@ import { FilterIcon } from "@/shared/icons/FilterIcon"
 import { SortIcon } from "@/shared/icons/SortIcon"
 import { SearchIcon } from "@/shared/icons/SearchIcon"
 
-const CATEGORY_SLUGS: Record<string, string> = {
-  Производство: "production",
-  Разработки: "developments",
-  Полезное: "useful",
-  События: "events",
-  "Наши проекты": "projects",
-}
-
 const CATEGORIES = [
   { name: "Все", slug: "all", apiValue: undefined },
-  ...NEWS_CATEGORIES.map((name) => ({
-    name,
-    slug: CATEGORY_SLUGS[name] || name.toLowerCase().replace(/\s+/g, "-"),
-    apiValue: name,
+  ...NEWS_CATEGORIES.map((cat) => ({
+    name: cat.label,
+    slug: cat.key,
+    apiValue: cat.label,
   })),
 ]
 
@@ -57,12 +49,12 @@ function buildQueryString(
   return params.toString()
 }
 
-const NewsGrid: FC = () => {
+const NewsGridContent: FC = () => {
   const lenis = useLenis()
-  const [initialRender, setInitialRender] = useState(true)
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const newsGridRef = useRef<HTMLDivElement>(null)
+  const paginationRef = useRef<HTMLDivElement>(null)
   const noResultsRef = useRef<HTMLDivElement>(null)
 
   const categorySlug = searchParams.get("category") || "all"
@@ -91,36 +83,39 @@ const NewsGrid: FC = () => {
     [pathname, searchParams],
   )
 
-  useEffect(() => {
-    setInitialRender(false)
-  }, [])
-
-  useEffect(() => {
-    if (!newsGridRef.current || news.length === 0) return
-    const items = Array.from(newsGridRef.current.children)
-    // First elements get larger y offset for more noticeable slide
-    items.forEach((el, i) => {
-      const yOffset = Math.max(20, 48 - i * 6)
-      gsap.set(el, { opacity: 0, y: yOffset })
-    })
-
-    if (initialRender) {
-      gsap.set(items, { opacity: 1, y: 0 })
-      lenis?.resize()
-      return
+  useLayoutEffect(() => {
+    if (newsGridRef.current && news.length > 0) {
+      const items = newsGridRef.current.children
+      gsap.fromTo(
+        items,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.05,
+          ease: "power2.out",
+          onComplete: () => lenis?.resize(),
+        },
+      )
     }
+  }, [news, categorySlug, sortBy, page, lenis])
 
-    requestAnimationFrame(() => {
-      gsap.to(items, {
-        opacity: 1,
-        y: 0,
-        duration: 0.25,
-        stagger: 0.03,
-        ease: "power2.out",
-        onComplete: () => lenis?.resize(),
-      })
-    })
-  }, [categorySlug, sortBy, page, news.length, lenis, initialRender])
+  useEffect(() => {
+    if (paginationRef.current) {
+      gsap.fromTo(
+        paginationRef.current,
+        { opacity: 0, y: -10 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => lenis?.resize(),
+        },
+      )
+    }
+  }, [categorySlug, sortBy, page, lenis])
 
   useEffect(() => {
     if (noResultsRef.current && news.length === 0 && !isLoading) {
@@ -183,7 +178,7 @@ const NewsGrid: FC = () => {
 
         {/* Pagination */}
         {!isLoading && totalPages > 1 && news.length > 0 && (
-          <div className="flex justify-start mb-8">
+          <div ref={paginationRef} className="flex justify-start mb-8">
             <Pagination
               currentPage={page}
               totalPages={totalPages}
@@ -201,7 +196,6 @@ const NewsGrid: FC = () => {
           ) : news.length > 0 ? (
             <div
               ref={newsGridRef}
-              key={`news-grid-${categorySlug}-${sortBy}-${page}${initialRender ? "-initial" : ""}`}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             >
               {news.map((item: INews) => (
@@ -221,6 +215,14 @@ const NewsGrid: FC = () => {
         </div>
       </CustomContainer>
     </section>
+  )
+}
+
+const NewsGrid: FC = () => {
+  return (
+    <Suspense fallback={<div className="min-h-[60vh] bg-black" />}>
+      <NewsGridContent />
+    </Suspense>
   )
 }
 

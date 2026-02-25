@@ -110,7 +110,6 @@ const YandexMapContainer: FC<IYandexMapContainerProps> = ({
       style={{ objectFit: "cover" }}
       sizes="100vw"
       priority={false}
-      unoptimized
     />
   )
 

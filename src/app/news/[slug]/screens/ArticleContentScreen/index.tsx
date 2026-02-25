@@ -12,18 +12,6 @@ import { IArticleContentSectionProps } from "./types"
 export default function ArticleContentSection({
   news,
 }: IArticleContentSectionProps) {
-  // Добавляем маппер категорий
-  const categoryMap: Record<string, string> = {
-    all: "Все",
-    production: "Производство",
-    technology: "Технологии",
-    events: "События",
-    interview: "Интервью",
-    developments: "Разработки",
-    useful: "Полезное",
-    projects: "Наши проекты",
-  }
-
   return (
     <article className="max-w-[1000px] mx-auto mt-2">
       <CustomContainer className="flex flex-col items-start">
@@ -41,7 +29,7 @@ export default function ArticleContentSection({
 
         {/* Category Tag */}
         <div className="mb-6 px-4 py-2 border border-white text-white text-sm rounded font-light">
-          <span>{categoryMap[news.category] || news.category}</span>
+          <span>{news.category}</span>
         </div>
 
         {/* Article Title */}

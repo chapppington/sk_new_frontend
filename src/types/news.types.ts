@@ -1,12 +1,13 @@
 export const NEWS_CATEGORIES = [
-  "Производство",
-  "Разработки",
-  "Полезное",
-  "События",
-  "Наши проекты",
+  { key: "proizvodstvo", label: "Производство" },
+  { key: "razrabotki", label: "Разработки" },
+  { key: "poleznoe", label: "Полезное" },
+  { key: "sobytiya", label: "События" },
+  { key: "nashi-proekty", label: "Наши проекты" },
 ] as const
 
-export type NewsCategory = (typeof NEWS_CATEGORIES)[number]
+export type NewsCategoryKey = (typeof NEWS_CATEGORIES)[number]["key"]
+export type NewsCategoryLabel = (typeof NEWS_CATEGORIES)[number]["label"]
 
 export interface INews {
   oid: string
