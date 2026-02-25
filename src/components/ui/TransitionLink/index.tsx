@@ -39,6 +39,8 @@ const TransitionLink: FC<ITransitionLinkProps> = ({
     // Start the slide-in animation
     await animateIn()
 
+    const hasQueryOrHash = href.includes("?") || href.includes("#")
+
     // Start the page transition
     const transitionPromise = router.push(href)
 
@@ -50,6 +52,27 @@ const TransitionLink: FC<ITransitionLinkProps> = ({
         animateOut(),
       ),
     ])
+
+    // Restore query and hash if router dropped them (Next.js App Router can strip hash)
+    if (hasQueryOrHash && typeof window !== "undefined") {
+      try {
+        const url = new URL(href, window.location.origin)
+        const fullUrl = url.pathname + url.search + url.hash
+        const currentFull =
+          window.location.pathname +
+          window.location.search +
+          window.location.hash
+        if (currentFull !== fullUrl) {
+          window.history.replaceState(null, "", fullUrl)
+        }
+        if (url.hash) {
+          const el = document.querySelector(url.hash)
+          el?.scrollIntoView({ behavior: "smooth" })
+        }
+      } catch {
+        // ignore URL parse errors
+      }
+    }
 
     // Dispatch the layout change event after transition completes
     setTimeout(() => {
