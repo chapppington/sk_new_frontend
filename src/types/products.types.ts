@@ -82,7 +82,3 @@ export interface IProductsListParams {
   sort_field?: string
   sort_order?: number
 }
-
-export type IProductCreate = Omit<IProduct, "oid" | "created_at" | "updated_at">
-
-export type IProductUpdate = Partial<IProductCreate>
