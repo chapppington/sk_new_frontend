@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
-import type { ApiResponse, ListPaginatedResponse } from "@/types/api.types"
+import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { IPortfolio, IPortfolioListParams } from "@/types/portfolios.types"
 
 class PortfoliosService {

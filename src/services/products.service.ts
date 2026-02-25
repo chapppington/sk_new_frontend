@@ -1,5 +1,5 @@
 import { axiosPublic } from "@/api/axios"
-import type { ApiResponse, ListPaginatedResponse } from "@/types/api.types"
+import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { IProduct, IProductsListParams } from "@/types/products.types"
 
 class ProductsService {

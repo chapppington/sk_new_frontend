@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
-import type { ApiResponse, ListPaginatedResponse } from "@/types/api.types"
+import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { INews, INewsListParams } from "@/types/news.types"
 
 class NewsService {

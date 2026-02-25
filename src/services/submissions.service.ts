@@ -1,5 +1,5 @@
 import { axiosPublic } from "@/api/axios"
-import type { ApiResponse } from "@/types/api.types"
+import type { ApiResponse } from "@/api/types"
 import type {
   ICreateSubmissionData,
   ISubmission,
