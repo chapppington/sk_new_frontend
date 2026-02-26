@@ -21,4 +21,5 @@ export interface ICreateSubmissionData {
   comments?: string
   files?: string[]
   answers_file_url?: string
+  vacancy_oid?: string
 }

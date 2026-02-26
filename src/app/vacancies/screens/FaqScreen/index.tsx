@@ -1,0 +1,76 @@
+"use client"
+
+import GradientHeading from "@/components/ui/GradientHeading"
+import CustomContainer from "@/components/ui/CustomContainer"
+import Dropdown from "@/components/ui/Dropdown"
+import BracketsText from "@/components/ui/BracketsText"
+import { faqItems } from "./data"
+
+const TITLE = "Ответы на частозадаваемые вопросы"
+const SUBTITLE =
+  "Здесь вы найдете ответы на самые распространенные вопросы о работе в нашей компании, условиях трудоустройства и корпоративной культуре. Если у вас остались дополнительные вопросы, свяжитесь с нашим HR-отделом."
+
+const FaqScreen = () => {
+  const mid = Math.ceil(faqItems.length / 2)
+  const left = faqItems.slice(0, mid)
+  const right = faqItems.slice(mid)
+
+  return (
+    <section id="faq_section" className="bg-transparent py-24">
+      <CustomContainer className="relative">
+        <div className="flex flex-col lg:flex-row justify-between items-start mb-16">
+          <div className="mb-8 md:mb-0">
+            <BracketsText>FAQ</BracketsText>
+          </div>
+
+          <div className="flex flex-col md:max-w-3xl pt-5 lg:pt-0">
+            <GradientHeading>{TITLE}</GradientHeading>
+            <p className="text-white/70 mt-6">{SUBTITLE}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row mx-auto">
+          <div className="md:w-1/2 pr-0 md:pr-8">
+            {left.map((item, index) => (
+              <Dropdown
+                key={item.title}
+                title={item.title}
+                defaultOpen={index === 0}
+              >
+                <p className="text-white/60 text-base select-none">
+                  {item.content}
+                </p>
+                {item.list && item.list.length > 0 && (
+                  <ul className="text-white/80 text-base list-disc pl-5 mt-4">
+                    {item.list.map((listItem, i) => (
+                      <li key={i}>{listItem}</li>
+                    ))}
+                  </ul>
+                )}
+              </Dropdown>
+            ))}
+          </div>
+
+          <div className="md:w-1/2 pl-0 md:pl-8">
+            {right.map((item) => (
+              <Dropdown key={item.title} title={item.title}>
+                <p className="text-white/60 text-base select-none">
+                  {item.content}
+                </p>
+                {item.list && item.list.length > 0 && (
+                  <ul className="text-white/80 text-base list-disc pl-5 mt-4">
+                    {item.list.map((listItem, i) => (
+                      <li key={i}>{listItem}</li>
+                    ))}
+                  </ul>
+                )}
+              </Dropdown>
+            ))}
+          </div>
+        </div>
+      </CustomContainer>
+    </section>
+  )
+}
+
+export default FaqScreen

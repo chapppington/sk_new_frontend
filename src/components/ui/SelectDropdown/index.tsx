@@ -140,7 +140,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
           </div>
           <svg
             ref={arrowRef}
-            className="w-5 h-5 text-white/60 ml-2 flex-shrink-0"
+            className="w-5 h-5 text-white/60 ml-2 shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
