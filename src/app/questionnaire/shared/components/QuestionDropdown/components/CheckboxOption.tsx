@@ -1,4 +1,4 @@
-import { IQuestionOption } from "@/app/(main)/questionnaire/shared/types";
+import { IQuestionOption } from "@/app/questionnaire/shared/types";
 
 interface CheckboxOptionProps {
   options: IQuestionOption[];

@@ -1,4 +1,4 @@
-import { IFormState, IQuestion } from "@/app/(main)/questionnaire/shared/types";
+import { IFormState, IQuestion } from "@/app/questionnaire/shared/types";
 
 /**
  * Creates an initial form state where:

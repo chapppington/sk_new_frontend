@@ -5,7 +5,7 @@ import CustomContainer from "@/components/ui/CustomContainer";
 import Questionnaire from "../Questionnaire";
 import QuestionnaireLeftMenu from "../QuestionnaireLeftMenu";
 import { initializeFormState } from "../../utils/initializeFormState";
-import { IFormState } from "@/app/(main)/questionnaire/shared/types";
+import { IFormState } from "@/app/questionnaire/shared/types";
 import { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types";
 import { useLenis } from "lenis/react";
 import { QuestionnaireWrapperProps } from "./types";

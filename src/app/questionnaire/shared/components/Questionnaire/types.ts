@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import { IFormState, IQuestion } from "@/app/(main)/questionnaire/shared/types";
+import { IFormState, IQuestion } from "@/app/questionnaire/shared/types";
 import { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types";
 
 export type QuestionnaireType = 'ktp' | 'krun' | 'kso';

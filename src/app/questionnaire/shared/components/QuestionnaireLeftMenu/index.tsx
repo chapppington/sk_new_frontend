@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import GradientHeading from "@/components/ui/GradientHeading";
-import QuestionnaireStage from "@/app/(main)/questionnaire/shared/components/QuestionnaireStage";
+import QuestionnaireStage from "@/app/questionnaire/shared/components/QuestionnaireStage";
 
 import { QuestionnaireLeftMenuProps } from "./types";
 

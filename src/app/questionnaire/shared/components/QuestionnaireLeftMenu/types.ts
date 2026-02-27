@@ -1,4 +1,4 @@
-import { IStage } from "@/app/(main)/questionnaire/shared/types";
+import { IStage } from "@/app/questionnaire/shared/types";
 
 export interface QuestionnaireLeftMenuProps {
   activeStage: number;

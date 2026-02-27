@@ -1,4 +1,4 @@
-import { IQuestion, IStage } from "@/app/(main)/questionnaire/shared/types";
+import { IQuestion, IStage } from "@/app/questionnaire/shared/types";
 
 export type QuestionnaireType = 'ktp' | 'krun' | 'kso';
 
