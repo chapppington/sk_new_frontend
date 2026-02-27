@@ -1,84 +1,84 @@
-import React, { useState, useEffect } from "react";
-import { FeederSectionOptionProps, FeederData } from "./types";
-import { Tabs, TabContent } from "@/components/ui/Tabs";
-import Input from "@/components/ui/Input";
-import MainButton from "@/components/ui/MainButton";
-import { useLenis } from "lenis/react";
+import React, { useState, useEffect } from "react"
+import { FeederSectionOptionProps, FeederData } from "./types"
+import { Tabs, TabContent } from "@/components/ui/Tabs"
+import Input from "@/components/ui/Input"
+import MainButton from "@/components/ui/MainButton"
+import { useLenis } from "lenis/react"
 
-const MAX_FEEDERS_PER_SECTION = 16;
+const MAX_FEEDERS_PER_SECTION = 16
 
 const FeederSectionOption = ({
   value,
   onChange,
   numberOfSections,
 }: FeederSectionOptionProps) => {
-  const [activeTab, setActiveTab] = useState("section-1");
+  const [activeTab, setActiveTab] = useState("section-1")
   const [sectionsData, setSectionsData] = useState<
     Record<string, FeederData[]>
-  >({});
-  const lenis = useLenis();
+  >({})
+  const lenis = useLenis()
 
   useEffect(() => {
     // Initialize sectionsData based on numberOfSections
-    const initialData: Record<string, FeederData[]> = {};
+    const initialData: Record<string, FeederData[]> = {}
     for (let i = 1; i <= numberOfSections; i++) {
-      const sectionKey = `section-${i}`;
+      const sectionKey = `section-${i}`
       initialData[sectionKey] = value?.[sectionKey] || [
         { current: "", count: "" },
-      ];
+      ]
     }
-    setSectionsData(initialData);
-  }, [numberOfSections, value]);
+    setSectionsData(initialData)
+  }, [numberOfSections, value])
 
   const handleFeederChange = (
     sectionKey: string,
     index: number,
     field: keyof FeederData,
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    const newSectionsData = { ...sectionsData };
-    newSectionsData[sectionKey][index][field] = e.target.value;
-    setSectionsData(newSectionsData);
-    onChange(newSectionsData);
-  };
+    const newSectionsData = { ...sectionsData }
+    newSectionsData[sectionKey][index][field] = e.target.value
+    setSectionsData(newSectionsData)
+    onChange(newSectionsData)
+  }
 
   const handleAddFeeder = (sectionKey: string) => {
     if (sectionsData[sectionKey].length >= MAX_FEEDERS_PER_SECTION) {
-      return;
+      return
     }
-    const newSectionsData = { ...sectionsData };
+    const newSectionsData = { ...sectionsData }
     newSectionsData[sectionKey] = [
       ...newSectionsData[sectionKey],
       { current: "", count: "" },
-    ];
-    setSectionsData(newSectionsData);
-    onChange(newSectionsData);
+    ]
+    setSectionsData(newSectionsData)
+    onChange(newSectionsData)
     // Resize Lenis after adding a feeder
     if (lenis) {
       setTimeout(() => {
-        lenis.resize();
-      }, 50);
+        lenis.resize()
+      }, 50)
     }
-  };
+  }
 
   const handleDeleteFeeder = (sectionKey: string, index: number) => {
-    const newSectionsData = { ...sectionsData };
+    const newSectionsData = { ...sectionsData }
     newSectionsData[sectionKey] = newSectionsData[sectionKey].filter(
-      (_, i) => i !== index
-    );
+      (_, i) => i !== index,
+    )
     // Ensure there's always at least one feeder
     if (newSectionsData[sectionKey].length === 0) {
-      newSectionsData[sectionKey] = [{ current: "", count: "" }];
+      newSectionsData[sectionKey] = [{ current: "", count: "" }]
     }
-    setSectionsData(newSectionsData);
-    onChange(newSectionsData);
+    setSectionsData(newSectionsData)
+    onChange(newSectionsData)
     // Resize Lenis after deleting a feeder
     if (lenis) {
       setTimeout(() => {
-        lenis.resize();
-      }, 50);
+        lenis.resize()
+      }, 50)
     }
-  };
+  }
 
   // Check if question 4 is not filled
   if (!numberOfSections || numberOfSections === 0) {
@@ -86,13 +86,13 @@ const FeederSectionOption = ({
       <div className="text-white/60 italic py-4">
         Заполните пункт 4 (Количество силовых трансформаторов)
       </div>
-    );
+    )
   }
 
   const tabs = Array.from({ length: numberOfSections }, (_, i) => {
-    const sectionKey = `section-${i + 1}`;
+    const sectionKey = `section-${i + 1}`
     const isMaxFeeders =
-      sectionsData[sectionKey]?.length >= MAX_FEEDERS_PER_SECTION;
+      sectionsData[sectionKey]?.length >= MAX_FEEDERS_PER_SECTION
     return {
       label: `Секция ${i + 1}`,
       value: sectionKey,
@@ -145,8 +145,8 @@ const FeederSectionOption = ({
           />
         </div>
       ),
-    };
-  });
+    }
+  })
 
   return (
     <div>
@@ -158,7 +158,7 @@ const FeederSectionOption = ({
         ))}
       </Tabs>
     </div>
-  );
-};
+  )
+}
 
-export default FeederSectionOption;
+export default FeederSectionOption

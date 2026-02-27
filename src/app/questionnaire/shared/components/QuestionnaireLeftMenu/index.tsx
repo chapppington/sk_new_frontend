@@ -1,8 +1,8 @@
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import GradientHeading from "@/components/ui/GradientHeading";
-import QuestionnaireStage from "@/app/questionnaire/shared/components/QuestionnaireStage";
+import Breadcrumbs from "@/components/ui/Breadcrumbs"
+import GradientHeading from "@/components/ui/GradientHeading"
+import QuestionnaireStage from "@/app/questionnaire/shared/components/QuestionnaireStage"
 
-import { QuestionnaireLeftMenuProps } from "./types";
+import { QuestionnaireLeftMenuProps } from "./types"
 
 export default function QuestionnaireLeftMenu({
   activeStage,
@@ -29,11 +29,7 @@ export default function QuestionnaireLeftMenu({
 
       <GradientHeading className="mt-8 mb-6">{title}</GradientHeading>
 
-      {subtitle && (
-        <p className="text-white/60 mb-12">
-          {subtitle}
-        </p>
-      )}
+      {subtitle && <p className="text-white/60 mb-12">{subtitle}</p>}
 
       {/* Stages */}
       <div className="relative">
@@ -49,5 +45,5 @@ export default function QuestionnaireLeftMenu({
         ))}
       </div>
     </div>
-  );
+  )
 }

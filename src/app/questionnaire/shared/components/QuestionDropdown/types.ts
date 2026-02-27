@@ -1,17 +1,17 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types";
-import { FeederData } from "./components/FeederSectionOption/types";
+import { IQuestionOption } from "@/app/questionnaire/shared/types"
+import { FeederData } from "./components/FeederSectionOption/types"
 
 export interface QuestionDropdownProps {
-  value: string | number | string[] | Record<string, FeederData[]>;
+  value: string | number | string[] | Record<string, FeederData[]>
   onChange: (
-    value: string | number | string[] | Record<string, FeederData[]>
-  ) => void;
-  title: string;
-  options?: IQuestionOption[];
-  defaultOpen?: boolean;
-  questionId: number;
-  popoverContent?: string;
-  type?: "slider" | "text" | "multiple_choice" | "feeder_sections";
-  textLabel?: string;
-  numberOfSections?: number;
+    value: string | number | string[] | Record<string, FeederData[]>,
+  ) => void
+  title: string
+  options?: IQuestionOption[]
+  defaultOpen?: boolean
+  questionId: number
+  popoverContent?: string
+  type?: "slider" | "text" | "multiple_choice" | "feeder_sections"
+  textLabel?: string
+  numberOfSections?: number
 }

@@ -1,11 +1,11 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types";
+import { IQuestionOption } from "@/app/questionnaire/shared/types"
 
 interface CheckboxOptionProps {
-  options: IQuestionOption[];
-  value: string[];
-  onChange: (value: string[]) => void;
-  questionId: number;
-  title: string;
+  options: IQuestionOption[]
+  value: string[]
+  onChange: (value: string[]) => void
+  questionId: number
+  title: string
 }
 
 const CheckIcon = () => (
@@ -24,7 +24,7 @@ const CheckIcon = () => (
       strokeWidth="1.5"
     />
   </svg>
-);
+)
 
 const CheckboxOption = ({
   options,
@@ -34,13 +34,13 @@ const CheckboxOption = ({
   title,
 }: CheckboxOptionProps) => {
   const handleCheckboxChange = (optionValue: string | number) => {
-    const stringValue = String(optionValue);
+    const stringValue = String(optionValue)
     if (value.includes(stringValue)) {
-      onChange(value.filter((val) => val !== stringValue));
+      onChange(value.filter((val) => val !== stringValue))
     } else {
-      onChange([...value, stringValue]);
+      onChange([...value, stringValue])
     }
-  };
+  }
 
   return (
     <div className="flex flex-col gap-2">
@@ -70,7 +70,7 @@ const CheckboxOption = ({
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default CheckboxOption;
+export default CheckboxOption

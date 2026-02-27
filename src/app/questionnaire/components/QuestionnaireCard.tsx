@@ -1,12 +1,12 @@
-import MainButton from "@/components/ui/MainButton";
+import MainButton from "@/components/ui/MainButton"
 
 interface QuestionnaireCardProps {
-  title: string;
-  description: string;
-  href: string;
-  buttonText?: string;
-  external?: boolean;
-  download?: boolean;
+  title: string
+  description: string
+  href: string
+  buttonText?: string
+  external?: boolean
+  download?: boolean
 }
 
 export default function QuestionnaireCard({
@@ -39,6 +39,5 @@ export default function QuestionnaireCard({
       {/* Декоративный градиент */}
       <div className="absolute inset-0 rounded-xl bg-linear-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </div>
-  );
+  )
 }
-

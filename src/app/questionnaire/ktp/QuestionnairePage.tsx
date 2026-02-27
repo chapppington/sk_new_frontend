@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import QuestionnaireWrapper from "@/app/questionnaire/shared/components/QuestionnaireWrapper";
-import { questionsConfig } from "./config/questions";
-import { stages } from "./config/stages";
+import QuestionnaireWrapper from "@/app/questionnaire/shared/components/QuestionnaireWrapper"
+import { questionsConfig } from "./config/questions"
+import { stages } from "./config/stages"
 
 export default function QuestionnairePage() {
   return (
@@ -14,5 +14,5 @@ export default function QuestionnairePage() {
       subtitle="на изготовление комплектной трансформаторной подстанции (КТП), производства ООО «СибКомплект»"
       breadcrumbLabel="Опросный лист КТП"
     />
-  );
+  )
 }

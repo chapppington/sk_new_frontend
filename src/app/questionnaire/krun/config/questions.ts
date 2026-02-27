@@ -1,4 +1,4 @@
-import { IQuestion } from "@/app/questionnaire/shared/types";
+import { IQuestion } from "@/app/questionnaire/shared/types"
 
 export const questionsConfig: IQuestion[] = [
   // Этап 1: Основные электрические параметры
@@ -169,7 +169,8 @@ export const questionsConfig: IQuestion[] = [
     id: 15,
     title: "15 · Количество и сечение кабеля (Ввод)",
     type: "text",
-    textLabel: "Укажите количество и сечение кабеля для ввода (например: 3x240 мм²)",
+    textLabel:
+      "Укажите количество и сечение кабеля для ввода (например: 3x240 мм²)",
     popoverContent:
       "Определяет количество и сечение кабеля для ввода, влияет на выбор зажимов и кабельных вводов.",
   },
@@ -177,7 +178,8 @@ export const questionsConfig: IQuestion[] = [
     id: 16,
     title: "16 · Количество и сечение кабеля (Вывод)",
     type: "text",
-    textLabel: "Укажите количество и сечение кабеля для вывода (например: 3x150 мм²)",
+    textLabel:
+      "Укажите количество и сечение кабеля для вывода (например: 3x150 мм²)",
     popoverContent:
       "Определяет количество и сечение кабеля для вывода, влияет на выбор зажимов и кабельных вводов.",
   },
@@ -203,8 +205,8 @@ export const questionsConfig: IQuestion[] = [
     textLabel: "Укажите тип счетчика (если выбран)",
     popoverContent: "Укажите конкретную модель счётчика электроэнергии.",
     showIf: (answers) => {
-      const devices = answers[17] as string[];
-      return Array.isArray(devices) && devices.includes("counter");
+      const devices = answers[17] as string[]
+      return Array.isArray(devices) && devices.includes("counter")
     },
   },
   {
@@ -293,6 +295,4 @@ export const questionsConfig: IQuestion[] = [
     popoverContent:
       "Определяет окраску корпуса и дверей устройства. Стандартное – двери RAL 5005 (синий), корпус RAL 7035 (серый). Другое – окраска по пожеланию заказчика.",
   },
-];
-
-
+]

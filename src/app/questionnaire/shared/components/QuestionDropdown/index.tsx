@@ -1,11 +1,11 @@
-import Dropdown from "@/components/ui/Dropdown";
-import { QuestionDropdownProps } from "./types";
-import SliderOption from "./components/SliderOption";
-import RadioOption from "./components/RadioOption";
-import CheckboxOption from "./components/CheckboxOption";
-import Input from "@/components/ui/Input";
-import FeederSectionOption from "./components/FeederSectionOption";
-import { FeederData } from "./components/FeederSectionOption/types";
+import Dropdown from "@/components/ui/Dropdown"
+import { QuestionDropdownProps } from "./types"
+import SliderOption from "./components/SliderOption"
+import RadioOption from "./components/RadioOption"
+import CheckboxOption from "./components/CheckboxOption"
+import Input from "@/components/ui/Input"
+import FeederSectionOption from "./components/FeederSectionOption"
+import { FeederData } from "./components/FeederSectionOption/types"
 
 const QuestionDropdown = ({
   value,
@@ -69,7 +69,7 @@ const QuestionDropdown = ({
         />
       )}
     </Dropdown>
-  );
-};
+  )
+}
 
-export default QuestionDropdown;
+export default QuestionDropdown

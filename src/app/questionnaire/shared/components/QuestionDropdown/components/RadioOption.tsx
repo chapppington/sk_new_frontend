@@ -1,14 +1,14 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types";
-import Input from "@/components/ui/Input";
-import { useLenis } from "lenis/react";
-import { useEffect } from "react";
+import { IQuestionOption } from "@/app/questionnaire/shared/types"
+import Input from "@/components/ui/Input"
+import { useLenis } from "lenis/react"
+import { useEffect } from "react"
 
 interface RadioOptionProps {
-  options: IQuestionOption[];
-  value: string | number | string[];
-  onChange: (value: string | number | string[]) => void;
-  questionId: number;
-  title: string;
+  options: IQuestionOption[]
+  value: string | number | string[]
+  onChange: (value: string | number | string[]) => void
+  questionId: number
+  title: string
 }
 
 const RadioOption = ({
@@ -18,31 +18,31 @@ const RadioOption = ({
   questionId,
   title,
 }: RadioOptionProps) => {
-  const lenis = useLenis();
+  const lenis = useLenis()
 
   // Find the currently selected top-level option or its parent if nested
   const selectedOption = options.find((option) => {
     if (option.value === value) {
-      return true; // Direct match
+      return true // Direct match
     }
     if (
       Array.isArray(option.nestedOptions) &&
       option.nestedOptions.some((nested) => nested.value === value)
     ) {
-      return true; // Value is in nested options
+      return true // Value is in nested options
     }
-    return false;
-  });
+    return false
+  })
 
   // Trigger Lenis resize when nested options change
   useEffect(() => {
     if (lenis) {
       // Small delay to allow the nested options to render completely
       setTimeout(() => {
-        lenis.resize();
-      }, 50);
+        lenis.resize()
+      }, 50)
     }
-  }, [selectedOption, lenis]);
+  }, [selectedOption, lenis])
 
   return (
     <div>
@@ -129,17 +129,17 @@ const RadioOption = ({
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
 interface RadioButtonProps {
-  option: IQuestionOption;
-  value: string | number | string[];
-  onChange: (value: string | number | string[]) => void;
-  questionId: number;
-  title: string;
-  isChecked: boolean; // New prop to explicitly control checked state
-  radioGroupName: string; // New prop to explicitly control the radio group name
+  option: IQuestionOption
+  value: string | number | string[]
+  onChange: (value: string | number | string[]) => void
+  questionId: number
+  title: string
+  isChecked: boolean // New prop to explicitly control checked state
+  radioGroupName: string // New prop to explicitly control the radio group name
 }
 
 const RadioButton = ({
@@ -160,6 +160,6 @@ const RadioButton = ({
     />
     <div className="absolute w-2.5 h-2.5 rounded-full bg-white/100 opacity-0 peer-checked:opacity-100 pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
   </div>
-);
+)
 
-export default RadioOption;
+export default RadioOption

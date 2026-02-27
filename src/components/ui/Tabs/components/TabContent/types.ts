@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 export interface TabContentProps {
-  children: ReactNode;
-  value: string;
-  label: string;
+  children: ReactNode
+  value: string
+  label: string
 }

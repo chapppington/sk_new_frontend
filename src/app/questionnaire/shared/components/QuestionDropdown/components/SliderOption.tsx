@@ -1,10 +1,10 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types";
+import { IQuestionOption } from "@/app/questionnaire/shared/types"
 
 interface SliderOptionProps {
-  options: IQuestionOption[];
-  value: string | number | string[];
-  onChange: (value: string | number | string[]) => void;
-  questionId: number;
+  options: IQuestionOption[]
+  value: string | number | string[]
+  onChange: (value: string | number | string[]) => void
+  questionId: number
 }
 
 const SliderOption = ({
@@ -13,14 +13,14 @@ const SliderOption = ({
   onChange,
   questionId,
 }: SliderOptionProps) => {
-  const minSliderIndex = 0;
-  const maxSliderIndex = options.length - 1;
+  const minSliderIndex = 0
+  const maxSliderIndex = options.length - 1
   const currentOptionIndex = options.findIndex(
-    (option) => option.value === value
-  );
-  const sliderInputIndex = currentOptionIndex !== -1 ? currentOptionIndex : 0;
+    (option) => option.value === value,
+  )
+  const sliderInputIndex = currentOptionIndex !== -1 ? currentOptionIndex : 0
   const percentage =
-    maxSliderIndex > 0 ? (sliderInputIndex / maxSliderIndex) * 100 : 0;
+    maxSliderIndex > 0 ? (sliderInputIndex / maxSliderIndex) * 100 : 0
 
   return (
     <div className="flex flex-col gap-4 px-2">
@@ -30,13 +30,13 @@ const SliderOption = ({
         max={maxSliderIndex}
         value={sliderInputIndex}
         onChange={(e) => {
-          const newIndex = Number(e.target.value);
+          const newIndex = Number(e.target.value)
           const roundedIndex = Math.max(
             minSliderIndex,
-            Math.min(maxSliderIndex, Math.round(newIndex))
-          );
-          const selectedOptionValue = options[roundedIndex].value;
-          onChange(selectedOptionValue);
+            Math.min(maxSliderIndex, Math.round(newIndex)),
+          )
+          const selectedOptionValue = options[roundedIndex].value
+          onChange(selectedOptionValue)
         }}
         step={1}
         className="w-full h-2 rounded-lg appearance-none cursor-pointer"
@@ -72,7 +72,7 @@ const SliderOption = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SliderOption;
+export default SliderOption

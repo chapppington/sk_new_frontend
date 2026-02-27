@@ -7,16 +7,16 @@ import {
   isValidElement,
   useState,
   ReactElement,
-} from "react";
-import gsap from "gsap";
-import { useLenis } from "lenis/react";
-import { TabsContextType, TabsProps } from "./types";
-import { TabButton } from "./components/TabButton";
-import { TabContent } from "./components/TabContent";
-import { TabLine } from "./components/TabLine";
-import { TabContentProps } from "./components/TabContent/types";
+} from "react"
+import gsap from "gsap"
+import { useLenis } from "lenis/react"
+import { TabsContextType, TabsProps } from "./types"
+import { TabButton } from "./components/TabButton"
+import { TabContent } from "./components/TabContent"
+import { TabLine } from "./components/TabLine"
+import { TabContentProps } from "./components/TabContent/types"
 
-const TabsContext = createContext<TabsContextType | null>(null);
+const TabsContext = createContext<TabsContextType | null>(null)
 
 export const Tabs: FC<TabsProps> = ({
   children,
@@ -24,61 +24,61 @@ export const Tabs: FC<TabsProps> = ({
   onChange,
   size,
 }) => {
-  const [activeTab, setActiveTab] = useState(defaultTab);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const lenis = useLenis();
+  const [activeTab, setActiveTab] = useState(defaultTab)
+  const lineRef = useRef<HTMLDivElement>(null)
+  const tabsContainerRef = useRef<HTMLDivElement>(null)
+  const lenis = useLenis()
 
   const handleTabClick = (value: string) => {
     if (lineRef.current && tabsContainerRef.current) {
-      const tabsElements = Array.from(tabsContainerRef.current.children);
+      const tabsElements = Array.from(tabsContainerRef.current.children)
       const targetTab = tabsElements.find(
-        (tab) => tab.getAttribute("data-value") === value
-      ) as HTMLElement;
-      
+        (tab) => tab.getAttribute("data-value") === value,
+      ) as HTMLElement
+
       // Only animate if targetTab is found
       if (targetTab) {
-        const targetRect = targetTab.getBoundingClientRect();
-        const containerRect = tabsContainerRef.current.getBoundingClientRect();
+        const targetRect = targetTab.getBoundingClientRect()
+        const containerRect = tabsContainerRef.current.getBoundingClientRect()
 
         gsap.to(lineRef.current, {
           x: targetRect.left - containerRect.left,
           width: targetRect.width,
           duration: 0.1,
           ease: "power2.inOut",
-        });
+        })
       }
     }
-    setActiveTab(value);
-    onChange?.(value);
+    setActiveTab(value)
+    onChange?.(value)
 
     // Resize Lenis after tab change
     if (lenis) {
       setTimeout(() => {
-        lenis.resize();
-      }, 50);
+        lenis.resize()
+      }, 50)
     }
-  };
+  }
 
   useEffect(() => {
     if (lineRef.current && tabsContainerRef.current) {
-      const tabsElements = Array.from(tabsContainerRef.current.children);
+      const tabsElements = Array.from(tabsContainerRef.current.children)
       const targetTab = tabsElements.find(
-        (tab) => tab.getAttribute("data-value") === activeTab
-      ) as HTMLElement;
-      
+        (tab) => tab.getAttribute("data-value") === activeTab,
+      ) as HTMLElement
+
       // Only set initial position if targetTab is found
       if (targetTab) {
-        const targetRect = targetTab.getBoundingClientRect();
-        const containerRect = tabsContainerRef.current.getBoundingClientRect();
+        const targetRect = targetTab.getBoundingClientRect()
+        const containerRect = tabsContainerRef.current.getBoundingClientRect()
 
         gsap.set(lineRef.current, {
           x: targetRect.left - containerRect.left,
           width: targetRect.width,
-        });
+        })
       }
     }
-  }, []);
+  }, [])
 
   return (
     <TabsContext.Provider value={{ activeTab, setActiveTab }}>
@@ -89,7 +89,7 @@ export const Tabs: FC<TabsProps> = ({
         >
           {Children.map(children, (child) => {
             if (isValidElement(child) && child.type === TabContent) {
-              const contentChild = child as ReactElement<TabContentProps>;
+              const contentChild = child as ReactElement<TabContentProps>
               return (
                 <TabButton
                   key={contentChild.props.value}
@@ -99,25 +99,25 @@ export const Tabs: FC<TabsProps> = ({
                   onClick={handleTabClick}
                   size={size}
                 />
-              );
+              )
             }
-            return null;
+            return null
           })}
           <TabLine lineRef={lineRef} />
         </div>
         <div className="py-4">
           {Children.map(children, (child) => {
             if (isValidElement(child) && child.type === TabContent) {
-              const contentChild = child as ReactElement<TabContentProps>;
+              const contentChild = child as ReactElement<TabContentProps>
               return activeTab === contentChild.props.value
                 ? contentChild.props.children
-                : null;
+                : null
             }
-            return null;
+            return null
           })}
         </div>
       </div>
     </TabsContext.Provider>
-  );
-};
-export { TabContent };
+  )
+}
+export { TabContent }

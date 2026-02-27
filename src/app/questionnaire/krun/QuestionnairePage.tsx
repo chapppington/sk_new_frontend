@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import QuestionnaireWrapper from "@/app/questionnaire/shared/components/QuestionnaireWrapper";
-import { questionsConfig } from "./config/questions";
-import { stages } from "./config/stages";
+import QuestionnaireWrapper from "@/app/questionnaire/shared/components/QuestionnaireWrapper"
+import { questionsConfig } from "./config/questions"
+import { stages } from "./config/stages"
 
 export default function QuestionnairePage() {
   return (
@@ -14,6 +14,5 @@ export default function QuestionnairePage() {
       subtitle="на изготовление комплектного распределительного устройства наружной установки (КРУН/ЯКНО), производства ООО «СибКомплект»"
       breadcrumbLabel="Опросный лист КРУН/ЯКНО"
     />
-  );
+  )
 }
-

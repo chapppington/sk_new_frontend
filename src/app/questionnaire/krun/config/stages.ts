@@ -1,4 +1,4 @@
-import { IStage } from "@/app/questionnaire/shared/types";
+import { IStage } from "@/app/questionnaire/shared/types"
 
 export const stages: IStage[] = [
   {
@@ -31,5 +31,4 @@ export const stages: IStage[] = [
     title: "Контактная информация",
     shortTitle: "Этап 6",
   },
-];
-
+]

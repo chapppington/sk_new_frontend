@@ -1,5 +1,5 @@
-import { RefObject } from "react";
+import { RefObject } from "react"
 
 export interface TabLineProps {
-  lineRef: RefObject<HTMLDivElement | null>;
+  lineRef: RefObject<HTMLDivElement | null>
 }

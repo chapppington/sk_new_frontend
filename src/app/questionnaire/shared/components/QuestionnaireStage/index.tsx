@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { QuestionnaireStageProps } from "./types";
+import { FC } from "react"
+import { QuestionnaireStageProps } from "./types"
 
 const QuestionnaireStage: FC<QuestionnaireStageProps> = ({
   stage,
@@ -10,15 +10,15 @@ const QuestionnaireStage: FC<QuestionnaireStageProps> = ({
 }) => {
   // Calculate if the current stage is active based on activeStage
   const isStageActive = (() => {
-    const stageStart = (stage.number - 1) * 5 + 1;
-    const stageEnd = stage.number * 5;
-    return activeStage >= stageStart && activeStage <= stageEnd;
-  })();
+    const stageStart = (stage.number - 1) * 5 + 1
+    const stageEnd = stage.number * 5
+    return activeStage >= stageStart && activeStage <= stageEnd
+  })()
 
   const handleStageClick = (): void => {
-    const firstSectionNumber = (stage.number - 1) * 5 + 1;
-    changeStage(firstSectionNumber);
-  };
+    const firstSectionNumber = (stage.number - 1) * 5 + 1
+    changeStage(firstSectionNumber)
+  }
 
   return (
     <div className="relative">
@@ -64,7 +64,7 @@ const QuestionnaireStage: FC<QuestionnaireStageProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default QuestionnaireStage;
+export default QuestionnaireStage

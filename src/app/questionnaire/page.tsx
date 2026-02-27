@@ -7,7 +7,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <QuestionnaireListPage />;
+  return <QuestionnaireListPage />
 }
-
-

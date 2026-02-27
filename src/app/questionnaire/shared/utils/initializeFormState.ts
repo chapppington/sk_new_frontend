@@ -1,4 +1,4 @@
-import { IFormState, IQuestion } from "@/app/questionnaire/shared/types";
+import { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
 
 /**
  * Creates an initial form state where:
@@ -10,7 +10,7 @@ export const initializeFormState = (questions: IQuestion[]): IFormState => {
   const initialState = questions.map((question) => ({
     questionId: question.id,
     defaultValue: Array.isArray(question.options) ? [] : "",
-  }));
+  }))
 
   // Convert the array of question states into a single object
   return initialState.reduce(
@@ -18,7 +18,6 @@ export const initializeFormState = (questions: IQuestion[]): IFormState => {
       ...formState,
       [questionId]: defaultValue,
     }),
-    {}
-  );
-};
-
+    {},
+  )
+}
