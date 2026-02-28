@@ -73,6 +73,20 @@ export interface IProduct {
   updated_at: string
 }
 
+/** Обогащённый продукт с загруженными элементами портфолио (добавляется в useProduct) */
+export interface IPortfolioItem {
+  oid: string
+  poster: string
+  name: string
+  description?: string
+  year: number | string
+  slug: string
+}
+
+export type IProductWithPortfolio = IProduct & {
+  portfolio_items: IPortfolioItem[]
+}
+
 export interface IProductsListParams {
   limit?: number
   offset?: number

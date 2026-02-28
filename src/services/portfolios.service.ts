@@ -13,6 +13,13 @@ class PortfoliosService {
     return { data: response.data.data }
   }
 
+  async getById(id: string) {
+    const response = await axiosPublic.get<ApiResponse<IPortfolio>>(
+      `${this._BASE_URL}/${id}`,
+    )
+    return { data: response.data.data }
+  }
+
   async getBySlug(slug: string) {
     const response = await axiosPublic.get<ApiResponse<IPortfolio>>(
       `${this._BASE_URL}/slug/${slug}`,
