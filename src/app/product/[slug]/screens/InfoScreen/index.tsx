@@ -128,7 +128,6 @@ const InfoScreen: FC<InfoScreenProps> = ({ product }) => {
                   className="w-full h-full absolute inset-0 z-0"
                 >
                   <Image
-                    unoptimized={true}
                     src={product.advantages[previousFeatureIndex].image}
                     alt={
                       product.advantages[previousFeatureIndex].alt ||
@@ -148,7 +147,6 @@ const InfoScreen: FC<InfoScreenProps> = ({ product }) => {
                 className="w-full h-full absolute inset-0 z-10"
               >
                 <Image
-                  unoptimized={true}
                   src={product.advantages[activeFeatureIndex].image}
                   alt={
                     product.advantages[activeFeatureIndex].alt ||

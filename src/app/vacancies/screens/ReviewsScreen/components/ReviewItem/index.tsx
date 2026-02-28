@@ -11,7 +11,6 @@ const ReviewItem: FC<ReviewItemProps> = ({ review, onClick }) => {
       <div className="flex flex-col lg:flex-row items-start lg:items-end w-full gap-0 lg:gap-8">
         <div className="w-40 h-40 rounded-lg overflow-hidden mb-6 lg:mb-0 flex items-center justify-center bg-white">
           <Image
-            unoptimized={true}
             src={review.image}
             alt={review.name}
             width={160}

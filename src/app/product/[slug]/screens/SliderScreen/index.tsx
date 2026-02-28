@@ -97,7 +97,6 @@ const SliderSection: FC<SliderSectionProps> = ({ product }) => {
                 <SwiperSlide key={slide.oid}>
                   <div className="relative h-[600px] w-full overflow-hidden rounded-lg">
                     <Image
-                      unoptimized={true}
                       src={slide.poster}
                       alt={slide.name}
                       fill
@@ -165,7 +164,6 @@ const SliderSection: FC<SliderSectionProps> = ({ product }) => {
                     <div className="group h-full cursor-pointer">
                       <div className="relative h-[190px] overflow-hidden rounded-lg">
                         <Image
-                          unoptimized={true}
                           src={slide.poster}
                           alt={slide.name}
                           fill
