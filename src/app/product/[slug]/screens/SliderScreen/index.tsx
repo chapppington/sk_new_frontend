@@ -171,7 +171,7 @@ const SliderSection: FC<SliderSectionProps> = ({ product }) => {
                           fill
                           className="object-cover opacity-50 group-hover:opacity-80 transition-opacity"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
                         <div className="absolute bottom-3 left-3 right-3">
                           <h4 className="text-white text-sm font-medium line-clamp-2">
                             {slide.name}
