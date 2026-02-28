@@ -110,31 +110,31 @@ export default function QuestionnaireWrapper({
     <main className="text-white pb-24">
       <CustomContainer>
         <div className="flex flex-col lg:flex-row gap-10">
-            <QuestionnaireLeftMenu
-              activeStage={activeStage}
-              setActiveStage={(stage) => {
-                setActiveStage(stage)
-                scrollToStage(stage)
-              }}
-              stages={stages}
-              title={title}
-              subtitle={subtitle}
-              breadcrumbLabel={breadcrumbLabel}
-            />
+          <QuestionnaireLeftMenu
+            activeStage={activeStage}
+            setActiveStage={(stage) => {
+              setActiveStage(stage)
+              scrollToStage(stage)
+            }}
+            stages={stages}
+            title={title}
+            subtitle={subtitle}
+            breadcrumbLabel={breadcrumbLabel}
+          />
 
-            {/* Right side */}
-            <div className="w-full lg:w-1/2 pt-32 pr-4">
-              <Questionnaire
-                formState={formState}
-                handleStateChange={handleStateChange}
-                stageRefs={stageRefs}
-                onSuccess={handleSuccess}
-                questions={questions}
-                questionnaireType={questionnaireType}
-                title={title}
-              />
-            </div>
+          {/* Right side */}
+          <div className="w-full lg:w-1/2 pt-32 pr-4">
+            <Questionnaire
+              formState={formState}
+              handleStateChange={handleStateChange}
+              stageRefs={stageRefs}
+              onSuccess={handleSuccess}
+              questions={questions}
+              questionnaireType={questionnaireType}
+              title={title}
+            />
           </div>
+        </div>
       </CustomContainer>
     </main>
   )

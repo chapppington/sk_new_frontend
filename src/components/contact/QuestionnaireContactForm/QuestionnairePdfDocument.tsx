@@ -6,7 +6,11 @@ import {
   Font,
   StyleSheet,
 } from "@react-pdf/renderer"
-import type { IFormState, IQuestion, IQuestionOption } from "@/app/questionnaire/shared/types"
+import type {
+  IFormState,
+  IQuestion,
+  IQuestionOption,
+} from "@/app/questionnaire/shared/types"
 import type { FeederData } from "@/app/questionnaire/shared/components/QuestionDropdown/components/FeederSectionOption/types"
 import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
 
@@ -88,16 +92,11 @@ function findOptionLabel(
   return String(value)
 }
 
-function formatAnswer(
-  question: IQuestion,
-  answer: unknown,
-): string {
+function formatAnswer(question: IQuestion, answer: unknown): string {
   if (answer === undefined || answer === null || answer === "") return "—"
   if (Array.isArray(answer)) {
     if (answer.length === 0) return "—"
-    return answer
-      .map((v) => findOptionLabel(question.options, v))
-      .join(", ")
+    return answer.map((v) => findOptionLabel(question.options, v)).join(", ")
   }
   if (typeof answer === "object" && answer !== null) {
     return "" // feeder_sections rendered separately
@@ -151,27 +150,23 @@ export function QuestionnairePdfDocument({
           <Text style={[styles.metaRow, styles.metaLabel]}>
             Тип опросного листа: {QUESTIONNAIRE_TYPE_LABELS[questionnaireType]}
           </Text>
-          <Text style={styles.metaRow}>
-            ФИО: {clientData.name || "—"}
-          </Text>
-          <Text style={styles.metaRow}>
-            Email: {clientData.email || "—"}
-          </Text>
-          <Text style={styles.metaRow}>
-            Телефон: {clientData.phone || "—"}
-          </Text>
-          <Text style={styles.metaRow}>
-            Дата и время: {generatedAt}
-          </Text>
+          <Text style={styles.metaRow}>ФИО: {clientData.name || "—"}</Text>
+          <Text style={styles.metaRow}>Email: {clientData.email || "—"}</Text>
+          <Text style={styles.metaRow}>Телефон: {clientData.phone || "—"}</Text>
+          <Text style={styles.metaRow}>Дата и время: {generatedAt}</Text>
         </View>
         {visibleQuestions.map((question) => {
           const answer = formState[question.id]
           const isFeederSections = question.type === "feeder_sections"
 
-          if (isFeederSections && typeof answer === "object" && answer !== null) {
+          if (
+            isFeederSections &&
+            typeof answer === "object" &&
+            answer !== null
+          ) {
             const feeder = answer as Record<string, FeederData[]>
-            const hasData = Object.values(feeder).some(
-              (items) => items?.some((i) => i.current || i.count),
+            const hasData = Object.values(feeder).some((items) =>
+              items?.some((i) => i.current || i.count),
             )
             return (
               <View key={question.id} style={styles.questionBlock}>

@@ -30,7 +30,13 @@ export function useQuestionnaireContactForm(
     control,
     formState: { errors },
   } = useForm<IQuestionnaireContactFormValues>({
-    defaultValues: { name: "", email: "", phone: "", comments: "", consent: false },
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      comments: "",
+      consent: false,
+    },
   })
 
   const upload = useUploadFiles("submissions")
