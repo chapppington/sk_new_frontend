@@ -17,4 +17,11 @@ export const FIRST_SCREEN = {
       showOnMobile: false,
     },
   ],
-} satisfies { stats: IStatItem[] }
+} satisfies {
+  title: string
+  subtitle: string
+  buttonText: string
+  videoSrc: string
+  bgImage: string
+  stats: IStatItem[]
+}

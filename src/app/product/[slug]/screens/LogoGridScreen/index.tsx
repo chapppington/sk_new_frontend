@@ -1,7 +1,7 @@
 "use client"
 
 import { FC } from "react"
-import { IProduct } from "@/shared/types/product.types"
+import type { IProduct } from "@/types/products.types"
 
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"

@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { IProduct } from "@/shared/types/product.types"
+import type { IProduct } from "@/types/products.types"
 
 import BracketsText from "@/components/ui/BracketsText"
 import GradientHeading from "@/components/ui/GradientHeading"
