@@ -14,4 +14,5 @@ export interface QuestionnaireProps {
   onSuccess?: () => void
   questions: IQuestion[]
   questionnaireType: QuestionnaireType
+  title?: string
 }

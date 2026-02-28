@@ -1,6 +1,6 @@
 import QuestionDropdown from "../QuestionDropdown"
 import { QuestionnaireProps } from "./types"
-import ContactForm from "@/components/contact/ContactForm"
+import QuestionnaireContactForm from "@/components/contact/QuestionnaireContactForm"
 
 const Questionnaire = ({
   formState,
@@ -9,6 +9,7 @@ const Questionnaire = ({
   onSuccess,
   questions,
   questionnaireType,
+  title: formTitle = "Опросный лист",
 }: QuestionnaireProps) => {
   // Filter visible questions and create a mapping of original IDs to new sequential numbers
   const visibleQuestions = questions.filter(
@@ -22,15 +23,6 @@ const Questionnaire = ({
     },
     {} as Record<number, number>,
   )
-
-  // Создаем функцию-обертку для обработки успеха с данными опросника
-  const handleSuccessWithQuestionnaire = () => {
-    // Здесь можно добавить логику сохранения данных опросника
-    console.log("Questionnaire data:", formState)
-    if (onSuccess) {
-      onSuccess()
-    }
-  }
 
   return (
     <>
@@ -82,10 +74,12 @@ const Questionnaire = ({
           }
         }}
       >
-        <ContactForm
-          variant="questionnaire"
-          onSuccess={handleSuccessWithQuestionnaire}
-          meta={{ questionnaireData: formState, questionnaireType }}
+        <QuestionnaireContactForm
+          formState={formState}
+          questions={questions}
+          questionnaireType={questionnaireType}
+          title={formTitle}
+          onSuccess={onSuccess}
         />
       </div>
     </>

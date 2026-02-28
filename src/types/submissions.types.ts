@@ -8,7 +8,6 @@ export interface ISubmission {
   phone: string | null
   comments: string | null
   files: string[]
-  answers_file_url: string | null
   created_at: string
   updated_at: string
 }
