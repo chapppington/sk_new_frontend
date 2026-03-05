@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { NoResultsPlaceholderProps } from "./types"
+import type { FC } from "react"
+import type { NoResultsPlaceholderProps } from "./types"
 
 const NoResultsPlaceholder: FC<NoResultsPlaceholderProps> = ({
   icon,

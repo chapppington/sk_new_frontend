@@ -1,7 +1,7 @@
 "use client"
 
-import { FC } from "react"
 import { TrendingUp } from "lucide-react"
+import type { FC } from "react"
 
 const SUBTITLE =
   "Мы создаем комфортные условия для профессионального роста и развития наших сотрудников, обеспечивая стабильность и внедряя инновационные подходы к работе."

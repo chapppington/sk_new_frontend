@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
-import { useUploadFiles } from "@/components/contact/ContactForm/useUploadFiles"
-import { useSubmitForm } from "@/components/contact/ContactForm/useSubmitForm"
-import { generateQuestionnairePdf } from "./generateQuestionnairePdf"
-import mediaService from "@/services/media/media.service"
-import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
 import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
+import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
+import { useSubmitForm } from "@/components/contact/ContactForm/useSubmitForm"
+import { useUploadFiles } from "@/components/contact/ContactForm/useUploadFiles"
+import mediaService from "@/services/media/media.service"
+import { generateQuestionnairePdf } from "./generateQuestionnairePdf"
 
 export interface IQuestionnaireContactFormValues {
   name: string

@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { Users, Home } from "lucide-react"
-import { HistoryEvent } from "./types"
+import { Home, Users } from "lucide-react"
+import type { FC } from "react"
+import type { HistoryEvent } from "./types"
 
 interface HistorySlideProps {
   event: HistoryEvent

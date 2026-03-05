@@ -1,10 +1,10 @@
 "use client"
 
-import { FC, useState } from "react"
+import { type FC, useState } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import ValueCard from "./ValueCard"
 import { valuesData } from "./data"
+import ValueCard from "./ValueCard"
 
 const TITLE = "Показать новые горизонты, превосходящие ожидания"
 const PARAGRAPH =

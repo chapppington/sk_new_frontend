@@ -1,11 +1,11 @@
 "use client"
 
-import { FC } from "react"
+import type { FC } from "react"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
-import BottomInfoWithIcon from "./BottomInfoWithIcon/BottomInfoWithIcon"
 import AdvantagesList from "./AdvantagesList/AdvantagesList"
+import BottomInfoWithIcon from "./BottomInfoWithIcon/BottomInfoWithIcon"
 
 const TITLE =
   "Преимущества работы в СибКомплект: развитие, стабильность и инновации"

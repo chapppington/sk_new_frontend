@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CustomContainer from "@/components/ui/CustomContainer"
-import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import GradientHeading from "@/components/ui/GradientHeading"
-import MainButton from "@/components/ui/MainButton"
 import styles from "@/components/ui/GradientHeading/styles.module.css"
+import MainButton from "@/components/ui/MainButton"
 import ParallaxImage from "@/components/ui/ParallaxImage"
-import { useIsMobile } from "@/shared/hooks/use-mobile"
 import VideoPopup from "@/components/ui/VideoPopup"
+import { useIsMobile } from "@/shared/hooks/use-mobile"
 import CircleWithArrowIcon from "@/shared/icons/CircleWithArrowIcon"
 import { FIRST_SCREEN } from "./data"
 

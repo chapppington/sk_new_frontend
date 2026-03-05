@@ -1,4 +1,4 @@
-import { FC, RefObject } from "react"
+import type { FC, RefObject } from "react"
 
 interface DescriptionItem {
   text: string

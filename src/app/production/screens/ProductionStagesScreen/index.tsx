@@ -1,9 +1,9 @@
 "use client"
 
-import { FC } from "react"
+import type { FC } from "react"
+import CustomSlider from "@/components/CustomSlider"
 import CustomContainer from "@/components/ui/CustomContainer"
 import SectionHeader from "@/components/ui/SectionHeader"
-import CustomSlider from "@/components/CustomSlider"
 import ProductionStageSliderItem from "./components/ProductionStageSliderItem"
 import { PRODUCTION_STAGES } from "./data"
 

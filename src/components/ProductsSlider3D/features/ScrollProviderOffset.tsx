@@ -1,10 +1,10 @@
 "use client"
 import React, {
   createContext,
-  useState,
+  type ReactNode,
   useContext,
-  ReactNode,
   useRef,
+  useState,
 } from "react"
 
 interface ScrollOffsetContextProps {

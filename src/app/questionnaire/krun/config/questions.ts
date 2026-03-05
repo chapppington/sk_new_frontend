@@ -1,4 +1,4 @@
-import { IQuestion } from "@/app/questionnaire/shared/types"
+import type { IQuestion } from "@/app/questionnaire/shared/types"
 
 export const questionsConfig: IQuestion[] = [
   // Этап 1: Основные электрические параметры

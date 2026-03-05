@@ -1,11 +1,11 @@
 "use client"
-import { useEffect, useRef, FC } from "react"
-import { useScrollOffset } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
 import { gsap } from "gsap"
 import { Power4 } from "gsap/all"
+import { type FC, useEffect, useRef } from "react"
 import { mockup } from "@/components/ProductsSlider3D/features/mockup"
+import { useScrollOffset } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
 import { NavigationButton } from "@/components/ui/NavigationButton"
-import { ISectionHeaderProps } from "./types"
+import type { ISectionHeaderProps } from "./types"
 
 const SliderSelectButtons: FC<ISectionHeaderProps> = ({
   currentSlide,

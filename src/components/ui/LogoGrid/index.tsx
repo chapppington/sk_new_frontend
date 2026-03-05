@@ -1,7 +1,7 @@
 "use client"
-import { FC } from "react"
 import Image from "next/image"
-import { ILogoGridProps } from "./types"
+import type { FC } from "react"
+import type { ILogoGridProps } from "./types"
 
 const LogoGrid: FC<ILogoGridProps> = ({ partners }) => {
   return (

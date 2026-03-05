@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic"
 import type { Metadata } from "next"
-import seoService from "@/services/seo/seo.service"
+import dynamic from "next/dynamic"
 import FirstScreen from "@/app/production/screens/FirstScreen"
+import seoService from "@/services/seo/seo.service"
 
 const ProductionStagesScreen = dynamic(
   () => import("@/app/production/screens/ProductionStagesScreen"),

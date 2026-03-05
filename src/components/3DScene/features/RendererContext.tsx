@@ -1,7 +1,13 @@
 "use client"
 
-import { createContext, useContext, useState, ReactNode, useRef } from "react"
-import * as THREE from "three"
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useRef,
+  useState,
+} from "react"
+import type * as THREE from "three"
 
 interface RendererContextType {
   renderer: THREE.WebGLRenderer | null

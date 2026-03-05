@@ -1,23 +1,22 @@
 "use client"
 
-import { FC, useState, useEffect } from "react"
-import { useLenis } from "lenis/react"
-import { useSearchParams, usePathname } from "next/navigation"
 import gsap from "gsap"
-import { useDebounce } from "@/shared/hooks/use-debounce"
-import { useProducts } from "@/hooks/useProducts"
-import { PRODUCT_CATEGORIES } from "@/types/products.types"
-import type { IProduct } from "@/types/products.types"
-
+import { useLenis } from "lenis/react"
+import { usePathname, useSearchParams } from "next/navigation"
+import { type FC, useEffect, useState } from "react"
 import CategoryButton from "@/components/ui/CategoryButton"
-import Pagination from "@/components/ui/Pagination"
-import NoResultsPlaceholder from "@/components/ui/NoResultsPlaceholder"
-import SearchBar from "@/components/ui/SearchBar"
-import { SearchIcon } from "@/shared/icons/SearchIcon"
-import ProductCard from "../ProductCard"
 import { MiniLoader } from "@/components/ui/MiniLoader"
+import NoResultsPlaceholder from "@/components/ui/NoResultsPlaceholder"
+import Pagination from "@/components/ui/Pagination"
+import SearchBar from "@/components/ui/SearchBar"
+import { useProducts } from "@/hooks/useProducts"
+import { useDebounce } from "@/shared/hooks/use-debounce"
+import { SearchIcon } from "@/shared/icons/SearchIcon"
+import type { IProduct } from "@/types/products.types"
+import { PRODUCT_CATEGORIES } from "@/types/products.types"
+import ProductCard from "../ProductCard"
 
-import { ProductsTabProps } from "./types"
+import type { ProductsTabProps } from "./types"
 
 const CATEGORIES = [
   {

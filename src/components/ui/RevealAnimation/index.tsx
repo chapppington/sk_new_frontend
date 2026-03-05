@@ -1,10 +1,10 @@
 "use client"
 
-import { useRef, FC } from "react"
+import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
-import { IRevealAnimationProps } from "@/components/ui/RevealAnimation/types"
+import { type FC, useRef } from "react"
+import type { IRevealAnimationProps } from "@/components/ui/RevealAnimation/types"
 
 gsap.registerPlugin(ScrollTrigger)
 

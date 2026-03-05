@@ -1,18 +1,18 @@
 import {
   Document,
+  Font,
   Page,
+  StyleSheet,
   Text,
   View,
-  Font,
-  StyleSheet,
 } from "@react-pdf/renderer"
+import type { FeederData } from "@/app/questionnaire/shared/components/QuestionDropdown/components/FeederSectionOption/types"
+import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
 import type {
   IFormState,
   IQuestion,
   IQuestionOption,
 } from "@/app/questionnaire/shared/types"
-import type { FeederData } from "@/app/questionnaire/shared/components/QuestionDropdown/components/FeederSectionOption/types"
-import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
 
 Font.register({
   family: "Roboto",

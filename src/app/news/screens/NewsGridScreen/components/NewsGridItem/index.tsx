@@ -1,7 +1,7 @@
-import type { FC } from "react"
 import Image from "next/image"
-import TransitionLink from "@/components/ui/TransitionLink"
+import type { FC } from "react"
 import CircleIconButton from "@/components/ui/CircleIconButton"
+import TransitionLink from "@/components/ui/TransitionLink"
 import type { INews } from "@/types/news.types"
 
 interface NewsGridItemProps {

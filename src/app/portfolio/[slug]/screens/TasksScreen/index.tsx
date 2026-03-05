@@ -1,8 +1,8 @@
 "use client"
 
-import GradientHeading from "@/components/ui/GradientHeading"
-import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
+import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
 import type { IPortfolio } from "@/types/portfolios.types"
 
 interface Props {

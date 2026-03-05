@@ -1,11 +1,11 @@
 "use client"
 
 import type { FC } from "react"
-import { usePortfolios } from "@/hooks/usePortfolios"
+import CustomSlider from "@/components/CustomSlider"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
-import CustomSlider from "@/components/CustomSlider"
+import { usePortfolios } from "@/hooks/usePortfolios"
 import ProjectSlide from "./components/ProjectSlide"
 
 const MoreProjectsScreen: FC = () => {

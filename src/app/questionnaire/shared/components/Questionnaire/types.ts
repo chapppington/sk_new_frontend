@@ -1,6 +1,6 @@
-import { RefObject } from "react"
-import { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
-import { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types"
+import type { RefObject } from "react"
+import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
+import type { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types"
 
 export type QuestionnaireType = "ktp" | "krun" | "kso"
 

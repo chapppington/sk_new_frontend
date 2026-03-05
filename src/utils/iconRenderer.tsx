@@ -1,5 +1,5 @@
+import type { LucideProps } from "lucide-react"
 import * as LucideIcons from "lucide-react"
-import { LucideProps } from "lucide-react"
 
 interface IconRendererProps extends Omit<LucideProps, "ref"> {
   iconName: string

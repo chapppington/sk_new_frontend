@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import productsService from "@/services/products.service"
 import portfoliosService from "@/services/portfolios.service"
+import productsService from "@/services/products.service"
 import type {
-  IProductWithPortfolio,
   IProductsListParams,
+  IProductWithPortfolio,
 } from "@/types/products.types"
 
 export function useProducts(params?: IProductsListParams) {

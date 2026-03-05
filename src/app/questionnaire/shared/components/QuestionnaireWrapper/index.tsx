@@ -1,14 +1,14 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useLenis } from "lenis/react"
+import { useEffect, useRef, useState } from "react"
+import type { IFormState } from "@/app/questionnaire/shared/types"
 import CustomContainer from "@/components/ui/CustomContainer"
+import { initializeFormState } from "../../utils/initializeFormState"
+import type { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types"
 import Questionnaire from "../Questionnaire"
 import QuestionnaireLeftMenu from "../QuestionnaireLeftMenu"
-import { initializeFormState } from "../../utils/initializeFormState"
-import { IFormState } from "@/app/questionnaire/shared/types"
-import { FeederData } from "../QuestionDropdown/components/FeederSectionOption/types"
-import { useLenis } from "lenis/react"
-import { QuestionnaireWrapperProps } from "./types"
+import type { QuestionnaireWrapperProps } from "./types"
 
 export default function QuestionnaireWrapper({
   questions,
@@ -47,7 +47,7 @@ export default function QuestionnaireWrapper({
       lenis.scrollTo(targetRef, {
         offset: -100,
         duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
         onComplete: () => {
           isScrolling.current = false
         },

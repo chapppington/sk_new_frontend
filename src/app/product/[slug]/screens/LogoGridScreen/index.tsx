@@ -1,13 +1,12 @@
 "use client"
 
-import { FC } from "react"
-import type { IProduct } from "@/types/products.types"
-
+import type { FC } from "react"
+import AnimatedText from "@/components/ui/AnimatedText"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
-import AnimatedText from "@/components/ui/AnimatedText"
 import LogoGrid from "@/components/ui/LogoGrid"
+import type { IProduct } from "@/types/products.types"
 
 import { samplePartners } from "./mock_data"
 

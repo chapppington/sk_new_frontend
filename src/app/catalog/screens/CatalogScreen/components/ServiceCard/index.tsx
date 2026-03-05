@@ -1,7 +1,7 @@
-import { FC } from "react"
-import TransitionLink from "@/components/ui/TransitionLink"
+import type { FC } from "react"
 import CircleIconButton from "@/components/ui/CircleIconButton"
-import { ServiceCardProps } from "./types"
+import TransitionLink from "@/components/ui/TransitionLink"
+import type { ServiceCardProps } from "./types"
 
 const ServiceCard: FC<ServiceCardProps> = ({
   title,

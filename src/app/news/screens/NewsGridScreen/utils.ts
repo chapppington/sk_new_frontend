@@ -1,4 +1,4 @@
-import type { SortOption, MonthMap, QueryParams } from "./types"
+import type { MonthMap, QueryParams, SortOption } from "./types"
 
 export const parseRussianDate = (dateStr: string) => {
   const months: MonthMap = {

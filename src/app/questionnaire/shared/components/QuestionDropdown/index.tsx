@@ -1,11 +1,11 @@
 import Dropdown from "@/components/ui/Dropdown"
-import { QuestionDropdownProps } from "./types"
-import SliderOption from "./components/SliderOption"
-import RadioOption from "./components/RadioOption"
-import CheckboxOption from "./components/CheckboxOption"
 import Input from "@/components/ui/Input"
+import CheckboxOption from "./components/CheckboxOption"
 import FeederSectionOption from "./components/FeederSectionOption"
-import { FeederData } from "./components/FeederSectionOption/types"
+import type { FeederData } from "./components/FeederSectionOption/types"
+import RadioOption from "./components/RadioOption"
+import SliderOption from "./components/SliderOption"
+import type { QuestionDropdownProps } from "./types"
 
 const QuestionDropdown = ({
   value,

@@ -1,12 +1,12 @@
-import { FC } from "react"
 import Image from "next/image"
+import type { FC } from "react"
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/shared/ui/dialog"
-import { ReviewPopupProps } from "./types"
+import type { ReviewPopupProps } from "./types"
 
 const ReviewPopup: FC<ReviewPopupProps> = ({ open, onOpenChange, review }) => {
   if (!review) return null

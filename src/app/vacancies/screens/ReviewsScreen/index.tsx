@@ -1,13 +1,13 @@
 "use client"
 
-import { FC, useMemo } from "react"
+import { type FC, useMemo } from "react"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
-import { useReviews } from "@/hooks/useReviews"
-import { Review } from "./types"
 import { MiniLoader } from "@/components/ui/MiniLoader"
+import { useReviews } from "@/hooks/useReviews"
 import ReviewsSlider from "./components/ReviewsSlider"
+import type { Review } from "./types"
 
 const TITLE = "Отзывы сотрудников"
 const SUBTITLE =

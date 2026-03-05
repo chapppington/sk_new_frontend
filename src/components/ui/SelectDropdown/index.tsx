@@ -1,7 +1,7 @@
-import { FC, useRef, useEffect, useState } from "react"
-import { useLenis } from "lenis/react"
 import gsap from "gsap"
-import { SelectDropdownProps } from "./types"
+import { useLenis } from "lenis/react"
+import { type FC, useEffect, useRef, useState } from "react"
+import type { SelectDropdownProps } from "./types"
 
 const SelectDropdown: FC<SelectDropdownProps> = ({
   options,

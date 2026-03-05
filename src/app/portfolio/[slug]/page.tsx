@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import portfoliosService from "@/services/portfolios.service"
 import PortfolioDetailsScreen from "@/app/portfolio/[slug]/PortfolioDetailsScreen"
+import portfoliosService from "@/services/portfolios.service"
 
 export async function generateMetadata({
   params,

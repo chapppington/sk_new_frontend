@@ -1,6 +1,6 @@
-import { FC, ChangeEvent } from "react"
-import { SearchBarProps } from "./types"
+import type { ChangeEvent, FC } from "react"
 import { SearchIcon } from "@/shared/icons/SearchIcon"
+import type { SearchBarProps } from "./types"
 
 const SearchBar: FC<SearchBarProps> = ({
   value,

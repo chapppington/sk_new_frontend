@@ -1,12 +1,12 @@
 "use client"
 
-import { useRef, FC } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
-import JobList from "./components/JobList"
-import GradientHeading from "@/components/ui/GradientHeading"
+import { type FC, useRef } from "react"
 import BracketsText from "@/components/ui/BracketsText"
-import { useVacancies } from "@/hooks/useVacancies"
+import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
 import { MiniLoader } from "@/components/ui/MiniLoader"
+import { useVacancies } from "@/hooks/useVacancies"
+import JobList from "./components/JobList"
 
 const TITLE = "Список вакансий"
 const SUBTITLE =

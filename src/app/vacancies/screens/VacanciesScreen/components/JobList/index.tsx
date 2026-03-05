@@ -1,6 +1,6 @@
-import { FC } from "react"
+import type { FC } from "react"
 import JobItem from "../JobItem"
-import { IJob } from "../JobItem/types"
+import type { IJob } from "../JobItem/types"
 
 interface JobListProps {
   jobs: IJob[]

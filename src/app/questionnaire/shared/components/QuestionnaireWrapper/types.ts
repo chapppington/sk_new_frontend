@@ -1,4 +1,4 @@
-import { IQuestion, IStage } from "@/app/questionnaire/shared/types"
+import type { IQuestion, IStage } from "@/app/questionnaire/shared/types"
 
 export type QuestionnaireType = "ktp" | "krun" | "kso"
 

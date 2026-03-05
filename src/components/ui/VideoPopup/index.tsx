@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, type FC } from "react"
+import { type FC, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 
 interface VideoPopupProps {

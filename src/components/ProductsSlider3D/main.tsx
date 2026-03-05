@@ -1,17 +1,20 @@
 "use client"
-import { useScroll, ScrollControls } from "@react-three/drei"
+import { ScrollControls, useScroll } from "@react-three/drei"
 import { Canvas, useFrame, useLoader } from "@react-three/fiber"
-import { useRef, useEffect, useState, useMemo } from "react"
-import { easing } from "maath"
-import * as THREE from "three"
 import { gsap } from "gsap"
-import { useScrollOffset } from "./features/ScrollProviderOffset"
-import { ISectionHeaderProps } from "@/components/ui/SliderSelectButtons/types"
 import { Power4 } from "gsap/all"
-import { GLTFLoader, DRACOLoader } from "three/examples/jsm/Addons.js"
-import { mockup } from "./features/mockup"
-import { GLTF } from "three/examples/jsm/Addons.js"
+import { easing } from "maath"
+import { useEffect, useRef, useState } from "react"
+import * as THREE from "three"
+import {
+  DRACOLoader,
+  type GLTF,
+  GLTFLoader,
+} from "three/examples/jsm/Addons.js"
+import type { ISectionHeaderProps } from "@/components/ui/SliderSelectButtons/types"
 import { WfMid2 } from "../3DScene/features/3dScene/materials/WfMid2"
+import { mockup } from "./features/mockup"
+import { useScrollOffset } from "./features/ScrollProviderOffset"
 
 // Add type for absolute prop
 interface ProductsSlider3DProps extends ISectionHeaderProps {

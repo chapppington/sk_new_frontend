@@ -1,9 +1,9 @@
 "use client"
 
-import { FC } from "react"
-import Dropdown from "@/components/ui/Dropdown"
+import type { FC } from "react"
 import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
+import Dropdown from "@/components/ui/Dropdown"
 import DownloadIcon from "@/shared/icons/DownloadIcon"
 import { CERTIFICATES_SECTION } from "./data"
 

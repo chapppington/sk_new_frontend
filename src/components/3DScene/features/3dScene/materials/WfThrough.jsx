@@ -1,7 +1,7 @@
-import * as THREE from "three"
 import { useMemo } from "react"
-import vertexSahder from "../shaders/wireframe.vert.glsl"
+import * as THREE from "three"
 import fragmentShader from "../shaders/wireframe.frag.glsl"
+import vertexSahder from "../shaders/wireframe.vert.glsl"
 
 export function WfThrough() {
   return useMemo(() => {

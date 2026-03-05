@@ -1,4 +1,4 @@
-import { IStage } from "@/app/questionnaire/shared/types"
+import type { IStage } from "@/app/questionnaire/shared/types"
 
 export const stages: IStage[] = [
   {

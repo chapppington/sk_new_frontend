@@ -1,4 +1,4 @@
-import { TabData } from "./types"
+import type { TabData } from "./types"
 
 export const mockTabData: TabData = {
   description: {

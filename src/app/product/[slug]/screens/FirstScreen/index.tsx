@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { PagesConfig } from "@/config/pages.config"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import MainButton from "@/components/ui/MainButton"
+import { PagesConfig } from "@/config/pages.config"
 import type { IProduct, ProductCategoryKey } from "@/types/products.types"
 import { PRODUCT_CATEGORIES } from "@/types/products.types"
 

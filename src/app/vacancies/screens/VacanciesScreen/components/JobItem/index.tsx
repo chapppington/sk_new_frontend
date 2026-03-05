@@ -1,6 +1,6 @@
-import { FC } from "react"
+import type { FC } from "react"
 import MainButton from "@/components/ui/MainButton"
-import { JobItemProps } from "./types"
+import type { JobItemProps } from "./types"
 
 const JobItem: FC<JobItemProps> = ({ job, index }) => {
   return (

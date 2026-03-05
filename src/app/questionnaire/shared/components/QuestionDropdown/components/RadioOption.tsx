@@ -1,7 +1,7 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types"
-import Input from "@/components/ui/Input"
 import { useLenis } from "lenis/react"
 import { useEffect } from "react"
+import type { IQuestionOption } from "@/app/questionnaire/shared/types"
+import Input from "@/components/ui/Input"
 
 interface RadioOptionProps {
   options: IQuestionOption[]

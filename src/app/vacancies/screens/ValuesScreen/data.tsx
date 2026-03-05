@@ -1,4 +1,4 @@
-import { IValueData } from "./ValueCard/types"
+import type { IValueData } from "./ValueCard/types"
 
 export const valuesData: IValueData[] = [
   {

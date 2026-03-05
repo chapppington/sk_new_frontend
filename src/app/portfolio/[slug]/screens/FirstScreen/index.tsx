@@ -1,10 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import type { IPortfolio } from "@/types/portfolios.types"
-import CustomContainer from "@/components/ui/CustomContainer"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
+import type { IPortfolio } from "@/types/portfolios.types"
 
 interface FirstScreenProps {
   portfolio: IPortfolio

@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { FC, useState, useRef } from "react"
+import { type FC, useRef, useState } from "react"
 import type { IProductWithPortfolio } from "@/types/products.types"
 
 import "swiper/css"
@@ -8,13 +8,12 @@ import "swiper/css/thumbs"
 import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import type SwiperType from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
 import { FreeMode, Thumbs } from "swiper/modules"
-
-import MainButton from "@/components/ui/MainButton"
-import SectionHeader from "@/components/ui/SectionHeader"
+import { Swiper, SwiperSlide } from "swiper/react"
 import CustomContainer from "@/components/ui/CustomContainer"
+import MainButton from "@/components/ui/MainButton"
 import { NavigationButton } from "@/components/ui/NavigationButton"
+import SectionHeader from "@/components/ui/SectionHeader"
 
 interface SliderSectionProps {
   product: IProductWithPortfolio

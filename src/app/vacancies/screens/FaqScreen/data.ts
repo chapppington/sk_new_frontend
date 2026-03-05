@@ -1,4 +1,4 @@
-import { IFaqItem } from "./types"
+import type { IFaqItem } from "./types"
 
 export const faqItems: IFaqItem[] = [
   {

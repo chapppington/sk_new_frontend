@@ -1,6 +1,6 @@
-import { FC } from "react"
 import Image from "next/image"
-import { ReviewItemProps } from "./types"
+import type { FC } from "react"
+import type { ReviewItemProps } from "./types"
 
 const ReviewItem: FC<ReviewItemProps> = ({ review, onClick }) => {
   return (

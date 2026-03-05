@@ -6,9 +6,9 @@ import ReactLenis from "lenis/react"
 import { ViewTransitions } from "next-view-transitions"
 import { type PropsWithChildren, useState } from "react"
 import { Toaster } from "sonner"
+import { CameraProvider } from "@/components/3DScene/features/CameraContext"
 import { PageTransitionProvider } from "@/context/PageTransitionProvider"
 import { WebGLProvider } from "@/context/WebGLProvider"
-import { CameraProvider } from "@/components/3DScene/features/CameraContext"
 
 export function Providers({ children }: PropsWithChildren) {
   const [client] = useState(new QueryClient())

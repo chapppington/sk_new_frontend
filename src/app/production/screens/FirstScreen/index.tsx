@@ -1,11 +1,11 @@
 "use client"
 
+import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CustomContainer from "@/components/ui/CustomContainer"
-import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import GradientHeading from "@/components/ui/GradientHeading"
-import MainButton from "@/components/ui/MainButton"
 import styles from "@/components/ui/GradientHeading/styles.module.css"
+import MainButton from "@/components/ui/MainButton"
 import ParallaxImage from "@/components/ui/ParallaxImage"
 import { useIsMobile } from "@/shared/hooks/use-mobile"
 import CircleWithArrowIcon from "@/shared/icons/CircleWithArrowIcon"

@@ -1,5 +1,5 @@
-import React, { FC } from "react"
 import Image from "next/image"
+import React, { type FC } from "react"
 
 import CustomContainer from "@/components/ui/CustomContainer"
 import MainButton from "@/components/ui/MainButton"

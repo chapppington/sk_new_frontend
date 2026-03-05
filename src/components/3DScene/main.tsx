@@ -1,20 +1,11 @@
 "use client"
 
-import React, { useMemo, useState, useEffect, useRef, useCallback } from "react"
-import { Canvas, useThree } from "@react-three/fiber"
-import * as THREE from "three"
-// import Scene from "@/components/3DScene/features/3dScene/Scene";
-import Camera3D from "@/components/3DScene/features/3dScene/Camera3D"
-import {
-  AdaptiveDpr,
-  AdaptiveEvents,
-  Preload,
-  PerformanceMonitor,
-  Html,
-} from "@react-three/drei"
-import { CameraProvider } from "./features/CameraContext"
-import { Suspense } from "react"
+import { Canvas } from "@react-three/fiber"
 import dynamic from "next/dynamic"
+import React, { Suspense, useMemo, useRef, useState } from "react"
+import * as THREE from "three"
+import Camera3D from "@/components/3DScene/features/3dScene/Camera3D"
+import { CameraProvider } from "./features/CameraContext"
 
 const TempScene = dynamic(() => import("./features/3dScene/Scene"), {
   ssr: false,
@@ -55,57 +46,8 @@ const MainScene = React.memo(() => {
     [],
   )
 
-  // Cleanup function to properly dispose of WebGL context
-  // const cleanupWebGL = useCallback(() => {
-  //   if (canvasRef.current) {
-  //     // Directly cleanup WebGL context
-  //     const context = canvasRef.current.getContext('webgl2') || canvasRef.current.getContext('webgl');
-  //     if (context) {
-  //       // Clear all buffers
-  //       context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT | context.STENCIL_BUFFER_BIT);
-
-  //       // Get all WebGL extensions and lose context
-  //       const loseContext = context.getExtension('WEBGL_lose_context');
-  //       if (loseContext) {
-  //         loseContext.loseContext();
-  //       }
-
-  //       // Clear canvas
-  //       canvasRef.current.width = 1;
-  //       canvasRef.current.height = 1;
-  //     }
-  //   }
-  // }, []);
-
-  // Component to handle Three.js cleanup
-  // const CleanupHandler = () => {
-  //   const { gl } = useThree();
-
-  //   useEffect(() => {
-  //     return () => {
-  //       // Cleanup Three.js renderer
-  //       gl.dispose();
-  //       // gl.forceContextLoss();
-  //       const originalDomElement = gl.domElement;
-  //       gl.setAnimationLoop(null);
-  //       if (originalDomElement && originalDomElement.parentNode) {
-  //         originalDomElement.parentNode.removeChild(originalDomElement);
-  //       }
-  //     };
-  //   }, [gl]);
-
-  //   return null;
-  // };
-
-  // useEffect(() => {
-  //   // Cleanup on unmount
-  //   return () => {
-  //     cleanupWebGL();
-  //   };
-  // }, [cleanupWebGL]);
-
   return (
-    <div className="app-container fixed z-[-10]">
+    <div className="app-container fixed -z-10">
       <div className="canvas-container pointer-events-auto">
         <Canvas
           ref={canvasRef}
@@ -115,16 +57,6 @@ const MainScene = React.memo(() => {
           gl={canvasSettings.gl}
           dpr={dpr}
         >
-          {/* <CleanupHandler /> */}
-          {/* Монитор производительности для адаптивного качества */}
-          {/* <PerformanceMonitor factor={1} onChange={({ factor }) => setDpr(Math.floor(0.5 + 1.5 * factor))} /> */}
-          {/* Адаптивное качество рендеринга */}
-          {/* Оптимизация событий при низком FPS */}
-          {/* <AdaptiveEvents /> */}
-
-          {/* Предзагрузка ресурсов */}
-          {/* <Preload all /> */}
-
           <CameraProvider>
             <Suspense fallback={null}>
               <TempScene />

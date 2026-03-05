@@ -1,9 +1,9 @@
 "use client"
 
-import { FC } from "react"
+import type { FC } from "react"
+import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CustomContainer from "@/components/ui/CustomContainer"
-import BlackBoxWithStats from "@/components/ui/BlackBoxWithStats"
 import GradientHeading from "@/components/ui/GradientHeading"
 import styles from "@/components/ui/GradientHeading/styles.module.css"
 import ParallaxImage from "@/components/ui/ParallaxImage"

@@ -1,4 +1,4 @@
-import { FeederData } from "../components/QuestionDropdown/components/FeederSectionOption/types"
+import type { FeederData } from "../components/QuestionDropdown/components/FeederSectionOption/types"
 
 export interface IQuestionOption {
   value: string | number

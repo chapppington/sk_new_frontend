@@ -1,15 +1,14 @@
 "use client"
 
 import React from "react"
-import type { IProduct } from "@/types/products.types"
-
-import BracketsText from "@/components/ui/BracketsText"
-import GradientHeading from "@/components/ui/GradientHeading"
 import AnimatedText from "@/components/ui/AnimatedText"
 
-import styles from "./styles.module.css"
-import { stats } from "./mock_data"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
+import type { IProduct } from "@/types/products.types"
+import { stats } from "./mock_data"
+import styles from "./styles.module.css"
 
 interface NumbersSectionProps {
   product: IProduct

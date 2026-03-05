@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import { lentaVertexShader, lentaFragmentShader } from "../shaders/lentaShader"
+import { lentaFragmentShader, lentaVertexShader } from "../shaders/lentaShader"
 
 export const createLentaMaterial = (texture: THREE.Texture) => {
   return new THREE.ShaderMaterial({

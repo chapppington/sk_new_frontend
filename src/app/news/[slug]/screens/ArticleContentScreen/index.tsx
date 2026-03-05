@@ -1,13 +1,13 @@
 "use client"
 
 import Image from "next/image"
-import { PagesConfig } from "@/config/pages.config"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
+import CircleIconButton from "@/components/ui/CircleIconButton"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import CircleIconButton from "@/components/ui/CircleIconButton"
+import { PagesConfig } from "@/config/pages.config"
 
-import { IArticleContentSectionProps } from "./types"
+import type { IArticleContentSectionProps } from "./types"
 
 export default function ArticleContentSection({
   news,

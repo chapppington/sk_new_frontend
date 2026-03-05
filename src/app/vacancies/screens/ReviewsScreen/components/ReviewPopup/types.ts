@@ -1,4 +1,4 @@
-import { Review } from "../../types"
+import type { Review } from "../../types"
 
 export interface ReviewPopupProps {
   open: boolean

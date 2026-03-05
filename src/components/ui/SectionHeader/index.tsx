@@ -1,7 +1,7 @@
-import { FC } from "react"
-import GradientHeading from "@/components/ui/GradientHeading"
+import type { FC } from "react"
 import BracketsText from "@/components/ui/BracketsText"
-import { ISectionHeaderProps } from "@/components/ui/SectionHeader/types"
+import GradientHeading from "@/components/ui/GradientHeading"
+import type { ISectionHeaderProps } from "@/components/ui/SectionHeader/types"
 
 const SectionHeader: FC<ISectionHeaderProps> = ({
   bracketsText,

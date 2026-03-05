@@ -1,7 +1,7 @@
 import Image from "next/image"
-import { FC } from "react"
-import MainButton from "@/components/ui/MainButton"
+import type { FC } from "react"
 import Badge from "@/components/ui/Badge"
+import MainButton from "@/components/ui/MainButton"
 
 interface ProjectSlideProps {
   slug: string

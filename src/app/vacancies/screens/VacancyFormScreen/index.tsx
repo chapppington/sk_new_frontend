@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from "react"
+import type { FC } from "react"
 import VacancyContactForm from "@/components/contact/VacancyContactForm"
 import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"

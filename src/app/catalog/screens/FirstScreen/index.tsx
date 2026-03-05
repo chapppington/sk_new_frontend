@@ -1,15 +1,15 @@
 "use client"
 
+import { type FC, useMemo, useState } from "react"
+import { mockup } from "@/components/ProductsSlider3D/features/mockup"
+import { ScrollOffsetProvider } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
+import ProductsSlider3D from "@/components/ProductsSlider3D/main"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
-import MainButton from "@/components/ui/MainButton"
-import { FC, useState, useMemo } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import ProductsSlider3D from "@/components/ProductsSlider3D/main"
-import { ScrollOffsetProvider } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
-import SliderSelectButtons from "@/components/ui/SliderSelectButtons"
-import { mockup } from "@/components/ProductsSlider3D/features/mockup"
 import styles from "@/components/ui/GradientHeading/styles.module.css"
+import MainButton from "@/components/ui/MainButton"
+import SliderSelectButtons from "@/components/ui/SliderSelectButtons"
 
 const FirstScreen: FC = () => {
   // Added state management for the counter

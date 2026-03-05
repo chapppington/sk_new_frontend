@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
-import type { IPortfolio } from "@/types/portfolios.types"
 import BigFatCommaIcon from "@/shared/icons/BigFatCommaIcon"
+import type { IPortfolio } from "@/types/portfolios.types"
 
 interface Props {
   portfolio: IPortfolio

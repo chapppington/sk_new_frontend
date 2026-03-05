@@ -1,11 +1,11 @@
 "use client"
 
-import type { FC } from "react"
 import Image from "next/image"
+import type { FC } from "react"
 import TransitionLink from "@/components/ui/TransitionLink"
 import CircleWithArrowIcon from "@/shared/icons/CircleWithArrowIcon"
-import { NEWS_CATEGORIES } from "@/types/news.types"
 import type { INews } from "@/types/news.types"
+import { NEWS_CATEGORIES } from "@/types/news.types"
 
 interface NewsSliderItemProps {
   news: INews

@@ -1,7 +1,7 @@
 import { pdf } from "@react-pdf/renderer"
-import { QuestionnairePdfDocument } from "./QuestionnairePdfDocument"
-import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
 import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
+import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
+import { QuestionnairePdfDocument } from "./QuestionnairePdfDocument"
 
 export interface QuestionnaireClientData {
   name: string

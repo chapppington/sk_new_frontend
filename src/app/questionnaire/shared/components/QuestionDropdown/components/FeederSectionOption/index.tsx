@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { FeederSectionOptionProps, FeederData } from "./types"
-import { Tabs, TabContent } from "@/components/ui/Tabs"
+import { useLenis } from "lenis/react"
+import type React from "react"
+import { useEffect, useState } from "react"
 import Input from "@/components/ui/Input"
 import MainButton from "@/components/ui/MainButton"
-import { useLenis } from "lenis/react"
+import { TabContent, Tabs } from "@/components/ui/Tabs"
+import type { FeederData, FeederSectionOptionProps } from "./types"
 
 const MAX_FEEDERS_PER_SECTION = 16
 

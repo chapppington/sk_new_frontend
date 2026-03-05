@@ -1,8 +1,8 @@
 "use client"
 
+import CustomSlider from "@/components/CustomSlider"
 import CustomContainer from "@/components/ui/CustomContainer"
 import SectionHeader from "@/components/ui/SectionHeader"
-import CustomSlider from "@/components/CustomSlider"
 import HistorySlide from "./HistorySlide"
 import { historyEvents } from "./mock_data"
 

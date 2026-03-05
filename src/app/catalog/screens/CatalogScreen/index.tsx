@@ -1,16 +1,15 @@
 "use client"
 
 import gsap from "gsap"
-import { useSearchParams } from "next/navigation"
 import { useLenis } from "lenis/react"
-import { FC, useState, useEffect, useRef, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
+import { type FC, Suspense, useEffect, useRef, useState } from "react"
 
 import CustomContainer from "@/components/ui/CustomContainer"
 import CatalogTabButton from "./components/CatalogTabButton"
-
-import { validateTabParam } from "./utils"
 import ProductsTab from "./components/ProductsTab"
 import ServicesTab from "./components/ServicesTab"
+import { validateTabParam } from "./utils"
 
 const CatalogSectionContent: FC = () => {
   const lenis = useLenis()

@@ -1,13 +1,12 @@
 "use client"
 
 import { useRef, useState } from "react"
-
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
 import { NavigationButton } from "@/components/ui/NavigationButton"
-import ReviewItem from "./components/ReviewItem"
 import BigComma from "./components/BigComma"
+import ReviewItem from "./components/ReviewItem"
 import { useReviewAnimation } from "./hooks/useReviewAnimation"
 
 import { reviews } from "./mock_data"

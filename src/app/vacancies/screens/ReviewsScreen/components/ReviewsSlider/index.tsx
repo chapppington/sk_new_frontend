@@ -1,7 +1,7 @@
 "use client"
 
-import { FC, useState } from "react"
 import { useLenis } from "lenis/react"
+import { type FC, useState } from "react"
 import CustomSlider from "@/components/CustomSlider"
 import ReviewItem from "../ReviewItem"
 import ReviewPopup from "../ReviewPopup"

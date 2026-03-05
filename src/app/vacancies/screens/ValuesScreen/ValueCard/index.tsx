@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { IValueCardProps } from "./types"
+import type { FC } from "react"
+import type { IValueCardProps } from "./types"
 
 const ValueCard: FC<IValueCardProps> = ({
   data,

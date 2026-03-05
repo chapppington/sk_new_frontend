@@ -1,8 +1,8 @@
+import QuestionnaireStage from "@/app/questionnaire/shared/components/QuestionnaireStage"
 import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import GradientHeading from "@/components/ui/GradientHeading"
-import QuestionnaireStage from "@/app/questionnaire/shared/components/QuestionnaireStage"
 
-import { QuestionnaireLeftMenuProps } from "./types"
+import type { QuestionnaireLeftMenuProps } from "./types"
 
 export default function QuestionnaireLeftMenu({
   activeStage,

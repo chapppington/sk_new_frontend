@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { TabLineProps } from "./types"
+import type { FC } from "react"
+import type { TabLineProps } from "./types"
 
 export const TabLine: FC<TabLineProps> = ({ lineRef }) => {
   return (

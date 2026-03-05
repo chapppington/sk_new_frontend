@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
-import productsService from "@/services/products.service"
 import newsService from "@/services/news.service"
 import portfoliosService from "@/services/portfolios.service"
+import productsService from "@/services/products.service"
 
 const baseUrl = "https://sibkomplekt.ru"
 

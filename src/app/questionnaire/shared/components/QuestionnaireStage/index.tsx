@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { QuestionnaireStageProps } from "./types"
+import type { FC } from "react"
+import type { QuestionnaireStageProps } from "./types"
 
 const QuestionnaireStage: FC<QuestionnaireStageProps> = ({
   stage,

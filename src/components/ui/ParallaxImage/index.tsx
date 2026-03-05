@@ -1,8 +1,8 @@
 "use client"
 
-import { FC, useEffect, useState } from "react"
 import Image from "next/image"
-import { IParallaxImageProps } from "@/components/ui/ParallaxImage/types"
+import { type FC, useEffect, useState } from "react"
+import type { IParallaxImageProps } from "@/components/ui/ParallaxImage/types"
 
 const ParallaxImage: FC<IParallaxImageProps> = ({
   src,

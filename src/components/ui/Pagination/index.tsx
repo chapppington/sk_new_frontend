@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { PaginationProps } from "./types"
+import type { FC } from "react"
+import type { PaginationProps } from "./types"
 
 const Pagination: FC<PaginationProps> = ({
   currentPage,

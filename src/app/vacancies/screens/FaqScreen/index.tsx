@@ -1,9 +1,9 @@
 "use client"
 
-import GradientHeading from "@/components/ui/GradientHeading"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import Dropdown from "@/components/ui/Dropdown"
-import BracketsText from "@/components/ui/BracketsText"
+import GradientHeading from "@/components/ui/GradientHeading"
 import { faqItems } from "./data"
 
 const TITLE = "Ответы на частозадаваемые вопросы"

@@ -1,4 +1,4 @@
-import { HistoryEvent } from "./types"
+import type { HistoryEvent } from "./types"
 
 export const historyEvents: HistoryEvent[] = [
   {

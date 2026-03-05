@@ -1,10 +1,10 @@
 "use client"
 
-import { FC } from "react"
 import Image from "next/image"
-import SectionHeader from "@/components/ui/SectionHeader"
+import type { FC } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
 import LogoGrid from "@/components/ui/LogoGrid"
+import SectionHeader from "@/components/ui/SectionHeader"
 import { EQUIPMENT_GRID } from "./data"
 
 const EquipmentGridScreen: FC = () => {

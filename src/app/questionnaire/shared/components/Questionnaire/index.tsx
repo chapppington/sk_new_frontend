@@ -1,6 +1,6 @@
-import QuestionDropdown from "../QuestionDropdown"
-import { QuestionnaireProps } from "./types"
 import QuestionnaireContactForm from "@/components/contact/QuestionnaireContactForm"
+import QuestionDropdown from "../QuestionDropdown"
+import type { QuestionnaireProps } from "./types"
 
 const Questionnaire = ({
   formState,

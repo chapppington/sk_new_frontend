@@ -1,5 +1,5 @@
-import { FC } from "react"
 import { Download } from "lucide-react"
+import type { FC } from "react"
 import type { Documentation } from "@/types/products.types"
 
 interface DownloadButtonProps {

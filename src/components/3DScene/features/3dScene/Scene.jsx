@@ -1,18 +1,20 @@
-import { useLoader } from "@react-three/fiber"
-import { DRACOLoader, GLTFLoader } from "three/examples/jsm/Addons.js"
-import * as THREE from "three"
-import { useEffect, useRef } from "react"
 import { useAnimations } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
-import { WfMid2 } from "./materials/WfMid2.jsx"
-import { WfCars } from "./materials/WfCars.jsx"
-import { WfLogo } from "./materials/WfLogo.jsx"
-import { worldWireframe } from "./materials/worldWirframe.jsx"
+import { useFrame, useLoader } from "@react-three/fiber"
 import gsap from "gsap"
 import { Power4 } from "gsap/all"
-import { BufferGeometryUtils } from "three/examples/jsm/Addons.js"
+import { useEffect, useRef } from "react"
+import * as THREE from "three"
+import {
+  BufferGeometryUtils,
+  DRACOLoader,
+  GLTFLoader,
+} from "three/examples/jsm/Addons.js"
 import { basicWF } from "./materials/basicWF.jsx"
 import { createLentaMaterial } from "./materials/lentaMaterial"
+import { WfCars } from "./materials/WfCars.jsx"
+import { WfLogo } from "./materials/WfLogo.jsx"
+import { WfMid2 } from "./materials/WfMid2.jsx"
+import { worldWireframe } from "./materials/worldWirframe.jsx"
 
 // TODO: Добавить мемоизацию для всех материалов
 // TODO: Добавить в контекст камеры useMemo

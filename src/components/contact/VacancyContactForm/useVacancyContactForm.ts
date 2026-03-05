@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
-import { useUploadFiles } from "@/components/contact/ContactForm/useUploadFiles"
 import { useSubmitForm } from "@/components/contact/ContactForm/useSubmitForm"
+import { useUploadFiles } from "@/components/contact/ContactForm/useUploadFiles"
 import { useVacancies } from "@/hooks/useVacancies"
 import type { IVacancy } from "@/types/vacancies.types"
 

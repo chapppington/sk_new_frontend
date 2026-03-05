@@ -1,14 +1,14 @@
 "use client"
 
-import { FC } from "react"
 import {
-  FileCheck,
-  Handshake,
-  Users,
   Factory,
+  FileCheck,
   GraduationCap,
+  Handshake,
   Lightbulb,
+  Users,
 } from "lucide-react"
+import type { FC } from "react"
 
 const ADVANTAGES = [
   {

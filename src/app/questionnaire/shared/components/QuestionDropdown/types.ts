@@ -1,5 +1,5 @@
-import { IQuestionOption } from "@/app/questionnaire/shared/types"
-import { FeederData } from "./components/FeederSectionOption/types"
+import type { IQuestionOption } from "@/app/questionnaire/shared/types"
+import type { FeederData } from "./components/FeederSectionOption/types"
 
 export interface QuestionDropdownProps {
   value: string | number | string[] | Record<string, FeederData[]>

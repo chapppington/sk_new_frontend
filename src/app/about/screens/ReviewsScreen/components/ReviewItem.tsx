@@ -1,7 +1,7 @@
 import Image from "next/image"
+import type { RefObject } from "react"
 import AnimatedText from "@/components/ui/AnimatedText"
 import RevealAnimation from "@/components/ui/RevealAnimation"
-import { RefObject } from "react"
 
 interface ReviewItemProps {
   review: {

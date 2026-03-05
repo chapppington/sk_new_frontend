@@ -1,9 +1,9 @@
 "use client"
 
 import dynamic from "next/dynamic"
+import CustomContainer from "@/components/ui/CustomContainer"
 import { usePortfolioBySlug } from "@/hooks/usePortfolios"
 import { Skeleton } from "@/shared/ui/skeleton"
-import CustomContainer from "@/components/ui/CustomContainer"
 import FirstScreen from "./screens/FirstScreen"
 
 const TasksScreen = dynamic(() => import("./screens/TasksScreen"))

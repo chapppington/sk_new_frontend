@@ -1,5 +1,5 @@
-import dynamic from "next/dynamic"
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import seoService from "@/services/seo/seo.service"
 import FirstScreen from "./screens/FirstScreen"
 

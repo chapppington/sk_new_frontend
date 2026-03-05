@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { TabButtonProps, ButtonSize } from "./types"
+import type { FC } from "react"
+import type { ButtonSize, TabButtonProps } from "./types"
 
 export const TabButton: FC<TabButtonProps> = ({
   value,

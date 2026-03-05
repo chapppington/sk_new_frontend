@@ -1,12 +1,12 @@
 "use client"
 
 import type { FC } from "react"
-import CustomContainer from "@/components/ui/CustomContainer"
-import SectionHeader from "@/components/ui/SectionHeader"
 import CustomSlider from "@/components/CustomSlider"
-import NewsSliderItem from "./components/NewsSliderItem"
-import { useNews } from "@/hooks/useNews"
+import CustomContainer from "@/components/ui/CustomContainer"
 import { MiniLoader } from "@/components/ui/MiniLoader"
+import SectionHeader from "@/components/ui/SectionHeader"
+import { useNews } from "@/hooks/useNews"
+import NewsSliderItem from "./components/NewsSliderItem"
 import { READ_MORE } from "./data"
 
 const NEWS_LIMIT = 8

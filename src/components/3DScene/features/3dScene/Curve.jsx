@@ -1,13 +1,13 @@
-import * as Tools from "../../tools"
-import * as THREE from "three"
+import { Line } from "@react-three/drei"
 import {
-  useState,
-  useEffect,
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
+  useState,
 } from "react"
-import { Line } from "@react-three/drei"
+import * as THREE from "three"
+import * as Tools from "../../tools"
 
 function catmullToBezier(points, closed = false) {
   if (!points || points.length < 4) {

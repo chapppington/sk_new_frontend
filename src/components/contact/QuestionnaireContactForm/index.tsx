@@ -2,15 +2,15 @@
 
 import type { FC } from "react"
 import { Controller } from "react-hook-form"
+import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
+import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
 import FileUploader from "@/components/contact/ContactForm/FileUploader"
+import { EMAIL_PATTERN } from "@/components/contact/ContactForm/useContactForm"
 import Input from "@/components/ui/Input"
 import MainButton from "@/components/ui/MainButton"
 import TextArea from "@/components/ui/TextArea"
-import { EMAIL_PATTERN } from "@/components/contact/ContactForm/useContactForm"
 import { formatPhoneNumber } from "@/utils/formatPhoneNumber"
 import { useQuestionnaireContactForm } from "./useQuestionnaireContactForm"
-import type { IFormState, IQuestion } from "@/app/questionnaire/shared/types"
-import type { QuestionnaireType } from "@/app/questionnaire/shared/components/Questionnaire/types"
 
 interface QuestionnaireContactFormProps {
   formState: IFormState

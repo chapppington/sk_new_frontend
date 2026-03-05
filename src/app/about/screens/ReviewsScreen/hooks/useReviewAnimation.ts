@@ -1,5 +1,5 @@
-import { useEffect, RefObject } from "react"
 import gsap from "gsap"
+import { type RefObject, useEffect } from "react"
 
 export const useReviewAnimation = (
   userInfoRef: RefObject<HTMLDivElement | null>,

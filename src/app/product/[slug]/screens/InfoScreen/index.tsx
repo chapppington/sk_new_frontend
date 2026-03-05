@@ -1,16 +1,14 @@
 "use client"
 
-import { FC, useState, useEffect, useRef } from "react"
+import gsap from "gsap"
 import Image from "next/image"
+import { type FC, useEffect, useRef, useState } from "react"
+import AnimatedText from "@/components/ui/AnimatedText"
+import BracketsText from "@/components/ui/BracketsText"
+import CategoryButton from "@/components/ui/CategoryButton"
+import CustomContainer from "@/components/ui/CustomContainer"
 import type { IProduct } from "@/types/products.types"
 import IconRenderer from "@/utils/iconRenderer"
-
-import gsap from "gsap"
-
-import BracketsText from "@/components/ui/BracketsText"
-import CustomContainer from "@/components/ui/CustomContainer"
-import AnimatedText from "@/components/ui/AnimatedText"
-import CategoryButton from "@/components/ui/CategoryButton"
 
 interface InfoScreenProps {
   product: IProduct

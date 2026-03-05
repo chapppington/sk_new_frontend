@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
-import seoService from "@/services/seo/seo.service"
 import FirstScreen from "@/app/vacancies/screens/FirstScreen"
+import seoService from "@/services/seo/seo.service"
 
 export async function generateMetadata(): Promise<Metadata> {
   return seoService.getMetadata("/vacancies", { next: { revalidate: 60 } })

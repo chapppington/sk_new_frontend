@@ -1,9 +1,9 @@
 "use client"
 
-import { FC } from "react"
-import SectionHeader from "@/components/ui/SectionHeader"
-import CustomContainer from "@/components/ui/CustomContainer"
+import type { FC } from "react"
 import CustomSlider from "@/components/CustomSlider"
+import CustomContainer from "@/components/ui/CustomContainer"
+import SectionHeader from "@/components/ui/SectionHeader"
 import RecentUpdateSliderItem from "./components/RecentUpdateSliderItem"
 
 import { newsItems } from "./mock_data"

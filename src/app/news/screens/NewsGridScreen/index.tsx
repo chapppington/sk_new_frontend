@@ -1,30 +1,29 @@
 "use client"
 
+import gsap from "gsap"
+import { useLenis } from "lenis/react"
+import { usePathname, useSearchParams } from "next/navigation"
 import type { FC } from "react"
 import {
+  Suspense,
   useCallback,
   useEffect,
   useLayoutEffect,
   useRef,
-  Suspense,
 } from "react"
-import { useLenis } from "lenis/react"
-import { useSearchParams, usePathname } from "next/navigation"
-import gsap from "gsap"
-
-import { useNews } from "@/hooks/useNews"
-import type { INews } from "@/types/news.types"
-import { NEWS_CATEGORIES } from "@/types/news.types"
-import CustomContainer from "@/components/ui/CustomContainer"
 import CategoryButton from "@/components/ui/CategoryButton"
-import SelectDropdown from "@/components/ui/SelectDropdown"
-import NewsGridItem from "./components/NewsGridItem"
-import Pagination from "@/components/ui/Pagination"
+import CustomContainer from "@/components/ui/CustomContainer"
 import { MiniLoader } from "@/components/ui/MiniLoader"
 import NoResultsPlaceholder from "@/components/ui/NoResultsPlaceholder"
+import Pagination from "@/components/ui/Pagination"
+import SelectDropdown from "@/components/ui/SelectDropdown"
+import { useNews } from "@/hooks/useNews"
 import { FilterIcon } from "@/shared/icons/FilterIcon"
-import { SortIcon } from "@/shared/icons/SortIcon"
 import { SearchIcon } from "@/shared/icons/SearchIcon"
+import { SortIcon } from "@/shared/icons/SortIcon"
+import type { INews } from "@/types/news.types"
+import { NEWS_CATEGORIES } from "@/types/news.types"
+import NewsGridItem from "./components/NewsGridItem"
 
 const CATEGORIES = [
   { name: "Все", slug: "all", apiValue: undefined },

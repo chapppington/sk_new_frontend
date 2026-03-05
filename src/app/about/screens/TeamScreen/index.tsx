@@ -2,16 +2,15 @@
 
 import "swiper/css"
 import "swiper/css/navigation"
+import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Autoplay } from "swiper/modules"
-
-import CustomContainer from "@/components/ui/CustomContainer"
 import BracketsText from "@/components/ui/BracketsText"
+import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
 import MainButton from "@/components/ui/MainButton"
 import { NavigationButton } from "@/components/ui/NavigationButton"
-import { TeamMemberCard } from "./components/TeamMemberCard"
 import { useTeamMembers } from "@/hooks/useTeam"
+import { TeamMemberCard } from "./components/TeamMemberCard"
 
 const TEAM_SCREEN = {
   bracketsText: "КОМАНДА",

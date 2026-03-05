@@ -1,7 +1,7 @@
-import * as THREE from "three"
 import { useMemo } from "react"
-import vertexSahder from "../shaders/v2WF.vert.glsl"
+import * as THREE from "three"
 import fragmentShader from "../shaders/v2WF.frag.glsl"
+import vertexSahder from "../shaders/v2WF.vert.glsl"
 export function WfMid2() {
   return useMemo(() => {
     return new THREE.ShaderMaterial({

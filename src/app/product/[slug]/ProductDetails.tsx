@@ -1,8 +1,8 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { useProduct } from "@/hooks/useProducts"
 import FirstScreen from "@/app/product/[slug]/screens/FirstScreen"
+import { useProduct } from "@/hooks/useProducts"
 
 const InfoScreen = dynamic(
   () => import("@/app/product/[slug]/screens/InfoScreen"),

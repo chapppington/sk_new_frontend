@@ -1,20 +1,20 @@
-import {
-  useRef,
-  useEffect,
-  createContext,
-  FC,
-  Children,
-  isValidElement,
-  useState,
-  ReactElement,
-} from "react"
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
-import { TabsContextType, TabsProps } from "./types"
+import {
+  Children,
+  createContext,
+  type FC,
+  isValidElement,
+  type ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
 import { TabButton } from "./components/TabButton"
 import { TabContent } from "./components/TabContent"
+import type { TabContentProps } from "./components/TabContent/types"
 import { TabLine } from "./components/TabLine"
-import { TabContentProps } from "./components/TabContent/types"
+import type { TabsContextType, TabsProps } from "./types"
 
 const TabsContext = createContext<TabsContextType | null>(null)
 

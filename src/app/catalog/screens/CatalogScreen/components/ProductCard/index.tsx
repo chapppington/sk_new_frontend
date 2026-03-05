@@ -1,8 +1,8 @@
 import Image from "next/image"
-import { FC } from "react"
-import TransitionLink from "@/components/ui/TransitionLink"
+import type { FC } from "react"
 import CircleIconButton from "@/components/ui/CircleIconButton"
-import { ProductCardProps } from "./types"
+import TransitionLink from "@/components/ui/TransitionLink"
+import type { ProductCardProps } from "./types"
 
 const ProductCard: FC<ProductCardProps> = ({ id, slug, title, image, alt }) => {
   return (

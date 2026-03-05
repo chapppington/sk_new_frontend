@@ -1,12 +1,11 @@
 "use client"
 
-import { FC, useEffect } from "react"
-import { useLenis } from "lenis/react"
 import gsap from "gsap"
-
-import ServiceCard from "../ServiceCard"
+import { useLenis } from "lenis/react"
+import { type FC, useEffect } from "react"
 import { services } from "../../mock_data"
-import { ServicesTabProps } from "./types"
+import ServiceCard from "../ServiceCard"
+import type { ServicesTabProps } from "./types"
 
 const ServicesTab: FC<ServicesTabProps> = ({ servicesGridRef }) => {
   const lenis = useLenis()

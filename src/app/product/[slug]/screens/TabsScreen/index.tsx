@@ -1,20 +1,18 @@
 "use client"
 
-import { useState, useRef, FC } from "react"
 import { useLenis } from "lenis/react"
-import type { IProduct } from "@/types/products.types"
-
+import { type FC, useRef, useState } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import { Tabs, TabContent } from "@/components/ui/Tabs"
-
+import { TabContent, Tabs } from "@/components/ui/Tabs"
+import type { IProduct } from "@/types/products.types"
+import CharacteristicsGrid from "./components/CharacteristicsGrid"
+import DescriptionList from "./components/DescriptionList"
+import DownloadButton from "./components/DownloadButton"
 import {
   useLeftContentAnimation,
   useRightContentAnimation,
 } from "./hooks/useAnimations"
-import DownloadButton from "./components/DownloadButton"
-import DescriptionList from "./components/DescriptionList"
-import CharacteristicsGrid from "./components/CharacteristicsGrid"
 
 interface TabsSectionProps {
   product: IProduct

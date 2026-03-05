@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "NODE_OPTIONS='--disable-warning=DEP0169' next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "sort-imports": "biome check --write ."
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

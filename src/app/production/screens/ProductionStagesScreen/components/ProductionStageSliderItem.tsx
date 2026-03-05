@@ -1,5 +1,5 @@
-import { FC } from "react"
 import Image from "next/image"
+import type { FC } from "react"
 import type { IProductionStage } from "../types"
 
 interface ProductionStageSliderItemProps {

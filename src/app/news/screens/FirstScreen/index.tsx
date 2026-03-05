@@ -1,26 +1,23 @@
 "use client"
 
 import type { FC } from "react"
-import { useState, useRef } from "react"
-
-import CustomContainer from "@/components/ui/CustomContainer"
-import Breadcrumbs from "@/components/ui/Breadcrumbs"
-import GradientHeading from "@/components/ui/GradientHeading"
-import TransitionLink from "@/components/ui/TransitionLink"
+import { useRef, useState } from "react"
 import AnimatedText from "@/components/ui/AnimatedText"
-import ParallaxImage from "@/components/ui/ParallaxImage"
-import { NavigationButton } from "@/components/ui/NavigationButton"
-import CircleIconButton from "@/components/ui/CircleIconButton"
 import Badge from "@/components/ui/Badge"
-
+import Breadcrumbs from "@/components/ui/Breadcrumbs"
+import CircleIconButton from "@/components/ui/CircleIconButton"
+import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
+import { NavigationButton } from "@/components/ui/NavigationButton"
+import ParallaxImage from "@/components/ui/ParallaxImage"
+import TransitionLink from "@/components/ui/TransitionLink"
+import { useNews } from "@/hooks/useNews"
 import { useIsMobile } from "@/shared/hooks/use-mobile"
+import type { INews } from "@/types/news.types"
 import {
   useContentAnimation,
   useImageTransition,
 } from "./hooks/useNewsAnimations"
-
-import { useNews } from "@/hooks/useNews"
-import type { INews } from "@/types/news.types"
 
 const FirstScreen: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)

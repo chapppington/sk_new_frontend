@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { CatalogTabButtonProps } from "./types"
+import type { FC } from "react"
+import type { CatalogTabButtonProps } from "./types"
 
 const CatalogTabButton: FC<CatalogTabButtonProps> = ({
   label,

@@ -1,10 +1,9 @@
 "use client"
 
-import { FC } from "react"
-
+import type { FC } from "react"
+import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
-import BracketsText from "@/components/ui/BracketsText"
 import LogoGrid from "@/components/ui/LogoGrid"
 
 import { samplePartners } from "./mock_data"

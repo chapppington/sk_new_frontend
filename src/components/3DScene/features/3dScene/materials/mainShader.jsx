@@ -1,6 +1,6 @@
 import * as THREE from "three"
-import vertexShader from "../shaders/v2WF.vert.glsl"
 import fragmentShader from "../shaders/v2WF.frag.glsl"
+import vertexShader from "../shaders/v2WF.vert.glsl"
 
 export default class WfMain {
   constructor(options = {}) {
