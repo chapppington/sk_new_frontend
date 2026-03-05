@@ -6,9 +6,7 @@ import ArticleContentSection, {
   ArticleContentSectionSkeleton,
 } from "./screens/ArticleContentScreen"
 
-const ReadMoreScreen = dynamic(
-  () => import("@/components/ReadMoreScreen"),
-)
+const ReadMoreScreen = dynamic(() => import("@/components/ReadMoreScreen"))
 const ContactUsScreen = dynamic(
   () => import("@/components/contact/ContactUsScreen"),
 )

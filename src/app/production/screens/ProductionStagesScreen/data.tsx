@@ -27,8 +27,7 @@ export const PRODUCTION_STAGES = {
       id: 2,
       number: "02",
       title: "Раскрой и гибка листового металла",
-      description:
-        "Механическая обработка и раскрой листового металла, гибка",
+      description: "Механическая обработка и раскрой листового металла, гибка",
       image: "/production/stage2.webp",
     },
     {

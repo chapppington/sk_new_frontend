@@ -30,28 +30,28 @@ const EquipmentGridScreen: FC = () => {
                   ? "md:col-span-3 lg:col-span-3"
                   : ""
             return (
-            <div
-              key={item.id}
-              className={`relative overflow-hidden min-h-[300px] md:min-h-[400px] ${colSpanClass}`}
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-                priority={index < 2}
-              />
-              <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/60 to-black/85" />
-              <div className="relative h-full p-8 flex flex-col justify-end z-10">
-                <h3 className="text-2xl text-white font-light leading-tight mb-4">
-                  {item.title}
-                </h3>
-                {item.subtitle && (
-                  <p className="text-white/80 text-sm">{item.subtitle}</p>
-                )}
+              <div
+                key={item.id}
+                className={`relative overflow-hidden min-h-[300px] md:min-h-[400px] ${colSpanClass}`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  priority={index < 2}
+                />
+                <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/60 to-black/85" />
+                <div className="relative h-full p-8 flex flex-col justify-end z-10">
+                  <h3 className="text-2xl text-white font-light leading-tight mb-4">
+                    {item.title}
+                  </h3>
+                  {item.subtitle && (
+                    <p className="text-white/80 text-sm">{item.subtitle}</p>
+                  )}
+                </div>
               </div>
-            </div>
             )
           })}
         </div>

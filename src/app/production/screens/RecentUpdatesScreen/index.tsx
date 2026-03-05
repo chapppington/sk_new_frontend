@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { FC } from "react";
-import SectionHeader from "@/components/ui/SectionHeader";
-import CustomContainer from "@/components/ui/CustomContainer";
-import CustomSlider from "@/components/CustomSlider";
-import RecentUpdateSliderItem from "./components/RecentUpdateSliderItem";
+import { FC } from "react"
+import SectionHeader from "@/components/ui/SectionHeader"
+import CustomContainer from "@/components/ui/CustomContainer"
+import CustomSlider from "@/components/CustomSlider"
+import RecentUpdateSliderItem from "./components/RecentUpdateSliderItem"
 
-import { newsItems }from "./mock_data";
+import { newsItems } from "./mock_data"
 
 interface IRecentUpdateItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
+  id: number
+  title: string
+  description: string
+  image: string
 }
 
 const RecentUpdatesScreen: FC = () => {
@@ -64,7 +64,7 @@ const RecentUpdatesScreen: FC = () => {
         </CustomSlider>
       </CustomContainer>
     </section>
-  );
-};
+  )
+}
 
-export default RecentUpdatesScreen;
+export default RecentUpdatesScreen

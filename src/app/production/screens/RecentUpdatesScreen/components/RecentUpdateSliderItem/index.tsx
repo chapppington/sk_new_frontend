@@ -1,15 +1,15 @@
-import { FC } from "react";
-import Image from "next/image";
+import { FC } from "react"
+import Image from "next/image"
 
 interface IRecentUpdateItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
+  id: number
+  title: string
+  description: string
+  image: string
 }
 
 interface RecentUpdateSliderItemProps {
-  item: IRecentUpdateItem;
+  item: IRecentUpdateItem
 }
 
 const RecentUpdateSliderItem: FC<RecentUpdateSliderItemProps> = ({ item }) => {
@@ -59,7 +59,7 @@ const RecentUpdateSliderItem: FC<RecentUpdateSliderItemProps> = ({ item }) => {
         </div>
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default RecentUpdateSliderItem;
+export default RecentUpdateSliderItem

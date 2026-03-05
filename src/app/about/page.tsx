@@ -6,9 +6,7 @@ import FirstScreen from "./screens/FirstScreen"
 const HistoryScreen = dynamic(() => import("./screens/HistoryScreen"))
 const OwnerCommentScreen = dynamic(() => import("./screens/OwnerCommentScreen"))
 const TeamScreen = dynamic(() => import("./screens/TeamScreen"))
-const ReadMoreScreen = dynamic(
-  () => import("@/components/ReadMoreScreen"),
-)
+const ReadMoreScreen = dynamic(() => import("@/components/ReadMoreScreen"))
 const ContactUsScreen = dynamic(
   () => import("@/components/contact/ContactUsScreen"),
 )

@@ -22,4 +22,4 @@ export const newsItems = [
     date: "2024-01-05",
     image: "/production_update3.webp",
   },
-];
+]

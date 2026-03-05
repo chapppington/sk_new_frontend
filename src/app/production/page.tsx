@@ -12,9 +12,7 @@ const EquipmentGridScreen = dynamic(
 const CertificatesScreen = dynamic(
   () => import("@/app/production/screens/CertificatesScreen"),
 )
-const ReadMoreScreen = dynamic(
-  () => import("@/components/ReadMoreScreen"),
-)
+const ReadMoreScreen = dynamic(() => import("@/components/ReadMoreScreen"))
 const ContactUsScreen = dynamic(
   () => import("@/components/contact/ContactUsScreen"),
 )

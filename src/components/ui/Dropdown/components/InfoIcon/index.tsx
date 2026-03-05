@@ -35,7 +35,7 @@ const InfoIcon: FC<InfoIconProps> = ({
       >
         <Info
           className={`w-4 h-4 ${
-            color === "white" ? "text-white" : "text-[#202124] dark:text-[#fff]"
+            color === "white" ? "text-white" : "text-[#202124] dark:text-white"
           }`}
           strokeWidth={2}
         />

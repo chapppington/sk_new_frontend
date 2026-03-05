@@ -1,8 +1,8 @@
 export interface FAQItem {
-  title: string;
-  content: string;
+  title: string
+  content: string
   documents?: {
-    title: string;
-    link: string;
-  }[];
+    title: string
+    link: string
+  }[]
 }

@@ -72,7 +72,7 @@ const ProductionStageSliderItem: FC<ProductionStageSliderItemProps> = ({
         </div>
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default ProductionStageSliderItem;
+export default ProductionStageSliderItem
