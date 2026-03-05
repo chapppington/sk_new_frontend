@@ -26,8 +26,8 @@ const DescriptionList: FC<DescriptionListProps> = ({
             }}
             className="flex items-start gap-4"
           >
-            <span className="text-white/70 text-3xl leading-none">•</span>
-            <p className="text-white/70">{item.text}</p>
+            <span className="text-white/80 text-3xl leading-none">•</span>
+            <p className="text-white/80">{item.text}</p>
           </li>
         ))}
       </ul>

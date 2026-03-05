@@ -32,7 +32,7 @@ const ReviewPopup: FC<ReviewPopupProps> = ({ open, onOpenChange, review }) => {
               <DialogTitle className="text-white text-xl sm:text-2xl font-bold mb-1 sm:mb-2">
                 {review.name}
               </DialogTitle>
-              <p className="text-white/70 text-base sm:text-lg">
+              <p className="text-white/80 text-base sm:text-lg">
                 {review.position}
               </p>
             </div>

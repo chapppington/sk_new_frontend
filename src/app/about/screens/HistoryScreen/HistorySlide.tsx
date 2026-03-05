@@ -49,7 +49,7 @@ const HistorySlide: FC<HistorySlideProps> = ({ event, index }) => {
                     {event.employeesHasPlus ? "+" : ""}
                   </div>
                 </div>
-                <div className="text-sm text-white/70">
+                <div className="text-sm text-white/80">
                   работает сотрудников
                 </div>
               </div>
@@ -60,7 +60,7 @@ const HistorySlide: FC<HistorySlideProps> = ({ event, index }) => {
                     {event.areaM2} м²
                   </div>
                 </div>
-                <div className="text-sm text-white/70">
+                <div className="text-sm text-white/80">
                   производственная площадь
                 </div>
               </div>

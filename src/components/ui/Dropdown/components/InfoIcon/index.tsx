@@ -63,7 +63,7 @@ const InfoIcon: FC<InfoIconProps> = ({
             <h3 className="text-white text-lg font-medium">Пояснение</h3>
             <button
               onClick={handleCloseClick}
-              className={`text-white hover:text-white/70`}
+              className={`text-white hover:text-white/80`}
             >
               ✕
             </button>

@@ -38,7 +38,7 @@ const TabsSection: FC<TabsSectionProps> = ({ product }) => {
     <div ref={leftContentRef}>
       <GradientHeading className="mb-6">{product.name}</GradientHeading>
 
-      <p className="text-white/70 text-lg">{product.description}</p>
+      <p className="text-white/80 text-lg">{product.description}</p>
 
       <div className="mt-8">
         <DownloadButton documentation={product.documentation} />

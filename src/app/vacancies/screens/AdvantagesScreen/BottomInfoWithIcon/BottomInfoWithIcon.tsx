@@ -12,7 +12,7 @@ const BottomInfoWithIcon: FC = () => {
       <div className="w-32 h-32 flex items-center justify-center shrink-0">
         <TrendingUp className="w-20 h-20 text-white opacity-80" />
       </div>
-      <p className="text-white/70 text-base">{SUBTITLE}</p>
+      <p className="text-white/80 text-base">{SUBTITLE}</p>
     </div>
   )
 }

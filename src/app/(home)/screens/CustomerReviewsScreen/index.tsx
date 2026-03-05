@@ -39,7 +39,7 @@ const CustomerReviewsScreen = () => {
 
           <div className="flex flex-col md:max-w-3xl pt-5 lg:pt-0">
             <GradientHeading>Мнение наших клиентов</GradientHeading>
-            <p className="text-white/70 mt-6">
+            <p className="text-white/80 mt-6">
               Как показывает многолетний опыт работы, наши клиенты ценят не
               только качество продукции, но и индивидуальный подход к решению их
               задач.

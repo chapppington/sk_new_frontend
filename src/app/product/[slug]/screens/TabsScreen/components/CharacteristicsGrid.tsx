@@ -27,7 +27,7 @@ const CharacteristicsGrid: FC<CharacteristicsGridProps> = ({
             }}
           >
             <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-            <p className="text-white/70">{item.description}</p>
+            <p className="text-white/80">{item.description}</p>
           </div>
         ))}
       </div>

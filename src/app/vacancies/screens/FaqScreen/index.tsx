@@ -25,7 +25,7 @@ const FaqScreen = () => {
 
           <div className="flex flex-col md:max-w-3xl pt-5 lg:pt-0">
             <GradientHeading>{TITLE}</GradientHeading>
-            <p className="text-white/70 mt-6">{SUBTITLE}</p>
+            <p className="text-white/80 mt-6">{SUBTITLE}</p>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ import NavbarDesktopMenu from "./components/NavbarDesktopMenu"
 import NavbarLogo from "./components/NavbarLogo"
 import NavbarMobileMenu from "./components/NavbarMobileMenu"
 import NavbarMobileMenuButton from "./components/NavbarMobileMenuButton"
-import { menuItems } from "./constants"
+import { aboutDropdownItems, menuItems, moreMenuItems } from "./constants"
 
 const Navbar: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -105,7 +105,11 @@ const Navbar: FC = () => {
 
         <div className="hidden 2xl:block h-full w-px bg-white/30" />
 
-        <NavbarDesktopMenu items={menuItems} />
+        <NavbarDesktopMenu
+          items={menuItems}
+          moreItems={moreMenuItems}
+          aboutDropdownItems={aboutDropdownItems}
+        />
 
         <NavbarDesktopActions />
 

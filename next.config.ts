@@ -7,6 +7,7 @@ const rawLoaderPath = require.resolve("raw-loader")
 const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
+    qualities: [100, 90, 75],
     remotePatterns: [
       {
         protocol: "https",

@@ -79,9 +79,7 @@ export function useQuestionnaireContactForm(
       throw err
     }
 
-    const allFiles = answersFileUrl
-      ? [answersFileUrl, ...upload.files.map((f) => f.url)]
-      : upload.files.map((f) => f.url)
+    const filesUrls = upload.files.map((f) => f.url)
 
     await submitFormAsync({
       form_type: FORM_TYPE,
@@ -93,7 +91,7 @@ export function useQuestionnaireContactForm(
           : undefined,
       comments: data.comments.trim() || undefined,
       answers_file_url: answersFileUrl,
-      files: allFiles.length > 0 ? allFiles : undefined,
+      files: filesUrls.length > 0 ? filesUrls : undefined,
     })
   })
 

@@ -92,7 +92,7 @@ const FirstScreen: FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 items-end mt-auto mb-8 min-[2000px]:mb-4">
             {/* Column 1: Text with Button (spans 4 cols) */}
             <div className="lg:col-span-4 flex flex-col justify-end mb-8 lg:mb-0">
-              <p className="text-sm sm:text-base md:text-lg text-white/70">
+              <p className="text-sm sm:text-base md:text-lg text-white/80">
                 Высокотехнологичные решения, которые работают стабильно,
                 безопасно и бесперебойно
               </p>

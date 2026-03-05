@@ -21,7 +21,7 @@ export default function QuestionnaireListPage() {
 
         <div className="pt-8 pb-16">
           <GradientHeading className="mb-6">Опросные листы</GradientHeading>
-          <p className="text-white/70 text-lg max-w-3xl">
+          <p className="text-white/80 text-lg max-w-3xl">
             Заполните опросный лист для точного расчета стоимости и
             характеристик оборудования. Наши специалисты свяжутся с вами в
             ближайшее время для уточнения деталей.

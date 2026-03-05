@@ -11,7 +11,7 @@ const JobItem: FC<JobItemProps> = ({ job, index }) => {
       <h2 className="job-title text-4xl text-white font-light mb-6 order-1">
         {job.title}
       </h2>
-      <ul className="requirements-list text-white/70 mb-8 max-w-3xl order-3 list-disc pl-5">
+      <ul className="requirements-list text-white/80 mb-8 max-w-3xl order-3 list-disc pl-5">
         {job.requirements.map((req, reqIndex) => (
           <li key={reqIndex}>{req}</li>
         ))}

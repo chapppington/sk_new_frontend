@@ -32,7 +32,7 @@ const ReviewsScreen: FC = () => {
     return (
       <section id="customer_reviews_section" className="bg-transparent py-24">
         <CustomContainer>
-          <div className="text-center text-white/70">
+          <div className="text-center text-white/80">
             Не удалось загрузить отзывы
           </div>
         </CustomContainer>
@@ -62,7 +62,7 @@ const ReviewsScreen: FC = () => {
 
           <div className="flex flex-col md:max-w-3xl pt-5 lg:pt-0">
             <GradientHeading>{TITLE}</GradientHeading>
-            <p className="text-white/70 mt-6">{SUBTITLE}</p>
+            <p className="text-white/80 mt-6">{SUBTITLE}</p>
           </div>
         </div>
 

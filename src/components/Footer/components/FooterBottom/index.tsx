@@ -14,7 +14,7 @@ const FooterBottom: FC = () => {
         </p>
         <TransitionLink
           href={PagesConfig.privacy.href}
-          className="block text-white/80 text-sm hover:text-white/70"
+          className="block text-white/80 text-sm hover:text-white/80"
         >
           Политика обработки персональных данных
         </TransitionLink>
@@ -27,7 +27,7 @@ const FooterBottom: FC = () => {
         <div className="flex space-x-6">
           <TransitionLink
             href={PagesConfig.privacy.href}
-            className="text-white/80 text-sm hover:text-white/70 relative select-none group transition-colors"
+            className="text-white/80 text-sm hover:text-white/80 relative select-none group transition-colors"
           >
             Политика обработки персональных данных
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>

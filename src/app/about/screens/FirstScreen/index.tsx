@@ -55,7 +55,7 @@ export default function FirstScreen() {
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/30 flex items-center justify-center mb-4 md:mb-6">
                 <CircleWithArrowIcon className="w-6 h-6 text-white" />
               </div>
-              <p className="text-base md:text-lg laptop:text-xl font-medium text-white/70 lg:max-w-[400px] 2xl:max-w-[600px]">
+              <p className="text-base md:text-lg laptop:text-xl font-medium text-white/80 lg:max-w-[400px] 2xl:max-w-[600px]">
                 {FIRST_SCREEN.subtitle}
               </p>
               <div className="block md:hidden mt-4">

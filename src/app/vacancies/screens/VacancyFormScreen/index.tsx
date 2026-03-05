@@ -17,7 +17,7 @@ const VacancyFormScreen: FC = () => {
               Хотите работать в нашей компании?
             </GradientHeading>
             <div className="mt-8 lg:mb-0">
-              <p className="text-base md:text-lg font-medium text-white/70 max-w-[600px]">
+              <p className="text-base md:text-lg font-medium text-white/80 max-w-[600px]">
                 Если Вас заинтересовали вакансии нашей компании, заполните форму
                 и мы обязательно с Вами свяжемся
               </p>

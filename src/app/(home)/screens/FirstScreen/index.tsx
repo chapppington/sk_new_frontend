@@ -58,7 +58,7 @@ const FirstScreen: FC = () => (
               Знак качества ХХI века"
             </span>
           </div>
-          <p className="text-sm sm:text-base md:text-lg text-white/70 lg:max-w-[400px] 2xl:max-w-none">
+          <p className="text-sm sm:text-base md:text-lg text-white/80 lg:max-w-[400px] 2xl:max-w-none">
             {firstScreenData.subtitle}
           </p>
           <div className="block md:hidden">
