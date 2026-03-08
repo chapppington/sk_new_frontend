@@ -14,7 +14,7 @@ const SUBTITLE =
   "Наши сотрудники ценят стабильность, профессиональный рост и дружественную атмосферу в компании. Узнайте, что они говорят о работе в нашей команде."
 
 const ReviewsScreen: FC = () => {
-  const { reviews: apiReviews, isLoading, error } = useReviews()
+  const { reviews: apiReviews, isLoading, error } = useReviews({ category: "Сотрудники" })
 
   const reviewsData: Review[] = useMemo(
     () =>

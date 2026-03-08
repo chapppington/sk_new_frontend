@@ -64,6 +64,9 @@ const ProductsTab: FC<ProductsTabProps> = ({
     offset: (currentPage - 1) * itemsPerPage,
     category: selectedCategory?.apiValue,
     search: debouncedSearchQuery || undefined,
+    is_shown: true,
+    sort_field: "order",
+    sort_order: 1,
   })
 
   const totalPages = pagination ? Math.ceil(pagination.total / itemsPerPage) : 1
@@ -200,18 +203,16 @@ const ProductsTab: FC<ProductsTabProps> = ({
             ref={productsGridRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
           >
-            {[...products]
-              .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-              .map((product: IProduct) => (
-                <ProductCard
-                  key={product.oid}
-                  id={product.oid}
-                  slug={product.slug}
-                  title={product.name}
-                  image={product.preview_image_url || "/transformer.webp"}
-                  alt={product.preview_image_alt || product.name}
-                />
-              ))}
+            {products.map((product: IProduct) => (
+              <ProductCard
+                key={product.oid}
+                id={product.oid}
+                slug={product.slug}
+                title={product.name}
+                image={product.preview_image_url || "/transformer.webp"}
+                alt={product.preview_image_alt || product.name}
+              />
+            ))}
           </div>
         ) : (
           <div ref={noResultsRef}>
