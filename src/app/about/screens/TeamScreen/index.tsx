@@ -19,7 +19,7 @@ const TEAM_SCREEN = {
     "За годы работы мы собрали команду опытных специалистов в области энергетики, производства и управления проектами. Каждый сотрудник вносит свой вклад в развитие компании и достижение общих целей.",
   ctaText: "Хотите к нам в команду?",
   ctaButtonText: "Смотреть вакансии",
-  ctaButtonHref: "/contacts",
+  ctaButtonHref: "/vacancies",
 }
 
 export default function TeamScreen() {

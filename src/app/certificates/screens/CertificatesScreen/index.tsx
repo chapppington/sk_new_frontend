@@ -88,7 +88,11 @@ export default function CertificatesScreen() {
 
           <div ref={contentRef} key={safeTab} className="flex-1 lg:pl-8">
             {filteredGroups.map((group) => (
-              <CertificateGroupDropdown key={group.oid} group={group} />
+              <CertificateGroupDropdown
+                key={group.oid}
+                group={group}
+                defaultOpen={filteredGroups.length === 1}
+              />
             ))}
           </div>
         </div>

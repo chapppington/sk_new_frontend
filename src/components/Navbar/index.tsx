@@ -3,6 +3,7 @@
 import gsap from "gsap"
 import { type FC, useEffect, useRef, useState } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
+import RequestDialog from "@/components/ui/RequestDialog"
 import NavbarDesktopActions from "./components/NavbarDesktopActions"
 import NavbarDesktopMenu from "./components/NavbarDesktopMenu"
 import NavbarLogo from "./components/NavbarLogo"
@@ -12,6 +13,7 @@ import { aboutDropdownItems, menuItems, moreMenuItems } from "./constants"
 
 const Navbar: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isRequestOpen, setIsRequestOpen] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const menuItemsRef = useRef<HTMLDivElement[]>([])
@@ -111,7 +113,7 @@ const Navbar: FC = () => {
           aboutDropdownItems={aboutDropdownItems}
         />
 
-        <NavbarDesktopActions />
+        <NavbarDesktopActions onOpenRequest={() => setIsRequestOpen(true)} />
 
         <NavbarMobileMenuButton
           isOpen={isMobileMenuOpen}
@@ -128,8 +130,14 @@ const Navbar: FC = () => {
           closeButtonRef={closeButtonRef}
           items={menuItems}
           onClose={handleCloseMenu}
+          onOpenRequest={() => setIsRequestOpen(true)}
         />
       )}
+
+      <RequestDialog
+        isOpen={isRequestOpen}
+        onClose={() => setIsRequestOpen(false)}
+      />
     </nav>
   )
 }

@@ -3,13 +3,18 @@
 import type { FC } from "react"
 import ContactInfo from "./ContactInfo"
 
-const NavbarDesktopActions: FC = () => (
+interface NavbarDesktopActionsProps {
+  onOpenRequest: () => void
+}
+
+const NavbarDesktopActions: FC<NavbarDesktopActionsProps> = ({ onOpenRequest }) => (
   <div className="hidden 2xl:flex items-center h-full">
     <div className="h-full w-px bg-white/30" />
     <ContactInfo />
     <div className="h-full w-px bg-white/30" />
     <button
       type="button"
+      onClick={onOpenRequest}
       className="h-full px-8 bg-white text-gray-900 text-sm font-medium hover:bg-gray-50 transition-all duration-300 select-none relative overflow-hidden group cursor-pointer"
     >
       <span className="relative z-10">Оставить заявку</span>

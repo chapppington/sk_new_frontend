@@ -14,6 +14,7 @@ type NavbarMobileMenuProps = {
   closeButtonRef: RefObject<HTMLButtonElement | null>
   items: readonly MenuItem[]
   onClose: () => void
+  onOpenRequest: () => void
 }
 
 const NavbarMobileMenu = ({
@@ -24,6 +25,7 @@ const NavbarMobileMenu = ({
   closeButtonRef,
   items,
   onClose,
+  onOpenRequest,
 }: NavbarMobileMenuProps) => (
   <div className="2xl:hidden fixed inset-0 z-1000 pointer-events-auto">
     <div
@@ -119,7 +121,7 @@ const NavbarMobileMenu = ({
             >
               <button
                 type="button"
-                onClick={onClose}
+                onClick={() => { onClose(); onOpenRequest() }}
                 className="px-8 py-3 bg-white text-gray-900 text-sm hover:bg-gray-50 transition-colors w-fit"
               >
                 Оставить заявку

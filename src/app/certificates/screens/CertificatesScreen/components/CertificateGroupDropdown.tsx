@@ -8,10 +8,12 @@ interface CertificateGroupDropdownProps {
     title: string
     content: string
   }
+  defaultOpen?: boolean
 }
 
 export default function CertificateGroupDropdown({
   group,
+  defaultOpen = false,
 }: CertificateGroupDropdownProps) {
   const { certificates, isLoading } = useCertificates({
     certificate_group_id: group.oid,
@@ -21,7 +23,7 @@ export default function CertificateGroupDropdown({
   })
 
   return (
-    <Dropdown title={group.title} defaultOpen={false}>
+    <Dropdown title={group.title} defaultOpen={defaultOpen}>
       <p className="text-white/60 text-base select-none">{group.content}</p>
 
       {isLoading ? (
