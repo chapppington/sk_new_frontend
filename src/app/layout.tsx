@@ -7,6 +7,7 @@ import CustomScrollbar from "@/components/CustomScrollbar"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import ConditionalBackgroundGradient from "@/components/ui/BackgroundGradient/ConditionalBackgroundGradient"
+import YandexMetrika from "@/components/YandexMetrika"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -28,6 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <meta name="yandex-verification" content="43a9b18e987b3b7c" />
+        <YandexMetrika />
+      </head>
       <body className={`${inter.variable} ${inter.className} antialiased`}>
         <Providers>
           <ConditionalBackgroundGradient />

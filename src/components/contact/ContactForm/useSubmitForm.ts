@@ -13,6 +13,9 @@ export function useSubmitForm(onSuccessCallback?: () => void) {
       toast.success(
         "Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время",
       )
+      if (typeof window !== "undefined" && window.ym) {
+        window.ym(9004708, "reachGoal", "send_form")
+      }
       onSuccessCallback?.()
     },
     onError: (error) => {
