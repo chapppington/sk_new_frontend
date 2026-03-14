@@ -47,8 +47,8 @@ const ServicesTab: FC<ServicesTabProps> = ({ servicesGridRef }) => {
             description={service.description}
             category={service.category}
             link={service.link}
-            isExternal={/^https?:\/\//.test(service.link)}
-            openInNewTab={/^https?:\/\//.test(service.link)}
+            isExternal={!!service.link && /^https?:\/\//.test(service.link)}
+            openInNewTab={!!service.link && /^https?:\/\//.test(service.link)}
           />
         ))}
       </div>

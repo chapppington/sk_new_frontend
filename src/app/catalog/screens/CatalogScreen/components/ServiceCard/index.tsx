@@ -15,32 +15,32 @@ const ServiceCard: FC<ServiceCardProps> = ({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {}
 
+  const content = (
+    <div className="space-y-4">
+      <h2 className="text-white text-lg transition-colors duration-300 group-hover:text-white/80">
+        {title}
+      </h2>
+      <p className="text-white/80 transition-colors duration-300 group-hover:text-white/80">
+        {description}
+      </p>
+      {link && <CircleIconButton text="Подробнее" />}
+    </div>
+  )
+
   return (
     <div className="flex flex-col group">
-      {isExternal ? (
-        <a href={link} className="block" {...linkProps}>
-          <div className="space-y-4">
-            <h2 className="text-white text-lg transition-colors duration-300 group-hover:text-white/80">
-              {title}
-            </h2>
-            <p className="text-white/80 transition-colors duration-300 group-hover:text-white/80">
-              {description}
-            </p>
-            <CircleIconButton text="Подробнее" />
-          </div>
-        </a>
+      {link ? (
+        isExternal ? (
+          <a href={link} className="block" {...linkProps}>
+            {content}
+          </a>
+        ) : (
+          <TransitionLink href={link} className="block" {...linkProps}>
+            {content}
+          </TransitionLink>
+        )
       ) : (
-        <TransitionLink href={link} className="block" {...linkProps}>
-          <div className="space-y-4">
-            <h2 className="text-white text-lg transition-colors duration-300 group-hover:text-white/80">
-              {title}
-            </h2>
-            <p className="text-white/80 transition-colors duration-300 group-hover:text-white/80">
-              {description}
-            </p>
-            <CircleIconButton text="Подробнее" />
-          </div>
-        </TransitionLink>
+        content
       )}
     </div>
   )

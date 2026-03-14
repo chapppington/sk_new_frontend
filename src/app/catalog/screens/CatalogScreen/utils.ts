@@ -1,10 +1,12 @@
 import { productCategories } from "./mock_data"
 
+export type CatalogTab = "products" | "services" | "warehouse"
+
 // Utility function to validate tab parameter
-export const validateTabParam = (
-  tab: string | null,
-): "products" | "services" => {
-  return tab === "services" ? "services" : "products"
+export const validateTabParam = (tab: string | null): CatalogTab => {
+  if (tab === "services") return "services"
+  if (tab === "warehouse") return "warehouse"
+  return "products"
 }
 
 // Utility function to validate category parameter

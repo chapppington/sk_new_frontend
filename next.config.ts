@@ -5,6 +5,9 @@ const require = createRequire(import.meta.url)
 const rawLoaderPath = require.resolve("raw-loader")
 
 const nextConfig: NextConfig = {
+  // Отключает streaming metadata — title и meta description всегда в <head>
+  // (иначе при async generateMetadata они оказываются в body)
+  htmlLimitedBots: /.*/,
   reactCompiler: true,
   images: {
     qualities: [100, 90, 75],

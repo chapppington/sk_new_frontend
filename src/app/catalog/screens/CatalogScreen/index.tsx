@@ -9,7 +9,8 @@ import CustomContainer from "@/components/ui/CustomContainer"
 import CatalogTabButton from "./components/CatalogTabButton"
 import ProductsTab from "./components/ProductsTab"
 import ServicesTab from "./components/ServicesTab"
-import { validateTabParam } from "./utils"
+import WarehouseTab from "./components/WarehouseTab"
+import { validateTabParam, type CatalogTab } from "./utils"
 
 const CatalogSectionContent: FC = () => {
   const lenis = useLenis()
@@ -18,7 +19,7 @@ const CatalogSectionContent: FC = () => {
   // Get and sanitize URL params
   const tabParam = validateTabParam(searchParams.get("tab"))
 
-  const [activeTab, setActiveTab] = useState<"products" | "services">(tabParam)
+  const [activeTab, setActiveTab] = useState<CatalogTab>(tabParam)
 
   const activeTabIndicatorRef = useRef<HTMLDivElement | null>(null)
   const productsGridRef = useRef<HTMLDivElement | null>(null)
@@ -37,8 +38,10 @@ const CatalogSectionContent: FC = () => {
   // GSAP animations for tab switching
   useEffect(() => {
     if (activeTabIndicatorRef.current) {
+      const xPos =
+        activeTab === "products" ? "0%" : activeTab === "services" ? "50%" : "100%"
       gsap.to(activeTabIndicatorRef.current, {
-        x: activeTab === "products" ? "0%" : "100%",
+        x: xPos,
         duration: 0.3,
         ease: "power2.inOut",
         onComplete: () => {
@@ -66,22 +69,29 @@ const CatalogSectionContent: FC = () => {
               isActive={activeTab === "services"}
               onClick={() => setActiveTab("services")}
             />
+            <CatalogTabButton
+              label="Товары со склада"
+              isActive={activeTab === "warehouse"}
+              onClick={() => setActiveTab("warehouse")}
+            />
           </div>
         </div>
 
         <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 mt-8 xl:mt-0">
-          {activeTab === "products" ? (
+          {activeTab === "products" && (
             <ProductsTab
               productsGridRef={productsGridRef}
               paginationRef={paginationRef}
               noResultsRef={noResultsRef}
             />
-          ) : (
+          )}
+          {activeTab === "services" && (
             <ServicesTab
               servicesGridRef={servicesGridRef}
               noResultsRef={noResultsRef}
             />
           )}
+          {activeTab === "warehouse" && <WarehouseTab />}
         </div>
       </CustomContainer>
     </section>
