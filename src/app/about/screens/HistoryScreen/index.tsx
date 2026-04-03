@@ -10,16 +10,12 @@ export default function HistoryScreen() {
   const sortedEvents = [...historyEvents].sort((a, b) => a.id - b.id)
 
   return (
-    <section id="history_section" className="bg-transparent py-24 relative">
-      <div
-        className="absolute inset-x-0 top-0 h-[500px] bg-linear-to-b from-black to-transparent"
-        style={{ zIndex: -1 }}
-      />
-      <CustomContainer className="h-full flex flex-col relative z-10">
+    <section id="history_section" className="bg-transparent py-24">
+      <CustomContainer className="h-full flex flex-col">
         <SectionHeader
           bracketsText="ИСТОРИЯ"
           heading="История компании"
-          description="С 2006 года мы прошли путь от стартапа до предприятия полного цикла: собрали сильную команду, развернули масштабное производство и внедрили передовые технологии."
+          description="С 2006 года мы прошли путь от гаража до предприятия полного цикла: собрали сильную команду, развернули масштабное производство и внедрили передовые технологии."
           desktopOrder={{
             bracketsText: 1,
             heading: 2,

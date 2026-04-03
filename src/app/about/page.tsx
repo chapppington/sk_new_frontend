@@ -19,8 +19,8 @@ export default function AboutPage() {
   return (
     <main>
       <FirstScreen />
-      <HistoryScreen />
       <OwnerCommentScreen />
+      <HistoryScreen />
       <TeamScreen />
       <ReadMoreScreen />
       <ContactUsScreen />

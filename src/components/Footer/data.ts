@@ -41,7 +41,7 @@ export const contactBlocks: ContactBlock[] = [
     title: "Отдел снабжения",
     phone: "",
     phoneRaw: "",
-    email: "snab@sibkomplekt.ru",
+    email: "supply@sibkomplekt.ru",
   },
 ]
 
