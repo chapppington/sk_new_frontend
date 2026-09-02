@@ -6,6 +6,17 @@ export interface BreadcrumbItem {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://sibkomplekt.ru"
 
+export function buildProductBreadcrumbs(
+  slug: string,
+  name: string,
+): BreadcrumbItem[] {
+  return [
+    { label: "Главная", href: "/" },
+    { label: "Каталог", href: "/catalog" },
+    { label: name, href: `/product/${slug}`, current: true },
+  ]
+}
+
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]): string {
   const validItems = items.filter((item) => item.label && item.href)
 

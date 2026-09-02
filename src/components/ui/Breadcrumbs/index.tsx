@@ -8,6 +8,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({
   items,
   className,
   disableContainer,
+  hideSchema = false,
 }) => {
   const content = (
     <div className="flex items-center space-x-2 text-white/80">
@@ -29,8 +30,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({
 
   return (
     <>
-      {/* JSON-LD разметка для поисковых систем */}
-      <BreadcrumbSchema items={items} />
+      {!hideSchema && <BreadcrumbSchema items={items} />}
       <div className={`pt-32 ${className || ""}`}>
         {disableContainer ? (
           content

@@ -46,9 +46,15 @@ const FirstScreen = ({ product }: FirstScreenProps) => {
           <Breadcrumbs
             className="pb-8 md:pb-16"
             disableContainer
+            hideSchema
             items={[
               { label: "Главная", href: "/", current: false },
               { label: "Каталог", href: "/catalog", current: false },
+              {
+                label: product.name,
+                href: `/product/${product.slug}`,
+                current: true,
+              },
             ]}
           />
           <span className="text-white/80 text-base md:text-lg max-w-2xl mb-4 md:mb-6 block">
