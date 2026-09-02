@@ -25,8 +25,9 @@ class SeoSettingsService {
   }
 
   async getMetadata(pagePath: string, init?: RequestInit) {
-    const seo = await this.fetchSeoSettings(pagePath, init)
-    return toMetadata(seo)
+    const path = normalizePath(pagePath)
+    const seo = await this.fetchSeoSettings(path, init)
+    return toMetadata(seo, path)
   }
 }
 

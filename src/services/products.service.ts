@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
 import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { IProduct, IProductsListParams } from "@/types/products.types"
+import { buildCanonical } from "@/services/seo/seo.helpers"
 
 class ProductsService {
   private _BASE_URL = "/products"
@@ -33,6 +34,7 @@ class ProductsService {
       return {
         title: `${data.name} | СибКомплект`,
         description,
+        alternates: { canonical: buildCanonical(`/product/${slug}`) },
       }
     } catch {
       return {

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
 import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { INews, INewsListParams } from "@/types/news.types"
+import { buildCanonical } from "@/services/seo/seo.helpers"
 
 class NewsService {
   private _BASE_URL = "/news"
@@ -30,6 +31,7 @@ class NewsService {
       return {
         title: `${data.title} | СибКомплект`,
         description,
+        alternates: { canonical: buildCanonical(`/news/${slug}`) },
       }
     } catch {
       return {

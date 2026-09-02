@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { axiosPublic } from "@/api/axios"
 import type { ApiResponse, ListPaginatedResponse } from "@/api/types"
 import type { IPortfolio, IPortfolioListParams } from "@/types/portfolios.types"
+import { buildCanonical } from "@/services/seo/seo.helpers"
 
 class PortfoliosService {
   private _BASE_URL = "/portfolios"
@@ -35,6 +36,7 @@ class PortfoliosService {
       return {
         title: `${data.name} | СибКомплект`,
         description: data.description,
+        alternates: { canonical: buildCanonical(`/portfolio/${slug}`) },
       }
     } catch {
       return {
