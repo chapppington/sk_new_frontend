@@ -28,8 +28,8 @@ export default function HistoryScreen() {
           loop={false}
           showIndicators={true}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            768: { slidesPerView: 2 },
+            1280: { slidesPerView: 4 },
           }}
         >
           {sortedEvents.map((event, index) => (

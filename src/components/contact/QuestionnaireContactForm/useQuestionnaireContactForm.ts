@@ -13,6 +13,7 @@ export interface IQuestionnaireContactFormValues {
   phone: string
   comments: string
   consent: boolean
+  marketingConsent: boolean
 }
 
 const FORM_TYPE = "Опросный лист" as const
@@ -36,6 +37,7 @@ export function useQuestionnaireContactForm(
       phone: "",
       comments: "",
       consent: false,
+      marketingConsent: false,
     },
   })
 
@@ -92,6 +94,8 @@ export function useQuestionnaireContactForm(
       comments: data.comments.trim() || undefined,
       answers_file_url: answersFileUrl,
       files: filesUrls.length > 0 ? filesUrls : undefined,
+      consent: data.consent,
+      marketing_consent: data.marketingConsent,
     })
   })
 

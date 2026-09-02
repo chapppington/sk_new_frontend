@@ -13,6 +13,7 @@ const TransitionLink: FC<ITransitionLinkProps> = ({
   onClick,
   style,
   ref,
+  rel,
   "aria-label": ariaLabel,
 }) => {
   const router = useTransitionRouter()
@@ -89,6 +90,7 @@ const TransitionLink: FC<ITransitionLinkProps> = ({
       }`}
       onClick={handleClick}
       style={style}
+      rel={rel}
       aria-label={ariaLabel}
     >
       {children}

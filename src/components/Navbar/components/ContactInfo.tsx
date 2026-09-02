@@ -10,7 +10,11 @@ const ContactInfo: FC = () => {
   return (
     <div className="flex items-center h-full">
       {phone && (
-        <a href={`tel:${phone.replace(/\s/g, "")}`} className={linkClassName}>
+        <a
+          href={`tel:${phone.replace(/\s/g, "")}`}
+          className={linkClassName}
+          rel="nofollow"
+        >
           <span className="relative z-10 group-hover:text-gray-900 transition-colors">
             {phone}
           </span>
@@ -21,7 +25,7 @@ const ContactInfo: FC = () => {
         <div className="h-full w-px bg-white/30 shrink-0" aria-hidden />
       )}
       {email && (
-        <a href={`mailto:${email}`} className={linkClassName}>
+        <a href={`mailto:${email}`} className={linkClassName} rel="nofollow">
           <span className="relative z-10 group-hover:text-gray-900 transition-colors">
             {email}
           </span>

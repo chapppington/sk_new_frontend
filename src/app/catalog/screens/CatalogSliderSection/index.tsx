@@ -4,23 +4,18 @@ import { type FC, useMemo, useState } from "react"
 import { mockup } from "@/components/ProductsSlider3D/features/mockup"
 import { ScrollOffsetProvider } from "@/components/ProductsSlider3D/features/ScrollProviderOffset"
 import ProductsSlider3D from "@/components/ProductsSlider3D/main"
-import Breadcrumbs from "@/components/ui/Breadcrumbs"
 import CustomContainer from "@/components/ui/CustomContainer"
-import GradientHeading from "@/components/ui/GradientHeading"
-import styles from "@/components/ui/GradientHeading/styles.module.css"
 import MainButton from "@/components/ui/MainButton"
 import SliderSelectButtons from "@/components/ui/SliderSelectButtons"
 
-const FirstScreen: FC = () => {
-  // Added state management for the counter
+const CatalogSliderSection: FC = () => {
   const [currentSlide, setCurrentSlide] = useState(1)
-  const totalSlides = mockup.length // Set the total number of slides
+  const totalSlides = mockup.length
 
-  // Generate indicator bars
   const indicatorBars = useMemo(() => {
     const indicatorCount = 60
+
     return Array.from({ length: indicatorCount }).map((_, index) => {
-      // Calculate active position
       const totalPositions = indicatorCount - 5
       const progress =
         totalSlides > 1 ? (currentSlide - 1) / (totalSlides - 1) : 0
@@ -58,40 +53,17 @@ const FirstScreen: FC = () => {
 
   return (
     <ScrollOffsetProvider>
-      <header className="relative flex flex-col min-h-svh min-[2000px]:h-[65vh] min-[2000px]:min-h-0 max-h-svh overflow-y-hidden">
-        <Breadcrumbs
-          items={[
-            { label: "Главная", href: "/", current: false },
-            { label: "Каталог", href: "/catalog", current: true },
-          ]}
-        />
-
-        {/* Main Content */}
-        <CustomContainer
-          className="flex flex-col justify-between min-[2000px]:min-h-0! min-[2000px]:flex-1"
-          fullHeight
-        >
-          <div className="pt-8 sm:pt-12 md:pt-16 min-[2000px]:pt-6 flex items-start relative">
-            <GradientHeading
-              className={`${styles.fluidHeadingMain} 2xl:text-6xl z-10 `}
-              level={1}
-            >
-              Оборудование для надежного электроснабжения
-            </GradientHeading>
-
-            <div className="hidden xl:block pt-8 xl:pt-12">
-              <ProductsSlider3D
-                currentSlide={currentSlide}
-                setCurrentSlide={setCurrentSlide}
-                absolute
-              />
-            </div>
+      <section className="bg-transparent py-24">
+        <CustomContainer>
+          <div className="hidden xl:flex justify-end mb-12">
+            <ProductsSlider3D
+              currentSlide={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+            />
           </div>
 
-          {/* Bottom Content - Three-column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-end mt-auto mb-8 min-[2000px]:mb-4">
-            {/* Column 1: Text with Button (spans 4 cols) */}
-            <div className="lg:col-span-4 flex flex-col justify-end mb-8 lg:mb-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-8">
+            <div className="lg:col-span-4 flex flex-col justify-end">
               <p className="text-sm sm:text-base md:text-lg text-white/80">
                 Высокотехнологичные решения, которые работают стабильно,
                 безопасно и бесперебойно
@@ -112,7 +84,6 @@ const FirstScreen: FC = () => {
               </div>
             </div>
 
-            {/* Column 2: Counter and Navigation Buttons (spans 2 cols) */}
             <div className="lg:col-span-2 hidden xl:block">
               <SliderSelectButtons
                 currentSlide={currentSlide}
@@ -120,7 +91,6 @@ const FirstScreen: FC = () => {
               />
             </div>
 
-            {/* Column 3: Indicators (spans 6 cols) */}
             <div className="xl:col-span-6 hidden xl:block">
               <div
                 id="slider-indicators-container"
@@ -136,9 +106,9 @@ const FirstScreen: FC = () => {
             </div>
           </div>
         </CustomContainer>
-      </header>
+      </section>
     </ScrollOffsetProvider>
   )
 }
 
-export default FirstScreen
+export default CatalogSliderSection

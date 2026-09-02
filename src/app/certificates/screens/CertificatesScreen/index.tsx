@@ -40,7 +40,7 @@ export default function CertificatesScreen() {
   if (isLoading) {
     return (
       <CustomContainer className="mt-32 mb-10">
-        <GradientHeading>Сертификаты и документация</GradientHeading>
+        <GradientHeading level={1}>Сертификаты и документация</GradientHeading>
         <p className="mt-8 text-white/60">Загрузка…</p>
       </CustomContainer>
     )
@@ -49,7 +49,7 @@ export default function CertificatesScreen() {
   if (!sections.length) {
     return (
       <CustomContainer className="mt-32 mb-10">
-        <GradientHeading>Сертификаты и документация</GradientHeading>
+        <GradientHeading level={1}>Сертификаты и документация</GradientHeading>
         <p className="mt-8 text-white/60">Пока нет данных</p>
       </CustomContainer>
     )
@@ -65,7 +65,7 @@ export default function CertificatesScreen() {
       />
 
       <CustomContainer className="mt-8 mb-12">
-        <GradientHeading>
+        <GradientHeading level={1}>
           Сертификаты <br />и документация
         </GradientHeading>
       </CustomContainer>

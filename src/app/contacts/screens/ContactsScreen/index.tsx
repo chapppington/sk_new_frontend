@@ -28,8 +28,8 @@ const ContactsScreen: FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Column - Contact Form */}
             <div>
-              <GradientHeading className="mb-8">
-                Связаться с нами
+              <GradientHeading className="mb-8" level={1}>
+                Контакты
               </GradientHeading>
               <p className="text-base md:text-lg font-medium text-white/80 mb-10">
                 Заполните форму — мы свяжемся с вами в рабочее время, ответим на

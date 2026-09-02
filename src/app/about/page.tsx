@@ -5,6 +5,9 @@ import FirstScreen from "./screens/FirstScreen"
 
 const HistoryScreen = dynamic(() => import("./screens/HistoryScreen"))
 const OwnerCommentScreen = dynamic(() => import("./screens/OwnerCommentScreen"))
+const ValuesScreen = dynamic(
+  () => import("@/app/vacancies/screens/ValuesScreen"),
+)
 const TeamScreen = dynamic(() => import("./screens/TeamScreen"))
 const ReadMoreScreen = dynamic(() => import("@/components/ReadMoreScreen"))
 const ContactUsScreen = dynamic(
@@ -21,6 +24,7 @@ export default function AboutPage() {
       <FirstScreen />
       <OwnerCommentScreen />
       <HistoryScreen />
+      <ValuesScreen />
       <TeamScreen />
       <ReadMoreScreen />
       <ContactUsScreen />

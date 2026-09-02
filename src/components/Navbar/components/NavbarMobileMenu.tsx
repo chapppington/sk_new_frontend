@@ -121,7 +121,10 @@ const NavbarMobileMenu = ({
             >
               <button
                 type="button"
-                onClick={() => { onClose(); onOpenRequest() }}
+                onClick={() => {
+                  onClose()
+                  onOpenRequest()
+                }}
                 className="px-8 py-3 bg-white text-gray-900 text-sm hover:bg-gray-50 transition-colors w-fit"
               >
                 Оставить заявку

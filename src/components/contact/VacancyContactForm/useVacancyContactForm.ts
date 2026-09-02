@@ -12,6 +12,7 @@ export interface IVacancyContactFormValues {
   vacancyId: string
   coverLetter: string
   consent: boolean
+  marketingConsent: boolean
 }
 
 const FORM_TYPE = "Отклик на вакансию" as const
@@ -32,6 +33,7 @@ export function useVacancyContactForm() {
       vacancyId: "",
       coverLetter: "",
       consent: false,
+      marketingConsent: false,
     },
   })
 
@@ -77,6 +79,8 @@ export function useVacancyContactForm() {
       vacancy_oid: data.vacancyId || undefined,
       files:
         upload.files.length > 0 ? upload.files.map((f) => f.url) : undefined,
+      consent: data.consent,
+      marketing_consent: data.marketingConsent,
     })
   })
 

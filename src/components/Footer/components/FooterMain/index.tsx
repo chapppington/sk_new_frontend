@@ -27,6 +27,7 @@ const FooterMain: FC = () => {
                     <a
                       href={`tel:${block.phoneRaw || block.phone.replace(/\D/g, "")}`}
                       className="text-white"
+                      rel="nofollow"
                     >
                       {block.phone}
                     </a>
@@ -34,7 +35,11 @@ const FooterMain: FC = () => {
                 )}
                 <div className="flex items-center gap-2">
                   <EmailIcon className={iconClassName} />
-                  <a href={`mailto:${block.email}`} className="text-white">
+                  <a
+                    href={`mailto:${block.email}`}
+                    className="text-white"
+                    rel="nofollow"
+                  >
                     {block.email}
                   </a>
                 </div>
@@ -54,6 +59,7 @@ const FooterMain: FC = () => {
                     <a
                       href={`tel:${block.phoneRaw || block.phone.replace(/\D/g, "")}`}
                       className="text-white"
+                      rel="nofollow"
                     >
                       {block.phone}
                     </a>
@@ -61,7 +67,11 @@ const FooterMain: FC = () => {
                 )}
                 <div className="flex items-center gap-2">
                   <EmailIcon className={iconClassName} />
-                  <a href={`mailto:${block.email}`} className="text-white">
+                  <a
+                    href={`mailto:${block.email}`}
+                    className="text-white"
+                    rel="nofollow"
+                  >
                     {block.email}
                   </a>
                 </div>

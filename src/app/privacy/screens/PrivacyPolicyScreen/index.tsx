@@ -9,7 +9,7 @@ const PrivacyPolicyScreen: FC = () => {
     <main className="max-w-[1000px] mx-auto">
       <section className="py-16 mt-24">
         <CustomContainer>
-          <GradientHeading className="mb-8">
+          <GradientHeading className="mb-8" level={1}>
             Политика в отношении обработки персональных данных
           </GradientHeading>
 

@@ -27,7 +27,9 @@ export default function QuestionnaireLeftMenu({
         disableContainer
       />
 
-      <GradientHeading className="mt-8 mb-6">{title}</GradientHeading>
+      <GradientHeading className="mt-8 mb-6" level={1}>
+        {title}
+      </GradientHeading>
 
       {subtitle && <p className="text-white/60 mb-12">{subtitle}</p>}
 

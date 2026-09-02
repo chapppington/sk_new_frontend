@@ -44,7 +44,7 @@ const ProductDetails = ({ slug }: Props) => {
   return (
     <main>
       <FirstScreen product={product} />
-      {/* <InfoScreen product={product} /> */}
+      <InfoScreen product={product} />
       <TabsScreen product={product} />
       <QuestionnaireButtonsScreen product={product} />
       {(product.portfolio_items ?? []).length > 0 && (

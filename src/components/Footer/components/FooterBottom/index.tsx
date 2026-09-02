@@ -1,6 +1,7 @@
 "use client"
 
 import type { FC } from "react"
+import NoIndex from "@/components/ui/NoIndex"
 import TransitionLink from "@/components/ui/TransitionLink"
 import { PagesConfig } from "@/config/pages.config"
 
@@ -12,12 +13,15 @@ const FooterBottom: FC = () => {
         <p className="text-white/80 text-sm">
           © {new Date().getFullYear()}г. Все права защищены.
         </p>
-        <TransitionLink
-          href={PagesConfig.privacy.href}
-          className="block text-white/80 text-sm hover:text-white/80"
-        >
-          Политика обработки персональных данных
-        </TransitionLink>
+        <NoIndex>
+          <TransitionLink
+            href={PagesConfig.privacy.href}
+            className="block text-white/80 text-sm hover:text-white/80"
+            rel="nofollow"
+          >
+            Политика обработки персональных данных
+          </TransitionLink>
+        </NoIndex>
       </div>
       {/* Desktop version (flex row) */}
       <div className="hidden lg:flex lg:flex-row justify-between items-center">
@@ -25,13 +29,16 @@ const FooterBottom: FC = () => {
           © {new Date().getFullYear()}г. Все права защищены.
         </p>
         <div className="flex space-x-6">
-          <TransitionLink
-            href={PagesConfig.privacy.href}
-            className="text-white/80 text-sm hover:text-white/80 relative select-none group transition-colors"
-          >
-            Политика обработки персональных данных
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-          </TransitionLink>
+          <NoIndex>
+            <TransitionLink
+              href={PagesConfig.privacy.href}
+              className="text-white/80 text-sm hover:text-white/80 relative select-none group transition-colors"
+              rel="nofollow"
+            >
+              Политика обработки персональных данных
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+            </TransitionLink>
+          </NoIndex>
         </div>
       </div>
     </div>

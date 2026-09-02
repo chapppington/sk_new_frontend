@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
-import FirstScreen from "@/app/catalog/screens/FirstScreen"
+import CatalogHeader from "@/app/catalog/screens/CatalogHeader"
 import seoService from "@/services/seo/seo.service"
 
 const CatalogSection = dynamic(
   () => import("@/app/catalog/screens/CatalogScreen"),
 )
+// const CatalogSliderSection = dynamic(
+//   () => import("@/app/catalog/screens/CatalogSliderSection"),
+// )
 const ContactUsScreen = dynamic(
   () => import("@/components/contact/ContactUsScreen"),
 )
@@ -17,8 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function CatalogPage() {
   return (
     <main>
-      <FirstScreen />
+      <CatalogHeader />
       <CatalogSection />
+      {/* <CatalogSliderSection /> */}
       <ContactUsScreen />
     </main>
   )

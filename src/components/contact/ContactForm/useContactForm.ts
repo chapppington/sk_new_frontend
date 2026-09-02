@@ -9,6 +9,7 @@ interface IContactFormValues {
   email: string
   phone: string
   consent: boolean
+  marketingConsent: boolean
 }
 
 export const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -20,7 +21,7 @@ export function useContactForm(formType: FormType = "Обращение") {
     control,
     formState: { errors },
   } = useForm<IContactFormValues>({
-    defaultValues: { name: "", email: "", phone: "", consent: false },
+    defaultValues: { name: "", email: "", phone: "", consent: false, marketingConsent: false },
   })
 
   const upload = useUploadFiles("submissions")
@@ -48,6 +49,8 @@ export function useContactForm(formType: FormType = "Обращение") {
           : undefined,
       files:
         upload.files.length > 0 ? upload.files.map((f) => f.url) : undefined,
+      consent: data.consent,
+      marketing_consent: data.marketingConsent,
     })
   })
 

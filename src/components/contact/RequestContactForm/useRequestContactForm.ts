@@ -9,6 +9,7 @@ export interface IRequestContactFormValues {
   phone: string
   comment: string
   consent: boolean
+  marketingConsent: boolean
 }
 
 export function useRequestContactForm(onSuccess?: () => void) {
@@ -24,6 +25,7 @@ export function useRequestContactForm(onSuccess?: () => void) {
       phone: "",
       comment: "",
       consent: false,
+      marketingConsent: false,
     },
   })
 
@@ -53,6 +55,8 @@ export function useRequestContactForm(onSuccess?: () => void) {
       comments: data.comment.trim() || undefined,
       files:
         upload.files.length > 0 ? upload.files.map((f) => f.url) : undefined,
+      consent: data.consent,
+      marketing_consent: data.marketingConsent,
     })
   })
 

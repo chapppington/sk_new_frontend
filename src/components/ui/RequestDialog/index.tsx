@@ -24,7 +24,9 @@ export default function RequestDialog({ isOpen, onClose }: RequestDialogProps) {
     } else {
       lenis?.start()
     }
-    return () => { lenis?.start() }
+    return () => {
+      lenis?.start()
+    }
   }, [isOpen, lenis])
 
   const handleClose = () => {

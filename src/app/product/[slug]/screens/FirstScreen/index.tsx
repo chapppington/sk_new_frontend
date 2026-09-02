@@ -8,6 +8,7 @@ import MainButton from "@/components/ui/MainButton"
 import { PagesConfig } from "@/config/pages.config"
 import type { IProduct, ProductCategoryKey } from "@/types/products.types"
 import { PRODUCT_CATEGORIES } from "@/types/products.types"
+import { formatProductPrice } from "@/utils/formatProductPrice"
 
 interface FirstScreenProps {
   product: IProduct
@@ -22,6 +23,11 @@ function getCategoryLabel(category: string): string {
 
 const FirstScreen = ({ product }: FirstScreenProps) => {
   const categoryLabel = getCategoryLabel(product.category)
+  const formattedPrice = formatProductPrice(
+    product.price,
+    product.show_price_from,
+  )
+  const hasCharacteristics = product.important_characteristics.length > 0
 
   return (
     <header className="flex flex-col justify-between pb-12 md:pb-24">
@@ -57,6 +63,16 @@ const FirstScreen = ({ product }: FirstScreenProps) => {
           <p className="text-white/80 text-sm md:text-base max-w-2xl mb-6 md:mb-10">
             {product.description}
           </p>
+          {formattedPrice && (
+            <p
+              className={`text-2xl md:text-3xl lg:text-4xl font-semibold text-white max-w-2xl ${
+                hasCharacteristics ? "mb-6 md:mb-10" : "mb-0"
+              }`}
+            >
+              {formattedPrice}
+            </p>
+          )}
+          {hasCharacteristics && (
           <div className="mb-6 flex flex-col gap-4 md:gap-6 w-full max-w-2xl">
             {product.important_characteristics.map((stat, index) => (
               <div key={index} className="text-white text-base md:text-lg">
@@ -68,6 +84,7 @@ const FirstScreen = ({ product }: FirstScreenProps) => {
               </div>
             ))}
           </div>
+          )}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-0 mt-4">
             <MainButton
               text="Узнать конечную стоимость"

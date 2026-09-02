@@ -13,4 +13,5 @@ export interface IBlackBoxWithStatsProps {
   stats: IStatItem[]
   transparent?: boolean
   showOnMobile?: boolean
+  layout?: "absolute" | "inline"
 }

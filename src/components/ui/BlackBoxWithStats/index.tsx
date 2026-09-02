@@ -6,12 +6,17 @@ const BlackBoxWithStats: FC<IBlackBoxWithStatsProps> = ({
   className,
   stats,
   transparent = false,
+  layout = "absolute",
 }) => {
   const isMobile = useIsMobile()
+
+  const wrapperClassName =
+    layout === "inline"
+      ? `hidden xl:block shrink-0 ${className ?? ""}`
+      : `absolute bottom-7 lg:right-4 3xl:right-17 4xl:right-41 5xl:right-122 hidden xl:block ${className ?? ""}`
+
   return (
-    <div
-      className={`absolute bottom-7 lg:right-4 3xl:right-17 4xl:right-41 5xl:right-122 hidden xl:block ${className}`}
-    >
+    <div className={wrapperClassName}>
       <div className={`relative ${transparent ? "" : "md:bg-black"}`}>
         <div className="flex flex-wrap gap-x-8 gap-y-4 p-4 md:p-12">
           {stats

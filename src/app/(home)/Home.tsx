@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { useCameraContext } from "@/components/3DScene/features/CameraContext"
 import { SectionObserver } from "@/components/3DScene/features/SectionObserver"
 import ContactUsScreen from "@/components/contact/ContactUsScreen"
+import CookieConsentBanner from "@/components/CookieConsentBanner"
 import CustomerReviewsScreen from "./screens/CustomerReviewsScreen"
 import FirstScreen from "./screens/FirstScreen"
 import MissionScreen from "./screens/MissionScreen"
@@ -39,8 +40,9 @@ export default function HomeClientComponent() {
         <CustomerReviewsScreen />
       </SectionObserver>
       <SectionObserver index={6}>
-        <ContactUsScreen />
+        <ContactUsScreen sectionClassName="xl:pb-32" />
       </SectionObserver>
+      <CookieConsentBanner />
     </main>
   )
 }

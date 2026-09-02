@@ -34,7 +34,7 @@ export default function ArticleContentSection({
 
         {/* Article Title */}
         <div>
-          <GradientHeading className="leading-tight mb-6">
+          <GradientHeading className="leading-tight mb-6" level={1}>
             {news.title}
           </GradientHeading>
         </div>

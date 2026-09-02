@@ -4,7 +4,7 @@ import { useLenis } from "lenis/react"
 import type { RefObject } from "react"
 import "swiper/css"
 import "swiper/css/navigation"
-import { Navigation } from "swiper/modules"
+import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import PortfolioScreenSlide from "@/app/(home)/screens/PortfolioScreen/slider/PortfolioScreenSlide"
 import {
@@ -39,10 +39,14 @@ const PortfolioScreenSlider: React.FC<PortfolioScreenSliderProps> = ({
     <div className="w-full xl:w-1/2 relative">
       <div className="absolute top-0 left-0 right-0 h-[300px] overflow-hidden opacity-0 pointer-events-none xl:relative xl:top-auto xl:left-auto xl:right-auto xl:h-auto xl:w-auto xl:overflow-visible xl:opacity-100 xl:pointer-events-auto">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           slidesPerView={1}
           spaceBetween={20}
           loop={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           navigation={false}
           onSlideChange={(swiper) => {
             updatePortfolioIndicators(swiper, portfolios.length)

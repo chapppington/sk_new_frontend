@@ -5,18 +5,24 @@ import ContactForm from "@/components/contact/ContactForm"
 import BracketsText from "@/components/ui/BracketsText"
 import CustomContainer from "@/components/ui/CustomContainer"
 import GradientHeading from "@/components/ui/GradientHeading"
+import NoIndex from "@/components/ui/NoIndex"
 
 interface ContactUsScreenProps {
   heading?: ReactNode
   description?: string
+  sectionClassName?: string
 }
 
 const ContactUsScreen: FC<ContactUsScreenProps> = ({
   heading = "Хотите обсудить проект или получить предложение?",
   description = "Если вы заинтересованы в нашей продукции или ищете техническое решение — оставьте свои контакты, и наш специалист свяжется с вами в ближайшее время.",
+  sectionClassName,
 }) => {
   return (
-    <section id="contact_us_section" className="bg-transparent py-24">
+    <section
+      id="contact_us_section"
+      className={`bg-transparent py-24 ${sectionClassName ?? ""}`}
+    >
       <CustomContainer>
         <BracketsText className="mb-8">СВЯЗАТЬСЯ С НАМИ</BracketsText>
         <div className="flex flex-col lg:flex-row justify-between gap-12">
@@ -29,7 +35,9 @@ const ContactUsScreen: FC<ContactUsScreenProps> = ({
             </div>
           </div>
           <div className="lg:w-1/2">
-            <ContactForm />
+            <NoIndex>
+              <ContactForm />
+            </NoIndex>
           </div>
         </div>
       </CustomContainer>

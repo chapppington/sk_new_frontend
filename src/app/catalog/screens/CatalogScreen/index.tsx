@@ -8,7 +8,7 @@ import { type FC, Suspense, useEffect, useRef, useState } from "react"
 import CustomContainer from "@/components/ui/CustomContainer"
 import CatalogTabButton from "./components/CatalogTabButton"
 import ProductsTab from "./components/ProductsTab"
-import ServicesTab from "./components/ServicesTab"
+// import ServicesTab from "./components/ServicesTab"
 import WarehouseTab from "./components/WarehouseTab"
 import { validateTabParam, type CatalogTab } from "./utils"
 
@@ -23,7 +23,7 @@ const CatalogSectionContent: FC = () => {
 
   const activeTabIndicatorRef = useRef<HTMLDivElement | null>(null)
   const productsGridRef = useRef<HTMLDivElement | null>(null)
-  const servicesGridRef = useRef<HTMLDivElement | null>(null)
+  // const servicesGridRef = useRef<HTMLDivElement | null>(null)
   const noResultsRef = useRef<HTMLDivElement | null>(null)
   const paginationRef = useRef<HTMLDivElement | null>(null)
 
@@ -38,8 +38,7 @@ const CatalogSectionContent: FC = () => {
   // GSAP animations for tab switching
   useEffect(() => {
     if (activeTabIndicatorRef.current) {
-      const xPos =
-        activeTab === "products" ? "0%" : activeTab === "services" ? "50%" : "100%"
+      const xPos = activeTab === "products" ? "0%" : "100%"
       gsap.to(activeTabIndicatorRef.current, {
         x: xPos,
         duration: 0.3,
@@ -54,7 +53,7 @@ const CatalogSectionContent: FC = () => {
   }, [activeTab])
 
   return (
-    <section id="catalog_section" className="bg-transparent py-24">
+    <section id="catalog_section" className="bg-transparent pt-4 pb-24">
       <CustomContainer>
         {/* Navigation - Unified for both mobile and desktop */}
         <div className="flex justify-between items-center mb-8">
@@ -64,11 +63,11 @@ const CatalogSectionContent: FC = () => {
               isActive={activeTab === "products"}
               onClick={() => setActiveTab("products")}
             />
-            <CatalogTabButton
+            {/* <CatalogTabButton
               label="Услуги"
               isActive={activeTab === "services"}
               onClick={() => setActiveTab("services")}
-            />
+            /> */}
             <CatalogTabButton
               label="Товары со склада"
               isActive={activeTab === "warehouse"}
@@ -85,12 +84,12 @@ const CatalogSectionContent: FC = () => {
               noResultsRef={noResultsRef}
             />
           )}
-          {activeTab === "services" && (
+          {/* {activeTab === "services" && (
             <ServicesTab
               servicesGridRef={servicesGridRef}
               noResultsRef={noResultsRef}
             />
-          )}
+          )} */}
           {activeTab === "warehouse" && <WarehouseTab />}
         </div>
       </CustomContainer>

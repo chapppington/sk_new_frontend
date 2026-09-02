@@ -7,7 +7,9 @@ interface NavbarDesktopActionsProps {
   onOpenRequest: () => void
 }
 
-const NavbarDesktopActions: FC<NavbarDesktopActionsProps> = ({ onOpenRequest }) => (
+const NavbarDesktopActions: FC<NavbarDesktopActionsProps> = ({
+  onOpenRequest,
+}) => (
   <div className="hidden 2xl:flex items-center h-full">
     <div className="h-full w-px bg-white/30" />
     <ContactInfo />

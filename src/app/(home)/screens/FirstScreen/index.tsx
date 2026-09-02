@@ -44,7 +44,7 @@ const FirstScreen: FC = () => (
       </GradientHeading>
 
       <div className="flex mt-auto">
-        <div className="flex flex-col justify-end max-w-full sm:max-w-md mb-[160px] sm:mb-8 md:mb-8 lg:mb-8">
+        <div className="flex flex-col justify-end max-w-full sm:max-w-md mb-[160px] sm:mb-8 md:mb-8 lg:mb-8 xl:mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Image
               src="/medal.png"
@@ -82,7 +82,11 @@ const FirstScreen: FC = () => (
       </div>
     </CustomContainer>
 
-    <BlackBoxWithStats transparent stats={firstScreenData.stats} />
+    <BlackBoxWithStats
+      transparent
+      stats={firstScreenData.stats}
+      className="xl:!bottom-12"
+    />
   </header>
 )
 

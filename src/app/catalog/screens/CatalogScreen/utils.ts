@@ -4,7 +4,7 @@ export type CatalogTab = "products" | "services" | "warehouse"
 
 // Utility function to validate tab parameter
 export const validateTabParam = (tab: string | null): CatalogTab => {
-  if (tab === "services") return "services"
+  // if (tab === "services") return "services"
   if (tab === "warehouse") return "warehouse"
   return "products"
 }

@@ -12,16 +12,16 @@ export const OwnerCommentScreen: FC = () => {
         style={{ zIndex: -1 }}
       />
       <CustomContainer className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mx-auto items-stretch">
-          {/* Left Column: Two Photos with Names */}
-          <div className="flex gap-4 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full mx-auto items-stretch">
+          {/* Photos row for mobile/tablet */}
+          <div className="flex gap-4 w-full lg:contents">
             {/* First Person */}
-            <div className="flex flex-col gap-2 w-1/2">
+            <div className="flex flex-col gap-2 w-1/2 lg:w-auto order-1">
               <div
                 className="border border-white/10 rounded-md overflow-hidden flex items-center justify-center bg-black/20 relative w-full aspect-square"
                 style={{
                   clipPath:
-                    "polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 0% 100%)",
+                    "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 15%)",
                 }}
               >
                 <Image
@@ -35,12 +35,14 @@ export const OwnerCommentScreen: FC = () => {
                 <div className="text-white text-lg font-medium mb-1">
                   Полозов Сергей <br></br>Николаевич
                 </div>
-                <div className="text-gray-400 text-sm">Генеральный директор</div>
+                <div className="text-gray-400 text-sm">
+                  Генеральный директор
+                </div>
               </div>
             </div>
 
             {/* Second Person */}
-            <div className="flex flex-col gap-2 w-1/2">
+            <div className="flex flex-col gap-2 w-1/2 lg:w-auto order-2 lg:order-3">
               <div
                 className="border border-white/10 rounded-md overflow-hidden flex items-center justify-center bg-black/20 relative w-full aspect-square"
                 style={{
@@ -57,7 +59,7 @@ export const OwnerCommentScreen: FC = () => {
               </div>
               <div className="border border-white/10 rounded-md px-4 py-3 bg-black/20">
                 <div className="text-white text-lg font-medium mb-1">
-                  Малиновский Михаил Валентинович
+                  Малиновский Михаил <br></br>Валентинович
                 </div>
                 <div className="text-gray-400 text-sm">
                   Исполнительный директор
@@ -65,12 +67,13 @@ export const OwnerCommentScreen: FC = () => {
               </div>
             </div>
           </div>
-          {/* Right Column: Quote and Button */}
-          <div className="flex flex-col">
+
+          {/* Mission and button: centered between photos on desktop */}
+          <div className="flex flex-col order-3 lg:order-2">
             <blockquote className="border border-white/10 rounded-md flex items-center p-8 bg-black/20 flex-1">
-              <p className="text-white text-2xl md:text-3xl xl:text-4xl">
-                "Наша миссия - показывать новые горизонты, превосходящие ожидания
-                клиентов."
+              <p className="text-white text-center text-2xl md:text-3xl xl:text-4xl">
+                "Миссия компании – показать новые горизонты, превосходящие
+                ожидания."
               </p>
             </blockquote>
             <MainButton

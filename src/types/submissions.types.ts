@@ -8,6 +8,8 @@ export interface ISubmission {
   phone: string | null
   comments: string | null
   files: string[]
+  consent: boolean
+  marketing_consent: boolean
   created_at: string
   updated_at: string
 }
@@ -21,4 +23,6 @@ export interface ICreateSubmissionData {
   files?: string[]
   answers_file_url?: string
   vacancy_oid?: string
+  consent: boolean
+  marketing_consent?: boolean
 }

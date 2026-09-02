@@ -13,6 +13,7 @@ import {
 } from "react"
 import CategoryButton from "@/components/ui/CategoryButton"
 import CustomContainer from "@/components/ui/CustomContainer"
+import GradientHeading from "@/components/ui/GradientHeading"
 import { MiniLoader } from "@/components/ui/MiniLoader"
 import NoResultsPlaceholder from "@/components/ui/NoResultsPlaceholder"
 import Pagination from "@/components/ui/Pagination"
@@ -153,6 +154,10 @@ const NewsGridContent: FC = () => {
         style={{ zIndex: -1 }}
       />
       <CustomContainer className="container mx-auto px-4">
+        <GradientHeading level={1} className="mb-12">
+          Все новости
+        </GradientHeading>
+
         {/* Filters - always visible */}
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-12 gap-6">
           <div className="flex flex-col gap-4">
