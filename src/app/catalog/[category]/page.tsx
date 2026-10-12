@@ -40,7 +40,7 @@ export default async function CatalogCategoryPage({
   }
 
   const catalogText = await catalogTextsService.getByCategory(category, {
-    next: { revalidate: 60 },
+    cache: "no-store",
   })
 
   return <CatalogPageView content={catalogText?.content ?? null} />
