@@ -33,7 +33,11 @@ function renderNode(node: CatalogTextNode, path: string): ReactNode {
       return <ul key={path}>{children}</ul>
     case "orderedList":
       return (
-        <ol key={path} start={node.attrs?.start}>
+        <ol
+          key={path}
+          start={node.attrs?.start}
+          type={node.attrs?.type ?? undefined}
+        >
           {children}
         </ol>
       )

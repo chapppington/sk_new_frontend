@@ -9,6 +9,7 @@ export type CatalogTextNode = {
   attrs?: {
     level?: number
     start?: number
+    type?: "1" | "a" | "A" | "i" | "I" | null
   }
   marks?: CatalogTextMark[]
   content?: CatalogTextNode[]

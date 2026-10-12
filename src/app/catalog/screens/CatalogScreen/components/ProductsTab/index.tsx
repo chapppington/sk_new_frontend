@@ -4,6 +4,7 @@ import gsap from "gsap"
 import { useLenis } from "lenis/react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { type FC, useEffect, useState } from "react"
+import CatalogTextView from "@/components/rich-text/CatalogTextView"
 import CategoryButton from "@/components/ui/CategoryButton"
 import { MiniLoader } from "@/components/ui/MiniLoader"
 import NoResultsPlaceholder from "@/components/ui/NoResultsPlaceholder"
@@ -45,6 +46,7 @@ const ProductsTab: FC<ProductsTabProps> = ({
   productsGridRef,
   paginationRef,
   noResultsRef,
+  content,
 }) => {
   const lenis = useLenis()
   const router = useRouter()
@@ -258,6 +260,8 @@ const ProductsTab: FC<ProductsTabProps> = ({
             />
           </div>
         )}
+
+        <CatalogTextView content={content} />
       </div>
     </>
   )

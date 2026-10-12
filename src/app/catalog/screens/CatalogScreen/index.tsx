@@ -4,7 +4,6 @@ import gsap from "gsap"
 import { useLenis } from "lenis/react"
 import { type FC, Suspense, useEffect, useRef, useState } from "react"
 
-import CatalogTextView from "@/components/rich-text/CatalogTextView"
 import CustomContainer from "@/components/ui/CustomContainer"
 import type { CatalogTextNode } from "@/types/catalog-text.types"
 import CatalogTabButton from "./components/CatalogTabButton"
@@ -68,18 +67,14 @@ const CatalogSectionContent: FC<CatalogSectionContentProps> = ({ content }) => {
           </div>
         </div>
 
-        <div className="mt-8 xl:mt-0">
+        <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 mt-8 xl:mt-0">
           {activeTab === "products" && (
-            <div className="flex w-full flex-col gap-16">
-              <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
-                <ProductsTab
-                  productsGridRef={productsGridRef}
-                  paginationRef={paginationRef}
-                  noResultsRef={noResultsRef}
-                />
-              </div>
-              <CatalogTextView content={content} />
-            </div>
+            <ProductsTab
+              productsGridRef={productsGridRef}
+              paginationRef={paginationRef}
+              noResultsRef={noResultsRef}
+              content={content}
+            />
           )}
           {/* {activeTab === "services" && (
             <ServicesTab
