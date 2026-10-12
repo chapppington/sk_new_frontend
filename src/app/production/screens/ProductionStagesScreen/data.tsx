@@ -68,7 +68,7 @@ export const PRODUCTION_STAGES = {
       title: "Сборка и окраска ячеек РУВН и РУНН",
       description:
         "Для оцинкованных конструкций применяется клепоно-сборочный метод, для остальных — цельносварной.",
-      image: "/production/stage7.webp",
+      image: "/production/stage4.webp",
     },
     {
       id: 8,
