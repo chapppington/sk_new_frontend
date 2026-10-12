@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import CatalogPageView from "@/app/catalog/CatalogPageView"
 import { BACKEND_MAIN } from "@/constants"
+import catalogTextsService from "@/services/catalog-texts.service"
 import seoService from "@/services/seo/seo.service"
 import { PRODUCT_CATEGORIES } from "@/types/products.types"
 
@@ -38,5 +39,9 @@ export default async function CatalogCategoryPage({
     redirect("/catalog")
   }
 
-  return <CatalogPageView />
+  const catalogText = await catalogTextsService.getByCategory(category, {
+    next: { revalidate: 60 },
+  })
+
+  return <CatalogPageView content={catalogText?.content ?? null} />
 }

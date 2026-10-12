@@ -4,14 +4,20 @@ import gsap from "gsap"
 import { useLenis } from "lenis/react"
 import { type FC, Suspense, useEffect, useRef, useState } from "react"
 
+import CatalogTextView from "@/components/rich-text/CatalogTextView"
 import CustomContainer from "@/components/ui/CustomContainer"
+import type { CatalogTextNode } from "@/types/catalog-text.types"
 import CatalogTabButton from "./components/CatalogTabButton"
 import ProductsTab from "./components/ProductsTab"
 // import ServicesTab from "./components/ServicesTab"
 import WarehouseTab from "./components/WarehouseTab"
 import type { CatalogTab } from "./utils"
 
-const CatalogSectionContent: FC = () => {
+type CatalogSectionContentProps = {
+  content: CatalogTextNode | null
+}
+
+const CatalogSectionContent: FC<CatalogSectionContentProps> = ({ content }) => {
   const lenis = useLenis()
   const [activeTab, setActiveTab] = useState<CatalogTab>("products")
 
@@ -62,13 +68,18 @@ const CatalogSectionContent: FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 mt-8 xl:mt-0">
+        <div className="mt-8 xl:mt-0">
           {activeTab === "products" && (
-            <ProductsTab
-              productsGridRef={productsGridRef}
-              paginationRef={paginationRef}
-              noResultsRef={noResultsRef}
-            />
+            <div className="flex w-full flex-col gap-16">
+              <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
+                <ProductsTab
+                  productsGridRef={productsGridRef}
+                  paginationRef={paginationRef}
+                  noResultsRef={noResultsRef}
+                />
+              </div>
+              <CatalogTextView content={content} />
+            </div>
           )}
           {/* {activeTab === "services" && (
             <ServicesTab
@@ -83,10 +94,10 @@ const CatalogSectionContent: FC = () => {
   )
 }
 
-const CatalogSection: FC = () => {
+const CatalogSection: FC<CatalogSectionContentProps> = ({ content }) => {
   return (
     <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
-      <CatalogSectionContent />
+      <CatalogSectionContent content={content} />
     </Suspense>
   )
 }
