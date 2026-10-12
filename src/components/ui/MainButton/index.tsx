@@ -84,6 +84,14 @@ const MainButton: FC<IMainButtonProps> = ({
     )
   }
 
+  if (download) {
+    return (
+      <a ref={anchorRef} href={href} download="" {...commonProps}>
+        {buttonContent}
+      </a>
+    )
+  }
+
   if (external) {
     return (
       <a
@@ -91,7 +99,6 @@ const MainButton: FC<IMainButtonProps> = ({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        download={download || undefined}
         {...commonProps}
       >
         {buttonContent}

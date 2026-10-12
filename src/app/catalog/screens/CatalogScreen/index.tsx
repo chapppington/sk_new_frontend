@@ -2,7 +2,6 @@
 
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
-import { useSearchParams } from "next/navigation"
 import { type FC, Suspense, useEffect, useRef, useState } from "react"
 
 import CustomContainer from "@/components/ui/CustomContainer"
@@ -10,30 +9,17 @@ import CatalogTabButton from "./components/CatalogTabButton"
 import ProductsTab from "./components/ProductsTab"
 // import ServicesTab from "./components/ServicesTab"
 import WarehouseTab from "./components/WarehouseTab"
-import { validateTabParam, type CatalogTab } from "./utils"
+import type { CatalogTab } from "./utils"
 
 const CatalogSectionContent: FC = () => {
   const lenis = useLenis()
-  const searchParams = useSearchParams()
-
-  // Get and sanitize URL params
-  const tabParam = validateTabParam(searchParams.get("tab"))
-
-  const [activeTab, setActiveTab] = useState<CatalogTab>(tabParam)
+  const [activeTab, setActiveTab] = useState<CatalogTab>("products")
 
   const activeTabIndicatorRef = useRef<HTMLDivElement | null>(null)
   const productsGridRef = useRef<HTMLDivElement | null>(null)
   // const servicesGridRef = useRef<HTMLDivElement | null>(null)
   const noResultsRef = useRef<HTMLDivElement | null>(null)
   const paginationRef = useRef<HTMLDivElement | null>(null)
-
-  // Update URL params when state changes (preserve search, category, page from ProductsTab)
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    params.set("tab", activeTab)
-    const url = `${window.location.pathname}?${params.toString()}`
-    window.history.replaceState(null, "", url)
-  }, [activeTab])
 
   // GSAP animations for tab switching
   useEffect(() => {

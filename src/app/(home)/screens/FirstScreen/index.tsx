@@ -10,7 +10,8 @@ import MainButton from "@/components/ui/MainButton"
 import styles from "./styles.module.css"
 
 const firstScreenData = {
-  title: "Комплексные решения в сфере электроснабжения",
+  title:
+    "Производство, продажа и ввод в эксплуатацию промышленного электрооборудования",
   subtitle:
     "Производственно - инжиниринговая компания полного цикла - от разработки проекта до ввода в эксплуатацию",
   main_button_text: "Связаться с клиентским менеджером",

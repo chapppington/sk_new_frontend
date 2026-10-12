@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import newsService from "@/services/news.service"
 import portfoliosService from "@/services/portfolios.service"
 import productsService from "@/services/products.service"
+import { PRODUCT_CATEGORIES } from "@/types/products.types"
 
 const baseUrl = "https://sibkomplekt.ru"
 
@@ -35,6 +36,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: route.changeFreq,
       priority: route.priority,
+    })
+  })
+
+  PRODUCT_CATEGORIES.forEach((category) => {
+    sitemap.push({
+      url: `${baseUrl}/catalog/${category.key}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     })
   })
 

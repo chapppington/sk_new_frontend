@@ -6,6 +6,8 @@ import { type FC, useEffect, useRef } from "react"
 import QuestionnaireCard from "@/app/questionnaire/components/QuestionnaireCard"
 import { warehouseDownloadFile } from "./data"
 
+const WAREHOUSE_DOWNLOAD_PATH = "/download/warehouse-stock"
+
 const WarehouseTab: FC = () => {
   const lenis = useLenis()
   const gridRef = useRef<HTMLDivElement | null>(null)
@@ -30,7 +32,7 @@ const WarehouseTab: FC = () => {
         },
       )
     }
-  }, [])
+  }, [lenis])
 
   return (
     <div className="flex-1">
@@ -41,9 +43,8 @@ const WarehouseTab: FC = () => {
         <QuestionnaireCard
           title={warehouseDownloadFile.title}
           description={warehouseDownloadFile.description}
-          href={warehouseDownloadFile.href}
+          href={WAREHOUSE_DOWNLOAD_PATH}
           buttonText={warehouseDownloadFile.buttonText}
-          external
           download
         />
       </div>

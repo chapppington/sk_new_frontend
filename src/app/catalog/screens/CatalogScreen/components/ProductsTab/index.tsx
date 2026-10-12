@@ -2,7 +2,7 @@
 
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
-import { usePathname, useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { type FC, useEffect, useState } from "react"
 import CategoryButton from "@/components/ui/CategoryButton"
 import { MiniLoader } from "@/components/ui/MiniLoader"
@@ -31,22 +31,27 @@ const CATEGORIES = [
   })),
 ]
 
+function categoryFromPath(pathname: string) {
+  const slug = pathname.match(/^\/catalog\/([^/]+)/)?.[1]
+  const found = CATEGORIES.find((cat) => cat.slug === slug)
+  return found?.slug ?? "all"
+}
+
+function catalogPath(slug: string) {
+  return slug === "all" ? "/catalog" : `/catalog/${slug}`
+}
+
 const ProductsTab: FC<ProductsTabProps> = ({
   productsGridRef,
   paginationRef,
   noResultsRef,
 }) => {
   const lenis = useLenis()
+  const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
+  const activeCategory = categoryFromPath(pathname)
 
-  const [activeCategory, setActiveCategory] = useState(
-    (() => {
-      const param = searchParams.get("category")
-      const found = CATEGORIES.find((cat) => cat.slug === param)
-      return found ? found.slug : "all"
-    })(),
-  )
   const [currentPage, setCurrentPage] = useState(
     Number(searchParams.get("page")) || 1,
   )
@@ -72,12 +77,31 @@ const ProductsTab: FC<ProductsTabProps> = ({
   const totalPages = pagination ? Math.ceil(pagination.total / itemsPerPage) : 1
 
   useEffect(() => {
+    const legacyCategory = searchParams.get("category")
+    const hasTab = searchParams.has("tab")
+    if (!legacyCategory && !hasTab) return
+
+    const params = new URLSearchParams(searchParams.toString())
+    params.delete("tab")
+    params.delete("category")
+
+    const legacySlug = CATEGORIES.find((cat) => cat.slug === legacyCategory)?.slug
+    const path =
+      pathname === "/catalog" && legacySlug && legacySlug !== "all"
+        ? catalogPath(legacySlug)
+        : pathname
+
+    const query = params.toString()
+    router.replace(query ? `${path}?${query}` : path)
+  }, [pathname, router, searchParams])
+
+  useEffect(() => {
+    if (searchParams.has("tab") || searchParams.has("category")) return
+
     const params = new URLSearchParams(window.location.search)
-    if (activeCategory !== "all") {
-      params.set("category", activeCategory)
-    } else {
-      params.delete("category")
-    }
+    params.delete("tab")
+    params.delete("category")
+
     if (debouncedSearchQuery) {
       params.set("search", debouncedSearchQuery)
     } else {
@@ -88,9 +112,14 @@ const ProductsTab: FC<ProductsTabProps> = ({
     } else {
       params.delete("page")
     }
-    const newUrl = `${pathname}?${params.toString()}`
-    window.history.pushState({}, "", newUrl)
-  }, [activeCategory, debouncedSearchQuery, currentPage, pathname])
+
+    const query = params.toString()
+    const nextUrl = query ? `${pathname}?${query}` : pathname
+    const currentUrl = `${window.location.pathname}${window.location.search}`
+    if (currentUrl !== nextUrl) {
+      window.history.replaceState(null, "", nextUrl)
+    }
+  }, [debouncedSearchQuery, currentPage, pathname, searchParams])
 
   useEffect(() => {
     setCurrentPage(1)
@@ -160,9 +189,10 @@ const ProductsTab: FC<ProductsTabProps> = ({
             key={category.slug}
             isActive={activeCategory === category.slug}
             onClick={() => {
-              setActiveCategory(category.slug)
               setIsDropdownOpen(false)
               setSearchQuery("")
+              setCurrentPage(1)
+              router.push(catalogPath(category.slug))
             }}
           >
             {category.name}
@@ -222,7 +252,8 @@ const ProductsTab: FC<ProductsTabProps> = ({
               description="Попробуйте изменить параметры поиска или категорию"
               onReset={() => {
                 setSearchQuery("")
-                setActiveCategory("all")
+                setCurrentPage(1)
+                router.push("/catalog")
               }}
             />
           </div>

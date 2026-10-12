@@ -8,9 +8,7 @@ import {
 export { INDICATOR_COUNT, INDICATOR_ACTIVE_GROUP, type SwiperInstance }
 
 export function getProductHref(slug: string) {
-  return `/catalog?tab=products&category=${encodeURIComponent(
-    slug,
-  )}#catalog_section`
+  return `/catalog/${encodeURIComponent(slug)}`
 }
 
 export function updateProductsIndicators(
