@@ -16,7 +16,6 @@ const CircleWithArrow: FC<CircleWithArrowProps> = ({ className = "" }) => {
       style={{ transform: "rotate(-45deg)", transformOrigin: "center" }}
       role="img"
     >
-      <title>Стрелка</title>
       <path
         d="M5 12H19M19 12L12 5M19 12L12 19"
         stroke="currentColor"
